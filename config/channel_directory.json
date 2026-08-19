@@ -1,0 +1,69 @@
+{
+  "updated_at": "2026-08-19T22:57:37.681682",
+  "platforms": {
+    "telegram": [
+      {
+        "id": "8508115936",
+        "name": "Fausto Lelli",
+        "type": "dm",
+        "thread_id": null
+      }
+    ],
+    "hmp": [
+      {
+        "id": "peer128",
+        "name": "peer128",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "rebar_current_inventory_runtime",
+        "name": "rebar_current_inventory_runtime",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "peer70",
+        "name": "peer70",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "peer58",
+        "name": "peer58",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "claude-planner",
+        "name": "claude-planner",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "agenttalk-session",
+        "name": "agenttalk-session",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "claude-dev-session",
+        "name": "claude-dev-session",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "peer84",
+        "name": "peer84",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "peer106",
+        "name": "peer106",
+        "type": "dm",
+        "thread_id": null
+      }
+    ]
+  }
+}

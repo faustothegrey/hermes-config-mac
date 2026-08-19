@@ -1,0 +1,34 @@
+{
+  "verdict": "PASS",
+  "checks": {
+    "discovery_registers_middleware": true,
+    "tool_reuse_module_importable": true,
+    "rewrite_happened": true,
+    "only_command_rewritten": true,
+    "trace_carries_identity": true,
+    "original_bytes_absent": true,
+    "dispatch_executed_once": true,
+    "dispatched_bytes_are_harness": true,
+    "harness_result_success": true,
+    "fake_server_exactly_one_hit": true,
+    "decision_single_fire": true,
+    "concurrent_each_decided_once": true,
+    "failure_is_fail_open": true,
+    "shadow_mode_no_rewrite": true
+  },
+  "details": {
+    "discovery_registers_middleware": "plugins=['browser/browser_use', 'browser/browserbase', 'browser/firecrawl', 'cron_providers/chronos', 'dashboard_auth/basic', 'dashboard_auth/drain', 'dashboard_auth/nous', 'dashboard_auth/self_hosted', 'disk-cleanup', 'google_meet', 'image_gen/deepinfra', 'image_gen/fal', 'image_gen/krea', 'image_gen/openai', 'image_gen/openai-codex', 'image_gen/openrouter', 'image_gen/xai', 'observability/langfuse', 'observability/nemo_relay', 'security-guidance', 'spotify', 'teams_pipeline', 'video_gen/deepinfra', 'video_gen/fal', 'video_gen/xai', 'web/brave_free', 'web/ddgs', 'web/exa', 'web/firecrawl', 'web/parallel', 'web/searxng', 'web/tavily', 'web/xai', 'a2a-platform', 'buzz-platform', 'dingtalk-platform', 'discord-platform', 'email-platform', 'feishu-platform', 'google_chat-platform', 'homeassistant-platform', 'irc-platform', 'line-platform', 'matrix-platform', 'mattermost-platform', 'ntfy-platform', 'photon-platform', 'raft-platform', 'simplex-platform', 'slack-platform', 'sms-platform', 'teams-platform', 'telegram-platform', 'wecom-platform', 'whatsapp-platform', 'capability-reuse'] has_tool_request=True",
+    "only_command_rewritten": "rewritten={'command': '/Users/fausto/.hermes/hermes-agent/venv/bin/python3.11 /private/var/folders/n1/j_ypbbz157z8sch3ytfy31y00000gn/T/rebar-t5-home-y8rxo5lf/plugins/capability-reuse/harness_cli.py hmp-healthcheck --payload-file /var/folders/n1/j_ypbbz157z8sch3ytfy31y00000gn/T/rebar-t5-home-y8rxo5lf/harness-inputs/bdf99884d45a438e0c5b1312.json', 'workdir': '/tmp', 'timeout': 60, 'background': False}",
+    "trace_carries_identity": "trace=[{'source': 'capability-reuse', 'reason': 'harness_reuse', 'name': 'hmp-healthcheck@1.0.0'}]",
+    "original_bytes_absent": "/Users/fausto/.hermes/hermes-agent/venv/bin/python3.11 /private/var/folders/n1/j_ypbbz157z8sch3ytfy31y00000gn/T/rebar-t5-home-y8rxo5lf/plugins/capability-reuse/harness_cli.py hmp-healthcheck --payload-file /var/folders/n1/j_ypbbz157z8sch3ytfy31y00000gn/T/rebar-t5-home-y8rxo5lf/harness-inputs/bdf99884d45a438e0c5b1312.json",
+    "dispatched_bytes_are_harness": "/Users/fausto/.hermes/hermes-agent/venv/bin/python3.11 /private/var/folders/n1/j_ypbbz157z8sch3ytfy31y00000gn/T/rebar-t5-home-y8rxo5lf/plugins/capability-reuse/harness_cli.py hmp-healthcheck --payload-file /var/folders/n1/j_ypbbz157z8sch3ytfy31y00000gn/T/rebar-t5-home-y8rxo5lf/harness-inputs/bdf99884d45a438e0c5b1312.json",
+    "harness_result_success": "{\"error\": null, \"output\": [{\"detail\": {\"node_id\": \"fake-peer70\", \"status\": \"ok\"}, \"error\": null, \"latency_ms\": 15.97, \"peer\": \"peer70\", \"status\": \"ok\"}], \"success\": true}\n",
+    "fake_server_exactly_one_hit": "['/hmp/health']",
+    "decision_single_fire": "{'kind': 'matched', 'text': 'hmp-healthcheck@1.0.0 reused', 'decision': HarnessDecision(outcome='reused', reason='harness_reuse', capability_id='hmp-healthcheck', capability_version='1.0.0', operation_kind='hmp.health', inputs={'peer_list': ['peer70'], 'timeout_seconds': 5}, will_rewrite=True), 'context': {'task_id': 't5-task', 'session_id': 't5-session', 'tool_call_id': 't5-call-1', 'turn_id': 't5-turn', 'api_request_id': 't5-api', 'telemetry_schema_version': 'hermes.observer.v1', 'middleware_schema_version': 'hermes.middleware.v1'}}",
+    "concurrent_each_decided_once": "errors=[] a={'kind': 'generic', 'text': 'checked \u00b7 no specialized harness', 'decision': HarnessDecision(outcome='no_harness', reason='unrecognized_operation', capability_id='', capability_version='', operation_kind='', inputs={}, will_rewrite=False), 'context': {'tool_call_id': 't5-conc-a', 'session_id': 't5-session', 'task_id': 't5-task', 'turn_id': 't5-turn', 'api_request_id': 't5-api', 'telemetry_schema_version': 'hermes.observer.v1', 'middleware_schema_version': 'hermes.middleware.v1'}} b={'kind': 'generic', 'text': 'checked \u00b7 no specialized harness', 'decision': HarnessDecision(outcome='no_harness', reason='unrecognized_operation', capability_id='', capability_version='', operation_kind='', inputs={}, will_rewrite=False), 'context': {'tool_call_id': 't5-conc-b', 'session_id': 't5-session', 'task_id': 't5-task', 'turn_id': 't5-turn', 'api_request_id': 't5-api', 'telemetry_schema_version': 'hermes.observer.v1', 'middleware_schema_version': 'hermes.middleware.v1'}}",
+    "failure_is_fail_open": "[]",
+    "shadow_mode_no_rewrite": "{'kind': 'rejected', 'text': 'hmp-healthcheck@1.0.0 rejected \u00b7 shadow_mode', 'decision': HarnessDecision(outcome='rejected', reason='shadow_mode', capability_id='hmp-healthcheck', capability_version='1.0.0', operation_kind='hmp.health', inputs={'peer_list': ['peer70'], 'timeout_seconds': 5}, will_rewrite=False), 'context': {'tool_call_id': 't5-shadow', 'session_id': 't5-session', 'task_id': 't5-task', 'turn_id': 't5-turn', 'api_request_id': 't5-api', 'telemetry_schema_version': 'hermes.observer.v1', 'middleware_schema_version': 'hermes.middleware.v1'}}"
+  },
+  "total": 14,
+  "passed": 14
+}
