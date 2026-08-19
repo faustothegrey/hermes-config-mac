@@ -20,7 +20,15 @@ fi
 
 # Optional encrypted secrets bundle using your SSH public key (RSA).
 # Decrypt requires the matching SSH private key.
-if [ -f "$SSH_PUBLIC_KEY" ] && command -v openssl >/dev/null 2>&1 && command -v ssh-keygen >/dev/null 2>&1; then
+#
+# LOCAL-ONLY by default (2026-08-19): secrets/ is .gitignored and NOT pushed
+# (a fresh random AES key each night made the 162MB bundle un-deltable and
+# bloated .git to 13GB). This block also re-encrypts state.db (~525MB) every
+# night, which is pure wasted CPU when the result isn't versioned. So we SKIP
+# it unless explicitly requested with BACKUP_SECRETS=1.
+if [ "${BACKUP_SECRETS:-0}" != "1" ]; then
+  echo "Skipping encrypted secrets bundle (BACKUP_SECRETS!=1): secrets are local-only, not versioned."
+elif [ -f "$SSH_PUBLIC_KEY" ] && command -v openssl >/dev/null 2>&1 && command -v ssh-keygen >/dev/null 2>&1; then
   mkdir -p secrets
   tmpdir="$(mktemp -d)"
   trap 'rm -rf "$tmpdir"' EXIT
