@@ -11,12 +11,12 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-08-19T23:03:39.290366+02:00
+    Next run:  2026-08-19T23:39:48.251312+02:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T22:58:39.290366+02:00  ok
-    Execution: completed  43cf1369274341c09e77f95eac4832e1
+    Last run:  2026-08-19T23:34:48.251312+02:00  ok
+    Execution: completed  a534ca9650a24dda947a944d3f25654c
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
@@ -26,66 +26,87 @@ STDOUT:
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-18T23:24:20.662437+02:00  error: Script exited with code 143
+    Last run:  2026-08-19T23:30:08.541303+02:00  error: Script exited with code 128
 stderr:
 Connection to github.com closed by remote host.
 send-pack: unexpected disconnect while reading sideband packet
-Terminated: 15             ./scripts/backup-hermes.sh
+error: pack-objects died of signal 15
+error: pack-objects died of signal 15
+fatal: the remote end hung up unexpectedly
 stdout:
-[2026-08-18T23:00:26+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config
-[2026-08-18T23:00:26+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config
+[2026-08-19T23:00:39+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config
+[2026-08-19T23:00:39+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config
   obsidian-vault: OK (/Users/fausto/Documents/Obsidian Vault)
 Regenerated sanitized Hermes backup from /Users/fausto/.hermes into /Users/fausto/Backups/hermes-config
 Encrypted secrets bundle updated. Decryption needs matching private key for /Users/fausto/.ssh/id_rsa.pub
-[master e4bed1e] backup: update Hermes configuration — 2026-08-18T23:01:01+0200
- 36 files changed, 1877 insertions(+), 111 deletions(-)
- rewrite cron/executions.db (75%)
- create mode 100644 obsidian-vault/Hermes Memory/Rebar Charter Alignment Checkpoint 2026-08-17.md
- create mode 100644 plugins/capability-reuse/harness_cli.py
- create mode 100644 plugins/capability-reuse/tool_reuse.py
+[master 597ba1c] backup: update Hermes configuration — 2026-08-19T23:01:28+0200
+ 46 files changed, 4964 insertions(+), 1101 deletions(-)
+ rewrite cron/executions.db (76%)
+ rewrite cron/jobs.json (82%)
+ create mode 100644 cron/notepad.db
+ create mode 100644 cron/usage_audit.jsonl
+ rewrite inventory/hermes-cron-list.txt (91%)
+ rewrite memories/MEMORY.md (99%)
+ create mode 100644 obsidian-vault/Hermes Memory/Hermes Environment and Infrastructure Reference.md
+ create mode 100644 obsidian-vault/Hermes Memory/Rebar Feasibility Falsification Program (Signed Off 2026-08-19).md
+ create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Autonomous Review Loop Runbook.md
+ create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Feasibility Falsification 2026-08-19.md
+ create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Feasibility Implementation Plan (Frozen 2026-08-19).md
+ create mode 100644 obsidian-vault/Hermes Memory/peer141 Lead-Dev Successor Readiness 2026-08-19.md
  rewrite secrets/hermes-secrets.key.enc (100%)
- create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/README.md
- create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/SHA256SUMS.txt
- create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/charter-tests-result.txt
- create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/conformance-result.txt
- create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/full-suite-result.txt
- create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/t5-real-middleware-proof.json
- create mode 100644 skills/hermes/capability-reuse/scripts/t5-real-middleware-proof.py
- create mode 100644 skills/hermes/capability-reuse/tests/test_rebar_hard_negatives.py
-    Execution: running  b8b19a95e6f548498261b4634952badc
+ delete mode 100644 skills/.curator_backups/2026-07-13T06-50-55Z/cron-jobs.json
+ delete mode 100644 skills/.curator_backups/2026-07-13T06-50-55Z/manifest.json
+ create mode 100644 skills/.curator_backups/2026-08-19T17-26-32Z/cron-jobs.json
+ create mode 100644 skills/.curator_backups/2026-08-19T17-26-32Z/manifest.json
+ rewrite skills/.curator_state (83%)
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/convergence_gate.py
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/log_metadata.json
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/material_change_log.jsonl
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/material_change_log.py
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/test_convergence_gate.py
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/test_material_change_log.py
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/gate1/fake_hmp_server.py
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/gate1/test_fake_hmp_server.py
+ create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/predeclaration/PREDECLARATION.md
+ create mode 100644 skills/note-taking/agent-second-order-memory/references/memory-cap-and-ephemeral-doc-preservation.md
+ create mode 100644 skills/software-development/falsification-and-feasibility-gates/SKILL.md
+ create mode 100644 skills/software-development/falsification-and-feasibility-gates/references/feasibility-falsification-program-and-plan-2026-08-19.md
+ rename skills/software-development/{code-dev-reviewer => loop-coding-guidelines}/SKILL.md (57%)
+ rename skills/software-development/{code-dev-reviewer => loop-coding-guidelines}/references/verdict-artifact-2026-08-17-g0-discrepancy.md (100%)
+    Execution: failed  b8b19a95e6f548498261b4634952badc
 
   bdd8a7b271c1 [active]
     Name:      load-sampler
     Schedule:  every 2m
     Repeat:    ∞
-    Next run:  2026-08-19T23:01:39.402020+02:00
+    Next run:  2026-08-19T23:36:48.137097+02:00
     Deliver:   origin
     Script:    load-sampler.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T22:59:39.402020+02:00  ok
-    Execution: completed  aa37f2a38933478389d77f3b4c078dae
+    Last run:  2026-08-19T23:34:48.137097+02:00  ok
+    Execution: completed  c0ee6ed085c64f138e76f3eb4a435ef2
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-08-19T23:08:39.304296+02:00
+    Next run:  2026-08-19T23:38:47.158169+02:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T22:58:39.304296+02:00  ok
-    Execution: completed  dfeda247f62148969a8ee59b1708a52b
+    Last run:  2026-08-19T23:28:47.158169+02:00  ok
+    Execution: completed  1580a3e94c56467eb84a5ead5281c6a7
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-08-19T23:01:39.776207+02:00
+    Next run:  2026-08-19T23:34:47.701394+02:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T23:00:39.776207+02:00  ok
-    Execution: completed  5aab2726a1444b8e8c9fc4112795f8c9
+    Last run:  2026-08-19T23:33:47.701394+02:00  ok
+    Execution: completed  a73ec8b147584e1681ffc57561c59023
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
@@ -102,13 +123,13 @@ Encrypted secrets bundle updated. Decryption needs matching private key for /Use
     Name:      watchdog-libero-mail-review
     Schedule:  every 60m
     Repeat:    ∞
-    Next run:  2026-08-19T23:10:21.029151+02:00
+    Next run:  2026-08-20T00:21:42.971054+02:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
     Monitor:   watchdog-libero-mail.sh (agent runs only on output change)
-    Changed:   2026-08-19T21:59:55.752569+02:00
-    Last run:  2026-08-19T22:03:01.216270+02:00  ok
-    Execution: completed  80fec123da6746b5a8cc171651315825
+    Changed:   2026-08-19T23:10:46.019882+02:00
+    Last run:  2026-08-19T23:21:42.971054+02:00  ok
+    Execution: completed  0376604c16f4468ebcb3a31d437f830e
 
 
 

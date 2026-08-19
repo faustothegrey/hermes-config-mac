@@ -865,13 +865,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-19T19:57:56.471493+00:00",
     "last_reused_patch_generation": 5,
-    "last_used_at": "2026-08-19T19:59:56.020669+00:00",
+    "last_used_at": "2026-08-19T21:10:46.564399+00:00",
     "last_viewed_at": "2026-08-19T14:33:34.431225+00:00",
     "patch_count": 5,
     "patch_generation": 5,
     "pinned": false,
     "state": "active",
-    "use_count": 6,
+    "use_count": 7,
     "view_count": 1
   },
   "macos-computer-use": {
@@ -894,13 +894,15 @@
     "created_at": "2026-06-28T05:04:50.976447+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-07-18T20:32:38.688298+00:00",
-    "last_used_at": "2026-08-12T16:33:28.471760+00:00",
-    "last_viewed_at": "2026-08-12T16:33:28.463827+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-08-19T21:23:43.414699+00:00",
+    "last_viewed_at": "2026-08-19T21:23:43.399875+00:00",
     "patch_count": 72,
+    "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 48,
-    "view_count": 48
+    "use_count": 49,
+    "view_count": 49
   },
   "manim-video": {
     "archived_at": null,

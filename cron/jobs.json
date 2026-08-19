@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 8494
+        "completed": 8501
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-08-19T23:03:39.290366+02:00",
-      "last_run_at": "2026-08-19T22:58:39.290366+02:00",
+      "next_run_at": "2026-08-19T23:39:48.251312+02:00",
+      "last_run_at": "2026-08-19T23:34:48.251312+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,7 +59,7 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 101
+        "completed": 102
       },
       "enabled": true,
       "state": "scheduled",
@@ -67,19 +67,16 @@
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
       "next_run_at": "2026-08-20T23:00:00+02:00",
-      "last_run_at": "2026-08-18T23:24:20.662437+02:00",
+      "last_run_at": "2026-08-19T23:30:08.541303+02:00",
       "last_status": "error",
-      "last_error": "Script exited with code 143\nstderr:\nConnection to github.com closed by remote host.\nsend-pack: unexpected disconnect while reading sideband packet\nTerminated: 15             ./scripts/backup-hermes.sh\nstdout:\n[2026-08-18T23:00:26+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config\n[2026-08-18T23:00:26+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config\n  obsidian-vault: OK (/Users/fausto/Documents/Obsidian Vault)\nRegenerated sanitized Hermes backup from /Users/fausto/.hermes into /Users/fausto/Backups/hermes-config\nEncrypted secrets bundle updated. Decryption needs matching private key for /Users/fausto/.ssh/id_rsa.pub\n[master e4bed1e] backup: update Hermes configuration — 2026-08-18T23:01:01+0200\n 36 files changed, 1877 insertions(+), 111 deletions(-)\n rewrite cron/executions.db (75%)\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Charter Alignment Checkpoint 2026-08-17.md\n create mode 100644 plugins/capability-reuse/harness_cli.py\n create mode 100644 plugins/capability-reuse/tool_reuse.py\n rewrite secrets/hermes-secrets.key.enc (100%)\n create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/README.md\n create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/SHA256SUMS.txt\n create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/charter-tests-result.txt\n create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/conformance-result.txt\n create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/full-suite-result.txt\n create mode 100644 skills/hermes/capability-reuse/evidence/g0b-charter-alignment/t5-real-middleware-proof.json\n create mode 100644 skills/hermes/capability-reuse/scripts/t5-real-middleware-proof.py\n create mode 100644 skills/hermes/capability-reuse/tests/test_rebar_hard_negatives.py",
+      "last_error": "Script exited with code 128\nstderr:\nConnection to github.com closed by remote host.\nsend-pack: unexpected disconnect while reading sideband packet\nerror: pack-objects died of signal 15\nerror: pack-objects died of signal 15\nfatal: the remote end hung up unexpectedly\nstdout:\n[2026-08-19T23:00:39+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config\n[2026-08-19T23:00:39+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config\n  obsidian-vault: OK (/Users/fausto/Documents/Obsidian Vault)\nRegenerated sanitized Hermes backup from /Users/fausto/.hermes into /Users/fausto/Backups/hermes-config\nEncrypted secrets bundle updated. Decryption needs matching private key for /Users/fausto/.ssh/id_rsa.pub\n[master 597ba1c] backup: update Hermes configuration — 2026-08-19T23:01:28+0200\n 46 files changed, 4964 insertions(+), 1101 deletions(-)\n rewrite cron/executions.db (76%)\n rewrite cron/jobs.json (82%)\n create mode 100644 cron/notepad.db\n create mode 100644 cron/usage_audit.jsonl\n rewrite inventory/hermes-cron-list.txt (91%)\n rewrite memories/MEMORY.md (99%)\n create mode 100644 obsidian-vault/Hermes Memory/Hermes Environment and Infrastructure Reference.md\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Feasibility Falsification Program (Signed Off 2026-08-19).md\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Autonomous Review Loop Runbook.md\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Feasibility Falsification 2026-08-19.md\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Feasibility Implementation Plan (Frozen 2026-08-19).md\n create mode 100644 obsidian-vault/Hermes Memory/peer141 Lead-Dev Successor Readiness 2026-08-19.md\n rewrite secrets/hermes-secrets.key.enc (100%)\n delete mode 100644 skills/.curator_backups/2026-07-13T06-50-55Z/cron-jobs.json\n delete mode 100644 skills/.curator_backups/2026-07-13T06-50-55Z/manifest.json\n create mode 100644 skills/.curator_backups/2026-08-19T17-26-32Z/cron-jobs.json\n create mode 100644 skills/.curator_backups/2026-08-19T17-26-32Z/manifest.json\n rewrite skills/.curator_state (83%)\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/convergence_gate.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/log_metadata.json\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/material_change_log.jsonl\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/material_change_log.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/test_convergence_gate.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/test_material_change_log.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/gate1/fake_hmp_server.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/gate1/test_fake_hmp_server.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/predeclaration/PREDECLARATION.md\n create mode 100644 skills/note-taking/agent-second-order-memory/references/memory-cap-and-ephemeral-doc-preservation.md\n create mode 100644 skills/software-development/falsification-and-feasibility-gates/SKILL.md\n create mode 100644 skills/software-development/falsification-and-feasibility-gates/references/feasibility-falsification-program-and-plan-2026-08-19.md\n rename skills/software-development/{code-dev-reviewer => loop-coding-guidelines}/SKILL.md (57%)\n rename skills/software-development/{code-dev-reviewer => loop-coding-guidelines}/references/verdict-artifact-2026-08-17-g0-discrepancy.md (100%)",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null,
-      "fire_claim": {
-        "at": "2026-08-19T23:00:39.305999+02:00",
-        "by": "MacPro:843:add0776f868340d98c1e15d75f7aefc1"
-      }
+      "fire_claim": null
     },
     {
       "id": "bdd8a7b271c1",
@@ -101,15 +98,15 @@
       "schedule_display": "every 2m",
       "repeat": {
         "times": null,
-        "completed": 20068
+        "completed": 20081
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:04.206104+02:00",
-      "next_run_at": "2026-08-19T23:01:39.402020+02:00",
-      "last_run_at": "2026-08-19T22:59:39.402020+02:00",
+      "next_run_at": "2026-08-19T23:36:48.137097+02:00",
+      "last_run_at": "2026-08-19T23:34:48.137097+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -145,15 +142,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 4221
+        "completed": 4224
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-08-19T23:08:39.304296+02:00",
-      "last_run_at": "2026-08-19T22:58:39.304296+02:00",
+      "next_run_at": "2026-08-19T23:38:47.158169+02:00",
+      "last_run_at": "2026-08-19T23:28:47.158169+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -189,15 +186,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 34698
+        "completed": 34715
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-08-19T23:01:39.776207+02:00",
-      "last_run_at": "2026-08-19T23:00:39.776207+02:00",
+      "next_run_at": "2026-08-19T23:34:47.701394+02:00",
+      "last_run_at": "2026-08-19T23:33:47.701394+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -228,7 +225,7 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 549
+        "completed": 550
       },
       "enabled": true,
       "state": "scheduled",
@@ -236,7 +233,7 @@
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
       "next_run_at": "2026-08-20T00:00:00+02:00",
-      "last_run_at": "2026-08-19T22:01:01.257114+02:00",
+      "last_run_at": "2026-08-19T23:00:47.578391+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -250,10 +247,7 @@
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null,
-      "fire_claim": {
-        "at": "2026-08-19T23:00:39.600813+02:00",
-        "by": "MacPro:843:71c464ffddcd4756b72c55724ed558ce"
-      }
+      "fire_claim": null
     },
     {
       "id": "5a94532c1745",
@@ -273,8 +267,8 @@
       "monitor_script": "watchdog-libero-mail.sh",
       "monitor_url": null,
       "monitor_state": {
-        "last_output_hash": "07172a4438f0446f13455821edd1da586a3a074b189b51686dbb6d679fc61815",
-        "last_changed_at": "2026-08-19T21:59:55.752569+02:00"
+        "last_output_hash": "9772d42ff072f95002889b89751021c2ce29799fb794c80e664032e1ea769a49",
+        "last_changed_at": "2026-08-19T23:10:46.019882+02:00"
       },
       "context_from": null,
       "schedule": {
@@ -285,15 +279,15 @@
       "schedule_display": "every 60m",
       "repeat": {
         "times": null,
-        "completed": 20
+        "completed": 21
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-19T16:37:39.438969+02:00",
-      "next_run_at": "2026-08-19T23:10:21.029151+02:00",
-      "last_run_at": "2026-08-19T22:03:01.216270+02:00",
+      "next_run_at": "2026-08-20T00:21:42.971054+02:00",
+      "last_run_at": "2026-08-19T23:21:42.971054+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -313,5 +307,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-19T23:00:39.777413+02:00"
+  "updated_at": "2026-08-19T23:34:48.252337+02:00"
 }
