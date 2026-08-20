@@ -60,6 +60,7 @@ STDOUT:
 │ github-pr-workflow    │ github               │ builtin  │ builtin  │ enabled │
 │ github-repo-manageme… │ github               │ builtin  │ builtin  │ enabled │
 │ capability-reuse      │ hermes               │ local    │ local    │ enabled │
+│ hermes-cron-monitor-… │ hermes               │ local    │ local    │ enabled │
 │ hmp-talkshow          │ hermes               │ local    │ local    │ enabled │
 │ native-mcp            │ mcp                  │ local    │ local    │ enabled │
 │ gif-search            │ media                │ builtin  │ builtin  │ enabled │
@@ -131,7 +132,7 @@ STDOUT:
 │ test-driven-developm… │ software-development │ builtin  │ builtin  │ enabled │
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 81 builtin, 40 local — 124 enabled, 0 disabled
+3 hub-installed, 81 builtin, 41 local — 125 enabled, 0 disabled
 
 
 

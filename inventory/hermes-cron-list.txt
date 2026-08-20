@@ -11,18 +11,18 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-08-19T23:39:48.251312+02:00
+    Next run:  2026-08-20T23:02:20.876515+02:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T23:34:48.251312+02:00  ok
-    Execution: completed  a534ca9650a24dda947a944d3f25654c
+    Last run:  2026-08-20T22:57:20.876515+02:00  ok
+    Execution: completed  ac483c9a66344205b533cd53dd9b1d0a
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
     Schedule:  0 23 * * *
     Repeat:    ∞
-    Next run:  2026-08-20T23:00:00+02:00
+    Next run:  2026-08-21T23:00:00+02:00
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
@@ -73,63 +73,74 @@ Encrypted secrets bundle updated. Decryption needs matching private key for /Use
  create mode 100644 skills/software-development/falsification-and-feasibility-gates/references/feasibility-falsification-program-and-plan-2026-08-19.md
  rename skills/software-development/{code-dev-reviewer => loop-coding-guidelines}/SKILL.md (57%)
  rename skills/software-development/{code-dev-reviewer => loop-coding-guidelines}/references/verdict-artifact-2026-08-17-g0-discrepancy.md (100%)
-    Execution: failed  b8b19a95e6f548498261b4634952badc
+    Execution: running  99205c1671b94f9798a0bb6a699b9046
 
   bdd8a7b271c1 [active]
     Name:      load-sampler
     Schedule:  every 2m
     Repeat:    ∞
-    Next run:  2026-08-19T23:36:48.137097+02:00
+    Next run:  2026-08-20T23:02:21.443131+02:00
     Deliver:   origin
     Script:    load-sampler.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T23:34:48.137097+02:00  ok
-    Execution: completed  c0ee6ed085c64f138e76f3eb4a435ef2
+    Last run:  2026-08-20T23:00:21.443131+02:00  ok
+    Execution: completed  40815c4e80be4143b2dfb440a23bad29
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-08-19T23:38:47.158169+02:00
+    Next run:  2026-08-20T23:03:20.180701+02:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T23:28:47.158169+02:00  ok
-    Execution: completed  1580a3e94c56467eb84a5ead5281c6a7
+    Last run:  2026-08-20T22:53:20.180701+02:00  ok
+    Execution: completed  61fe32ef4f844c57b5a2860fed5416e2
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-08-19T23:34:47.701394+02:00
+    Next run:  2026-08-20T23:00:21.050740+02:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T23:33:47.701394+02:00  ok
-    Execution: completed  a73ec8b147584e1681ffc57561c59023
+    Last run:  2026-08-20T22:59:21.050740+02:00  ok
+    Execution: completed  ba3f1ff4b0ca4b30be880045d7476f2b
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
     Schedule:  0 * * * *
     Repeat:    ∞
-    Next run:  2026-08-20T00:00:00+02:00
+    Next run:  2026-08-21T00:00:00+02:00
     Deliver:   origin
     Script:    hmp-peer70-healthcheck.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-19T23:00:47.578391+02:00  ok
-    Execution: completed  6035b99fbbbb4c468b33948f8e90b077
+    Last run:  2026-08-20T22:01:25.603204+02:00  ok
+    Execution: running  75b707a3a4a64569b5884badcc1d3a54
 
   5a94532c1745 [active]
     Name:      watchdog-libero-mail-review
-    Schedule:  every 60m
+    Schedule:  every 120m
     Repeat:    ∞
-    Next run:  2026-08-20T00:21:42.971054+02:00
+    Next run:  2026-08-21T00:07:12.323586+02:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
     Monitor:   watchdog-libero-mail.sh (agent runs only on output change)
-    Changed:   2026-08-19T23:10:46.019882+02:00
-    Last run:  2026-08-19T23:21:42.971054+02:00  ok
-    Execution: completed  0376604c16f4468ebcb3a31d437f830e
+    Changed:   2026-08-20T21:57:11.713515+02:00
+    Last run:  2026-08-20T22:07:12.323586+02:00  ok
+    Execution: completed  3f600c81f15341f7a6aa695bf5b75e48
+
+  e387f0341b7f [active]
+    Name:      ripescatore-watchdog-rebar
+    Schedule:  every 30m
+    Repeat:    ∞
+    Next run:  2026-08-20T23:03:17.239007+02:00
+    Deliver:   origin
+    Script:    watchdog-ripescatore.sh
+    Mode:      no-agent (script stdout delivered directly)
+    Last run:  2026-08-20T22:33:17.239007+02:00  ok
+    Execution: completed  a24edeb65b6848878a0cd1537a73273c
 
 
 

@@ -5,9 +5,10 @@ Full details for infra facts kept only as pointers in hot memory. Update here wh
 ## Mac config backup
 - Repo: `~/Backups/hermes-config/` → `git@github.com:faustothegrey/hermes-config-mac.git`
 - Schedule: nightly 00:30 (cron job `b763d78565da`)
-- Script: `~/.hermes/scripts/hermes-config-backup-nightly.sh`
-- Backs up: config, skills, cron, profiles, plugins, memories, hooks, Obsidian vault, encrypted secrets
-- Crypto: SSH RSA + OpenSSL AES-256-CBC envelope encryption
+- Script: `~/.hermes/scripts/hermes-config-backup-nightly.sh` → `scripts/backup-hermes.sh`
+- Backs up: config, skills, cron, profiles, plugins, memories, hooks, Obsidian vault, inventory
+- **Secrets are LOCAL-ONLY (fix 2026-08-19):** `secrets/` is `.gitignored` and NOT pushed. The nightly encrypted-bundle step is SKIPPED unless `BACKUP_SECRETS=1`. Why: it re-encrypted `state.db` (~525MB) every night with a fresh random AES key → 162MB byte-different bundle that git couldn't delta → `.git` bloated to **13GB** → `git pack-objects` at 481% CPU for 22 min overheated the Mac (load 23). Fix: `.gitignore secrets/` + fresh git history (13GB→160MB) + force-push + `BACKUP_SECRETS` opt-in switch. Backup now runs in ~15s. To include encrypted secrets off-site again: run with `BACKUP_SECRETS=1` (but expect .git regrowth — better to snapshot secrets separately if ever needed).
+- Crypto (when enabled): SSH RSA + OpenSSL AES-256-CBC envelope encryption
 
 ## hermes-live-transcript
 - Managed by launchd: `com.fausto.hermes-live-transcript` (KeepAlive), port 8800

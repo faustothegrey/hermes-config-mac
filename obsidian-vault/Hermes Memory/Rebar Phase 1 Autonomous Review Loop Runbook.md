@@ -92,6 +92,14 @@ NEVER touch `plugin/` production code. NEVER restart the gateway.
 
 ## Current state (update as it moves)
 
-- **2026-08-19:** M1 implemented (9/9 tests pass, real log initialized log_started_at
-  2026-08-19T14:19:38Z), review email sent, watchdog armed. Awaiting M1 verdict. Gate S (A1
-  pre-declaration) still pending Fausto — blocks the A1 branch but NOT the M/G/R-prep chain above.
+- **🔴 LOOP IN PAUSA (2026-08-20, Fausto):** entrambi i cron del loop sono **paused** perché l'account hotmail del reviewer è stato temporaneamente bloccato. NIENTE gira finché Fausto non dice di riattivare.
+  - `watchdog-libero-mail-review` id `5a94532c1745` (driver, ogni 60m, monitor watchdog-libero-mail.sh) → **paused**
+  - `ripescatore-watchdog-rebar` id `e387f0341b7f` (riarmatore anti-rate-limit, ogni 30m, no_agent) → **paused**
+  - **RIATTIVAZIONE:** quando hotmail è sbloccato, Fausto dice "riattiva il loop" → cronjob action=resume su entrambi. Ripartenza dal punto esatto: stesso hash monitor (`9772d42f...` al momento della pausa), stesso `~/.hermes/data/libero-watchdog-processed.txt` (contiene `7` e `8`), stesso lavoro su disco.
+- **Progresso fino alla pausa (2026-08-19/20):**
+  - M1 ✅ ACCEPT (email id 7, reviewer 2026-08-19 15:17)
+  - M2 ✅ ACCEPT (email id 8, dopo SUPERSEDING correction per la race watchdog/sessione manuale — vedi pitfall "never hand-drive")
+  - G1 (fake_hmp_server.py) ✅ BUILT, 10/10 test, INVIATO per review — **verdict non ancora arrivato quando è scattata la pausa**
+  - Chain rimanente: G2..G6 → D1 → F0 → R0a → R1
+- **Rate-limit osservato (2026-08-20 ~00:48):** ultimo run del watchdog in `error` (run agent fallito per rate-limit del modello principale). Il ripescatore è stato creato proprio per questo scenario (max 30 min dopo lo sblocco il loop riparte) — ma è in pausa insieme al loop.
+- **Incidenti gestiti:** (1) race watchdog/sessione manuale su M2 → SUPERSEDING correction + regola "mai hand-drive col watchdog armato"; (2) hotmail bloccato → pausa totale; (3) backup git 13GB → secrets local-only (vedi [[Incidente Mac Surriscaldato Backup Git 13GB 2026-08-19]]).

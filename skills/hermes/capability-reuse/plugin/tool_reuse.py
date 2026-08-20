@@ -36,6 +36,25 @@ class OperationAnalysis:
     target: str = ""
     inputs: dict[str, Any] = field(default_factory=dict)
     reason: str = ""
+    # G2 timeout-semantics: True when the caller declared a WHOLE-REQUEST time
+    # budget (e.g. curl --max-time / -m = one hard deadline for the entire
+    # request). The reviewed hmp-healthcheck harness honours timeouts via
+    # urllib urlopen(timeout=), a PER-OPERATION socket timeout — a different
+    # semantic class. decide_operation() declines substitution when this is set
+    # so a whole-request deadline is never silently coerced into a per-op one.
+    whole_request_deadline: bool = False
+
+
+def _parse_timeout_budget(raw: Any) -> int | float:
+    """Parse a timeout token WITHOUT truncating sub-second budgets.
+
+    int(float("0.2")) == 0 would make the harness probe with socket timeout 0.
+    Preserve the value: whole integers stay int (5 -> 5), fractional stay float
+    (0.2 -> 0.2). Raises ValueError/TypeError on non-numeric input.
+    """
+    value = float(raw)
+    integral = int(value)
+    return integral if value == integral else value
 
 
 @dataclass(frozen=True)
@@ -104,11 +123,11 @@ def _derive_execute_code(args: dict[str, Any]) -> OperationAnalysis:
         return OperationAnalysis(status="rejected", reason="unsupported_target")
     path = (parsed.path or "/").rstrip("/") or "/"
     if method == "get" and path in {"/hmp/health", "/health"}:
-        timeout = 5
+        timeout: int | float = 5
         for keyword in call.keywords:
             if keyword.arg == "timeout" and isinstance(keyword.value, ast.Constant):
                 try:
-                    timeout = int(float(keyword.value.value))
+                    timeout = _parse_timeout_budget(keyword.value.value)
                 except (TypeError, ValueError):
                     return OperationAnalysis(status="rejected", reason="invalid_timeout")
         return OperationAnalysis(
@@ -192,16 +211,35 @@ def derive_operation(tool_name: str, args: dict[str, Any] | None) -> OperationAn
             inputs=inputs,
         )
 
+    if path in {"/messages/next", "/hmp/messages/next"}:
+        # G4 duplicate-safety (idempotency semantics): GET /messages/next on the
+        # HMP surface RETURNS AND CONSUMES the head message — a NON-IDEMPOTENT
+        # operation (at-most-once: a second execution consumes/drops a further
+        # message). The reviewed hmp-healthcheck harness is an IDEMPOTENT probe
+        # (safe to run any number of times). Reusing it here — or letting any
+        # substitute retry — would silently change at-most-once semantics and
+        # risk a DUPLICATE consume. Decline substitution on the actual
+        # enforcement path with an explicit, duplicate-safety-specific reason and
+        # perform NO substitution. (A decline for any OTHER reason, e.g. an
+        # unrecognized endpoint, must NOT be credited as this enforcement.)
+        return OperationAnalysis(status="rejected", reason="idempotency_mismatch")
+
     if path not in {"/hmp/health", "/health"}:
         return OperationAnalysis(status="no_harness", reason="unrecognized_endpoint")
     if method not in {"GET", "HEAD"}:
         return OperationAnalysis(status="rejected", reason="effect_mismatch")
 
-    timeout = 5
+    timeout: int | float = 5
+    whole_request_deadline = False
     for index, token in enumerate(tokens[:-1]):
         if token in {"--max-time", "-m"}:
+            # curl --max-time / -m is a WHOLE-REQUEST deadline (one hard budget
+            # for the entire transfer), a different semantic class from the
+            # harness's per-operation socket timeout. Flag it; decide_operation
+            # declines substitution. Preserve fractional budgets (0.2 stays 0.2).
+            whole_request_deadline = True
             try:
-                timeout = int(float(tokens[index + 1]))
+                timeout = _parse_timeout_budget(tokens[index + 1])
             except (TypeError, ValueError):
                 return OperationAnalysis(status="rejected", reason="invalid_timeout")
 
@@ -211,6 +249,7 @@ def derive_operation(tool_name: str, args: dict[str, Any] | None) -> OperationAn
         effect_class="read_only",
         target=peer,
         inputs={"peer_list": [peer], "timeout_seconds": timeout},
+        whole_request_deadline=whole_request_deadline,
     )
 
 
@@ -226,6 +265,20 @@ def decide_operation(analysis: OperationAnalysis) -> HarnessDecision:
         return HarnessDecision(
             outcome="rejected",
             reason=analysis.reason or "operation_rejected",
+            operation_kind=analysis.operation_kind,
+            inputs=dict(analysis.inputs),
+        )
+
+    # G2 timeout-semantics enforcement (tool-boundary): a caller-declared
+    # WHOLE-REQUEST deadline (curl --max-time) cannot be faithfully honoured by
+    # the reviewed harness, whose timeout is a PER-OPERATION socket timeout.
+    # Substituting would silently change what "timeout" means, so decline here —
+    # on the actual enforcement path — with an explicit, timeout-specific reason.
+    # (A decline for any OTHER reason must not be credited as this enforcement.)
+    if analysis.whole_request_deadline:
+        return HarnessDecision(
+            outcome="rejected",
+            reason="timeout_semantics_mismatch",
             operation_kind=analysis.operation_kind,
             inputs=dict(analysis.inputs),
         )

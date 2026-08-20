@@ -49,22 +49,132 @@ Pitfall: himalaya config is per-machine — an account configured on peer70 does
 
 ### A. Send a review request
 
-1. Prepare the review artifact (zip/patch/report). Put it in `~/.hermes/` (e.g. `~/.hermes/<name>.zip`).
-2. Send via Libero SMTP to `fausto.lelli@hotmail.com` with subject prefix `[DEV]`.
+🔴 **EMAIL FORMAT — Hotmail deliverability (2026-08-20).** Do NOT send the whole
+review as a raw `himalaya message send` heredoc. A raw heredoc body ships with
+NO `MIME-Version` / NO `Content-Type`, so himalaya (and, in practice, Microsoft)
+types the body as `application/octet-stream` — an opaque binary blob, which is a
+strong spam/quarantine signal. Hotmail was actively scrutinising/quarantining the
+`[DEV]` mails because of this. Confirmed by inspecting the compiled MIME of the
+sent copies.
+
+The fixed format is **`multipart/mixed`: a short, human `text/plain` body + the
+dense technical detail (sha256 dumps, artifact list, findings, checks) as a
+`text/plain` ATTACHMENT** (`review-bundle.txt`). This (a) forces an explicit
+`text/plain; charset=utf-8` body (kills the octet-stream), and (b) keeps the
+high-entropy hex hash blocks out of the visible body (another spam trigger).
+
+1. Prepare the review artifact (zip/patch/report) if any. Put it in `~/.hermes/`.
+2. Write TWO text files:
+   - a short human body (`~/.hermes/review-outbox/<step>-body.txt`): greeting,
+     1–3 sentences of context, what verdict is needed, sign-off. No raw hashes,
+     no shell fragments in the body.
+   - the technical detail (`~/.hermes/review-outbox/<step>-bundle.txt`): INTENT,
+     METHOD, RESULT/checks, FINDING, SCOPE, ARTIFACTS (sha256), VERDICT REQUESTED.
+3. Send with the helper (portable, verifies success, compiles the MML for you):
    ```bash
-   python3 ~/.hermes/scripts/send_g0_bundle_email.py   # or himalaya message send -a libero
+   python3 ~/.hermes/scripts/send_review_email.py \
+     --subject "[DEV] <description>" \
+     --body-file ~/.hermes/review-outbox/<step>-body.txt \
+     --attach   ~/.hermes/review-outbox/<step>-bundle.txt \
+     --name review-bundle.txt
    ```
-   Or generic:
+   (Name the bundle file `review-bundle.txt` on disk if you want the attachment's
+   `Content-Disposition: filename` to read cleanly — himalaya takes that from the
+   real basename, and only the `Content-Type: name` from `--name`.)
+
+   Manual fallback (if the helper is missing) — `himalaya template send` (NOT
+   `message send`), which compiles MML into real MIME:
    ```bash
-   cat << EOF | himalaya message send -a libero
-   From: fausto.lelli72@libero.it
+   cat << 'EOF' | himalaya template send -a libero
+   From: Fausto Lelli <fausto.lelli72@libero.it>
    To: fausto.lelli@hotmail.com
    Subject: [DEV] <description>
-   
-   <context + what verdict is needed>
+
+   <#multipart type=mixed>
+   <#part type="text/plain">
+   Ciao,
+
+   <short human context + what verdict is needed>
+
+   Grazie,
+   Fausto
+   <#part filename="/Users/<user>/.hermes/review-outbox/<step>-bundle.txt" name="review-bundle.txt"><#/part>
+   <#/multipart>
    EOF
    ```
-3. Confirm `Message successfully sent!` and report the subject to the user.
+4. Confirm `Message successfully sent!` and report the subject to the user.
+5. Verify the compiled MIME of the sent copy is clean (should show
+   `MIME-Version: 1.0`, `multipart/mixed`, body `text/plain; charset="utf-8"`,
+   and a `text/plain` attachment — NEVER `application/octet-stream`):
+   ```bash
+   himalaya message export -a libero <ID> --folder "Sent" --full | \
+     grep -iE "mime-version|content-type|content-disposition"
+   ```
+
+### A2. Human-simulation send mode (anti automated-sending flag, 2026-08-20)
+
+🔴 **WHY:** after the octet-stream fix, Hotmail still flagged our libero→hotmail
+mails as **automated sending** (warning to Fausto: "someone is using the account
+to send you automatic email"). The `[DEV]` tag + uniform structure + machine
+cadence were the tell. Fix = make the exchange look human. The reviewer adapts to
+this format (Fausto, 2026-08-20).
+
+**System:** `~/.hermes/scripts/human_mail/humanmail.py` (+ `themes.json`). State in
+`~/.hermes/data/human_mail/`. TWO STREAMS reach the reviewer's hotmail:
+- **REAL REVIEW** — from **libero**, WITH a text attachment whose **line 1 is
+  `REBAR-STEP: <id>`**. Only these get a verdict; reviewer replies in-thread.
+- **DECOY / NOISE** — no attachment, **marked-read-and-ignored** by the reviewer.
+  Breaks the "every mail has an attachment / all from one sender" fingerprint.
+  Two flavours: **libero decoy** (no attachment) and **virgilio** mail (from
+  `fausto.lelli@virgilio.it`, text/plain never octet-stream, no attachment).
+  🔴 **The reviewer must IGNORE every attachment-less mail and every virgilio mail.**
+
+Principles:
+- **No `[DEV]`.** Random human subject from a themed pool; body = plausible human
+  lines about that theme, nothing about the development. Themes carry two body
+  pools: `bodies_attach` (real reviews, may reference the attached notes) and
+  `bodies_plain` (decoys, self-contained — NEVER imply an attachment).
+- **Thread-per-dev-step** (REAL only): each step = one theme + one thread; all
+  round-trips stay in-thread (`Message-ID`/`In-Reply-To`/`References`). Next step =
+  new theme = new thread. Decoys are standalone.
+- **Technical detail = attachment** named coherently with the theme; line 1 is the
+  machine key `REBAR-STEP: <id>` (correlation lives here, NOT in the subject).
+- **Send-side human scheduler:** ENQUEUE, don't send. `dispatch` releases after a
+  random 15–120min hold, only in quiet hours (08:00–23:00 local), never within
+  35–75min of the previous send, at most ONE send per run. Any sender counts
+  toward the shared spacing, so libero+virgilio traffic is jointly de-paced.
+- **Correlation:** local `subject↔step` map (REAL only). A reply whose subject is
+  not in the map (decoy / virgilio / foreign) → `NO-MATCH` → ignore.
+- **Guarded poll-skip:** `poll-decision` → POLL/SKIP; max 1 skip, never two in a
+  row, always POLL if a matching reply is older than the 5h staleness ceiling.
+
+**Usage:**
+```bash
+# REAL review: enqueue when a step bundle is ready (libero + attachment):
+python3 ~/.hermes/scripts/human_mail/humanmail.py enqueue --step G3 --detail-file bundle.txt --kind bundle
+# DECOY noise (no attachment); account omitted = random libero/virgilio:
+python3 ~/.hermes/scripts/human_mail/humanmail.py decoy [--account libero|virgilio]
+# cron dispatch — sends at most one due mail honouring holds/spacing/quiet-hours:
+python3 ~/.hermes/scripts/human_mail/humanmail.py dispatch      # --dry-run to preview MML
+# map a reviewer reply back to its step (NO-MATCH => ignore):
+python3 ~/.hermes/scripts/human_mail/humanmail.py correlate --subject "Re: <subj>" --reply-message-id "<id>"
+# watchdog poll gate (exit 10 = skip this tick):
+python3 ~/.hermes/scripts/human_mail/humanmail.py poll-decision [--oldest-unprocessed-age-s N]
+python3 ~/.hermes/scripts/human_mail/humanmail.py status
+python3 ~/.hermes/scripts/human_mail/humanmail.py selftest
+```
+
+Knobs (top of `humanmail.py`): `HOLD_MIN/MAX_S` (15–120min), `BATCH_GAP_MIN/MAX_S`
+(35–75min), `QUIET_START/END_H` (8–23), `POLL_SKIP_PROB` (0.30), staleness ceiling
+(5h). `ACCOUNTS` maps himalaya account → From header.
+
+⚠️ **Not yet wired to cron.** The loop is PAUSED; `dispatch`/`poll-decision` are not
+armed. Wire them (and switch §A over to enqueue) only when Fausto says "riattiva".
+The plain §A `send_review_email.py` path still works for a one-off manual send.
+🔴 **Reviewer briefing required before first human-mode send:** with `[DEV]` gone,
+tell the reviewer the new convention (any themed mail from libero with an
+attachment = a review; attachment line 1 `REBAR-STEP:` names the step; reply
+in-thread). Lato-reviewer, outside this node.
 
 ### B. Handle a reply (watchdog cron, every 10m)
 
