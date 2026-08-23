@@ -713,16 +713,16 @@
     "archived_at": null,
     "created_at": "2026-08-19T22:53:46.698166+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-08-19T22:53:57.932937+00:00",
-    "last_reused_patch_generation": 1,
-    "last_used_at": "2026-08-20T14:30:53.462128+00:00",
-    "last_viewed_at": "2026-08-20T14:30:53.455016+00:00",
-    "patch_count": 1,
-    "patch_generation": 1,
+    "last_patched_at": "2026-08-21T05:00:58.029642+00:00",
+    "last_reused_patch_generation": 2,
+    "last_used_at": "2026-08-21T05:01:10.932366+00:00",
+    "last_viewed_at": "2026-08-21T05:01:10.927286+00:00",
+    "patch_count": 2,
+    "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 3,
-    "view_count": 3
+    "use_count": 6,
+    "view_count": 6
   },
   "hermes-hmp": {
     "archived_at": null,
@@ -730,14 +730,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T13:57:30.611703+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-08-19T14:24:25.459478+00:00",
-    "last_viewed_at": "2026-08-19T14:24:25.456750+00:00",
+    "last_used_at": "2026-08-21T15:51:27.793818+00:00",
+    "last_viewed_at": "2026-08-21T15:51:27.789815+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 8,
-    "view_count": 8
+    "use_count": 9,
+    "view_count": 9
   },
   "hermes-peer-ecosystem": {
     "archived_at": null,
@@ -880,13 +880,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-08-20T19:57:11.945315+00:00",
+    "last_used_at": "2026-08-21T18:14:52.183051+00:00",
     "last_viewed_at": "2026-08-20T14:28:55.747566+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 15,
+    "use_count": 19,
     "view_count": 6
   },
   "macos-computer-use": {
@@ -1028,14 +1028,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-08-21T12:36:06.295282+00:00",
+    "last_viewed_at": "2026-08-21T12:36:06.291832+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "obsidian": {
     "archived_at": null,

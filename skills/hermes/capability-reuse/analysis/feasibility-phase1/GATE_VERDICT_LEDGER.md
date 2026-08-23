@@ -6,7 +6,7 @@ sender `fausto.lelli@hotmail.com` / display "Pippo Baudo"); this file is a
 convenience ledger, not the source of truth. Reconstruct disputes from the email
 per loop-coding-guidelines §D.
 
-Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 → see below (sent, awaiting verdict)** · (next: G5..G6 → D1 → F0 → R0a → R1)
+Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 → SENT 2026-08-21 08:09, awaiting verdict** · (next: G5..G6 → D1 → F0 → R0a → R1)
 
 ---
 
@@ -115,7 +115,7 @@ Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 → se
 
 ---
 
-## G4 — Duplicate-safety Gate-1 falsifier (SENT, AWAITING VERDICT)
+## G4 — Duplicate-safety Gate-1 falsifier (ENQUEUED — NOT yet sent)
 
 - **UNBLOCKED by G3 ACCEPT+GO** (email id 18). Implemented + battery-green +
   sent for review 2026-08-20 (peer128).
@@ -155,13 +155,40 @@ Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 → se
   enforcement UNCHANGED and re-verified; G1 fake-server **FROZEN** (sha
   `adb729…`, re-verified). No core/runtime edits, no gateway restart, no G5+
   work started.
-- **SENT via human-mail** (NOT `[DEV]`): `humanmail.py enqueue --step G4
+- **ENQUEUED (NOT yet dispatched)** via human-mail (NOT `[DEV]`): `humanmail.py enqueue --step G4
   --detail-file g4-bundle.txt --kind bundle` → queue id `108f1600caf5`, new
   thread, theme=corso, subject "Note della lezione di ieri", attachment
   `appunti-corso.txt` line1 `REBAR-STEP:G4`, send_after 2026-08-20 22:22 local.
-  Dispatcher/monitor handle the actual send + reply pickup. **Awaiting verdict.**
+- **⚠️ TIMING GAP (found 2026-08-21 06:39):** the queue file still reads
+  `"sent": false` and `state.json` G4 has empty `thread_ids`/`reply_ids` — the
+  mail was NEVER actually dispatched. Root cause: `dispatch` runs only from the
+  `watchdog-libero-mail-review` monitor (every 120m) AND only inside quiet-hours
+  08:00–23:00. G4 became due at 22:22, but the only evening tick after that
+  (22:08) fired 14 min too early; all later ticks (00:08/02:08/04:08/06:08) were
+  outside quiet-hours → legitimate HOLD. No rate-limit, no paused cron.
+  **Self-heals at the next in-window tick: 2026-08-21 ~08:08** (verified
+  next_run_at). NO manual dispatch (forcing it would break the human-sim quiet
+  hours). Prior ledger text wrongly said "SENT, awaiting verdict" — it was only
+  enqueued; corrected here. Awaiting auto-dispatch, then verdict.
+- **✅ AUTO-DISPATCH CONFIRMED (2026-08-21 08:09 local):** the self-heal fired at
+  the first in-window tick as predicted. `humanmail.py status` shows
+  `last_send 2026-08-21 08:09`, G4 `sent_in_thread=1 replies=0`, queue pending 0.
+  G4 is now **SENT, awaiting verdict** in thread "Note della lezione di ieri".
 
 ---
+
+## Note — send-side dispatcher decoupled (2026-08-21, prevention fix)
+
+The G4 timing gap (mail due at 22:22 missed by the 120m watchdog cadence, then
+held all night) is now structurally prevented. `humanmail.py dispatch` was only
+called from `watchdog-libero-mail.sh` (every 120m). Added a DEDICATED lightweight
+cron `human-mail-dispatch` (id `a9e7580b6f61`, `no_agent`, every 15m) →
+`~/.hermes/scripts/human-mail-dispatch.sh`, which calls only `dispatch`.
+`dispatch` self-guards (HOLD outside 08:00–23:00, honours per-mail send_after +
+hold/gap), so 15m polling keeps the human-sim timing intact while a due mail now
+waits ≤15 min instead of ≤2h and can't slip past the quiet-hour edge. The 120m
+watchdog still calls dispatch too (harmless redundancy) and remains the review /
+reply-pickup path. Silent on success.
 
 ## Note — email format fix (2026-08-20, out of gate sequence)
 

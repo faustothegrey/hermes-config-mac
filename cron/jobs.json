@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 8706
+        "completed": 8966
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-08-20T23:02:20.876515+02:00",
-      "last_run_at": "2026-08-20T22:57:20.876515+02:00",
+      "next_run_at": "2026-08-23T08:11:10.034333+02:00",
+      "last_run_at": "2026-08-23T08:06:10.034333+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,17 +59,17 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 102
+        "completed": 103
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-08-21T23:00:00+02:00",
-      "last_run_at": "2026-08-19T23:30:08.541303+02:00",
-      "last_status": "error",
-      "last_error": "Script exited with code 128\nstderr:\nConnection to github.com closed by remote host.\nsend-pack: unexpected disconnect while reading sideband packet\nerror: pack-objects died of signal 15\nerror: pack-objects died of signal 15\nfatal: the remote end hung up unexpectedly\nstdout:\n[2026-08-19T23:00:39+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config\n[2026-08-19T23:00:39+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config\n  obsidian-vault: OK (/Users/fausto/Documents/Obsidian Vault)\nRegenerated sanitized Hermes backup from /Users/fausto/.hermes into /Users/fausto/Backups/hermes-config\nEncrypted secrets bundle updated. Decryption needs matching private key for /Users/fausto/.ssh/id_rsa.pub\n[master 597ba1c] backup: update Hermes configuration — 2026-08-19T23:01:28+0200\n 46 files changed, 4964 insertions(+), 1101 deletions(-)\n rewrite cron/executions.db (76%)\n rewrite cron/jobs.json (82%)\n create mode 100644 cron/notepad.db\n create mode 100644 cron/usage_audit.jsonl\n rewrite inventory/hermes-cron-list.txt (91%)\n rewrite memories/MEMORY.md (99%)\n create mode 100644 obsidian-vault/Hermes Memory/Hermes Environment and Infrastructure Reference.md\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Feasibility Falsification Program (Signed Off 2026-08-19).md\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Autonomous Review Loop Runbook.md\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Feasibility Falsification 2026-08-19.md\n create mode 100644 obsidian-vault/Hermes Memory/Rebar Phase 1 Feasibility Implementation Plan (Frozen 2026-08-19).md\n create mode 100644 obsidian-vault/Hermes Memory/peer141 Lead-Dev Successor Readiness 2026-08-19.md\n rewrite secrets/hermes-secrets.key.enc (100%)\n delete mode 100644 skills/.curator_backups/2026-07-13T06-50-55Z/cron-jobs.json\n delete mode 100644 skills/.curator_backups/2026-07-13T06-50-55Z/manifest.json\n create mode 100644 skills/.curator_backups/2026-08-19T17-26-32Z/cron-jobs.json\n create mode 100644 skills/.curator_backups/2026-08-19T17-26-32Z/manifest.json\n rewrite skills/.curator_state (83%)\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/convergence_gate.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/log_metadata.json\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/material_change_log.jsonl\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/material_change_log.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/test_convergence_gate.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/a5/test_material_change_log.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/gate1/fake_hmp_server.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/gate1/test_fake_hmp_server.py\n create mode 100644 skills/hermes/capability-reuse/analysis/feasibility-phase1/predeclaration/PREDECLARATION.md\n create mode 100644 skills/note-taking/agent-second-order-memory/references/memory-cap-and-ephemeral-doc-preservation.md\n create mode 100644 skills/software-development/falsification-and-feasibility-gates/SKILL.md\n create mode 100644 skills/software-development/falsification-and-feasibility-gates/references/feasibility-falsification-program-and-plan-2026-08-19.md\n rename skills/software-development/{code-dev-reviewer => loop-coding-guidelines}/SKILL.md (57%)\n rename skills/software-development/{code-dev-reviewer => loop-coding-guidelines}/references/verdict-artifact-2026-08-17-g0-discrepancy.md (100%)",
+      "next_run_at": "2026-08-23T23:00:00+02:00",
+      "last_run_at": "2026-08-20T23:00:34.003508+02:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -77,8 +77,8 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-08-20T23:00:21.018356+02:00",
-        "by": "MacPro:843:25d704742c5b4b808ec8014006fe51e1"
+        "at": "2026-08-23T08:06:07.129407+02:00",
+        "by": "MacPro:867:b22e4dc7b5c64d57b9e61cb85c5a01ff"
       }
     },
     {
@@ -101,15 +101,15 @@
       "schedule_display": "every 2m",
       "repeat": {
         "times": null,
-        "completed": 20477
+        "completed": 20990
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:04.206104+02:00",
-      "next_run_at": "2026-08-20T23:02:21.443131+02:00",
-      "last_run_at": "2026-08-20T23:00:21.443131+02:00",
+      "next_run_at": "2026-08-23T08:08:11.290499+02:00",
+      "last_run_at": "2026-08-23T08:06:11.290499+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -145,15 +145,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 4327
+        "completed": 4459
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-08-20T23:03:20.180701+02:00",
-      "last_run_at": "2026-08-20T22:53:20.180701+02:00",
+      "next_run_at": "2026-08-23T08:16:09.927971+02:00",
+      "last_run_at": "2026-08-23T08:06:09.927971+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -189,15 +189,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 35234
+        "completed": 35889
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-08-20T23:00:21.050740+02:00",
-      "last_run_at": "2026-08-20T22:59:21.050740+02:00",
+      "next_run_at": "2026-08-23T08:07:10.252571+02:00",
+      "last_run_at": "2026-08-23T08:06:10.252571+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -228,15 +228,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 568
+        "completed": 591
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-08-21T00:00:00+02:00",
-      "last_run_at": "2026-08-20T22:01:25.603204+02:00",
+      "next_run_at": "2026-08-23T09:00:00+02:00",
+      "last_run_at": "2026-08-23T08:06:13.808236+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -250,10 +250,7 @@
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null,
-      "fire_claim": {
-        "at": "2026-08-20T23:00:21.193383+02:00",
-        "by": "MacPro:843:1a596c0d2d124533aeb46c4acf2cfcd1"
-      }
+      "fire_claim": null
     },
     {
       "id": "5a94532c1745",
@@ -273,8 +270,8 @@
       "monitor_script": "watchdog-libero-mail.sh",
       "monitor_url": null,
       "monitor_state": {
-        "last_output_hash": "c9541e2b1c05eeb86001a823e3ee9fe398407396533afe927e208ea77a9a0256",
-        "last_changed_at": "2026-08-20T21:57:11.713515+02:00"
+        "last_output_hash": "efaebc5223e788bdac36a54d09ba19d0f0d1d1ee71d0049fdfd3d03e6fedd330",
+        "last_changed_at": "2026-08-21T20:14:51.942895+02:00"
       },
       "context_from": null,
       "schedule": {
@@ -285,15 +282,15 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 26
+        "completed": 38
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-19T16:37:39.438969+02:00",
-      "next_run_at": "2026-08-21T00:07:12.323586+02:00",
-      "last_run_at": "2026-08-20T22:07:12.323586+02:00",
+      "next_run_at": "2026-08-23T10:06:10.954120+02:00",
+      "last_run_at": "2026-08-23T08:06:10.954120+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -337,15 +334,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 10
+        "completed": 55
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-20T00:51:08.368956+02:00",
-      "next_run_at": "2026-08-20T23:03:17.239007+02:00",
-      "last_run_at": "2026-08-20T22:33:17.239007+02:00",
+      "next_run_at": "2026-08-23T08:36:10.964309+02:00",
+      "last_run_at": "2026-08-23T08:06:10.964309+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -360,7 +357,56 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null
+    },
+    {
+      "id": "a9e7580b6f61",
+      "name": "human-mail-dispatch",
+      "prompt": "Dedicated lightweight send-side dispatcher for the Rebar human-mail review loop. Runs humanmail.py dispatch every 15m; self-guards via quiet-hours + per-mail send_after. Decoupled from the 120m review watchdog so due mails never wait ~2h or slip past the 23:00 quiet edge (fixes the G4 gap 2026-08-20). Silent on success.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "provider_snapshot": null,
+      "model_snapshot": null,
+      "base_url": null,
+      "script": "human-mail-dispatch.sh",
+      "no_agent": true,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 15,
+        "display": "every 15m"
+      },
+      "schedule_display": "every 15m",
+      "repeat": {
+        "times": null,
+        "completed": 56
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-21T06:58:36.718742+02:00",
+      "next_run_at": "2026-08-23T08:21:11.240154+02:00",
+      "last_run_at": "2026-08-23T08:06:11.240154+02:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": {
+        "platform": "telegram",
+        "chat_id": "8508115936",
+        "chat_name": "Fausto Lelli",
+        "thread_id": null,
+        "user_id": "8508115936"
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "fire_claim": null
     }
   ],
-  "updated_at": "2026-08-20T23:00:21.443645+02:00"
+  "updated_at": "2026-08-23T08:06:13.809645+02:00"
 }
