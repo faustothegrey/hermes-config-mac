@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 8966
+        "completed": 9121
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-08-23T08:11:10.034333+02:00",
-      "last_run_at": "2026-08-23T08:06:10.034333+02:00",
+      "next_run_at": "2026-08-24T07:52:17.120319+02:00",
+      "last_run_at": "2026-08-24T07:47:17.120319+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,15 +59,15 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 103
+        "completed": 104
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-08-23T23:00:00+02:00",
-      "last_run_at": "2026-08-20T23:00:34.003508+02:00",
+      "next_run_at": "2026-08-24T23:00:00+02:00",
+      "last_run_at": "2026-08-23T08:06:32.429460+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -77,8 +77,8 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-08-23T08:06:07.129407+02:00",
-        "by": "MacPro:867:b22e4dc7b5c64d57b9e61cb85c5a01ff"
+        "at": "2026-08-24T07:47:16.509592+02:00",
+        "by": "MacPro:1000:1d71428b6c5e48aab79364bc74a075a4"
       }
     },
     {
@@ -101,15 +101,15 @@
       "schedule_display": "every 2m",
       "repeat": {
         "times": null,
-        "completed": 20990
+        "completed": 21336
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:04.206104+02:00",
-      "next_run_at": "2026-08-23T08:08:11.290499+02:00",
-      "last_run_at": "2026-08-23T08:06:11.290499+02:00",
+      "next_run_at": "2026-08-24T07:49:18.407792+02:00",
+      "last_run_at": "2026-08-24T07:47:18.407792+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -145,15 +145,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 4459
+        "completed": 4537
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-08-23T08:16:09.927971+02:00",
-      "last_run_at": "2026-08-23T08:06:09.927971+02:00",
+      "next_run_at": "2026-08-24T07:57:18.513071+02:00",
+      "last_run_at": "2026-08-24T07:47:18.513071+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -189,15 +189,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 35889
+        "completed": 36288
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-08-23T08:07:10.252571+02:00",
-      "last_run_at": "2026-08-23T08:06:10.252571+02:00",
+      "next_run_at": "2026-08-24T07:48:17.551614+02:00",
+      "last_run_at": "2026-08-24T07:47:17.551614+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -228,15 +228,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 591
+        "completed": 605
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-08-23T09:00:00+02:00",
-      "last_run_at": "2026-08-23T08:06:13.808236+02:00",
+      "next_run_at": "2026-08-24T08:00:00+02:00",
+      "last_run_at": "2026-08-24T07:47:18.700685+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -270,8 +270,8 @@
       "monitor_script": "watchdog-libero-mail.sh",
       "monitor_url": null,
       "monitor_state": {
-        "last_output_hash": "efaebc5223e788bdac36a54d09ba19d0f0d1d1ee71d0049fdfd3d03e6fedd330",
-        "last_changed_at": "2026-08-21T20:14:51.942895+02:00"
+        "last_output_hash": "4ff5c32742efb50c4f87bfea52b1eda2de8912a58ac181d0e1cf3fb153c7605a",
+        "last_changed_at": "2026-08-23T14:08:31.893236+02:00"
       },
       "context_from": null,
       "schedule": {
@@ -282,15 +282,15 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 38
+        "completed": 41
       },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
+      "enabled": false,
+      "state": "paused",
+      "paused_at": "2026-08-23T14:19:57.397632+02:00",
       "paused_reason": null,
       "created_at": "2026-08-19T16:37:39.438969+02:00",
-      "next_run_at": "2026-08-23T10:06:10.954120+02:00",
-      "last_run_at": "2026-08-23T08:06:10.954120+02:00",
+      "next_run_at": "2026-08-23T16:08:54.802209+02:00",
+      "last_run_at": "2026-08-23T14:08:54.802209+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -334,15 +334,15 @@
       "schedule_display": "every 30m",
       "repeat": {
         "times": null,
-        "completed": 55
+        "completed": 67
       },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
+      "enabled": false,
+      "state": "paused",
+      "paused_at": "2026-08-23T14:19:57.550570+02:00",
       "paused_reason": null,
       "created_at": "2026-08-20T00:51:08.368956+02:00",
-      "next_run_at": "2026-08-23T08:36:10.964309+02:00",
-      "last_run_at": "2026-08-23T08:06:10.964309+02:00",
+      "next_run_at": "2026-08-23T14:37:30.426684+02:00",
+      "last_run_at": "2026-08-23T14:07:30.426684+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -383,15 +383,15 @@
       "schedule_display": "every 15m",
       "repeat": {
         "times": null,
-        "completed": 56
+        "completed": 80
       },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
+      "enabled": false,
+      "state": "paused",
+      "paused_at": "2026-08-23T14:19:57.411330+02:00",
       "paused_reason": null,
       "created_at": "2026-08-21T06:58:36.718742+02:00",
-      "next_run_at": "2026-08-23T08:21:11.240154+02:00",
-      "last_run_at": "2026-08-23T08:06:11.240154+02:00",
+      "next_run_at": "2026-08-23T14:22:30.325343+02:00",
+      "last_run_at": "2026-08-23T14:07:30.325343+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -406,7 +406,64 @@
       "enabled_toolsets": null,
       "workdir": null,
       "fire_claim": null
+    },
+    {
+      "id": "ed1d89525dd7",
+      "name": "rebar-g0-review-peer128",
+      "prompt": "You are the peer128 REVIEWER side of the Rebar G0 pre-seal review loop (2h/2h cadence, peer-to-peer HMP, resilient while Fausto is offline). Developer = peer136 (192.168.178.136). You = peer128 = reviewer. Load the loop-coding-guidelines skill and follow it.\n\nYOUR JOB each tick:\n1. Check for a NEW, un-reviewed G0 dev-step post from peer136. Read it from the HMP message DB (messages.db table `messages`), NEVER from a log file. peer136 posts steps G0-1..G0-4.\n2. If there is NO new un-reviewed step (still delivering / nothing pending): post NOTHING, do nothing. One step in flight at a time. Exit quietly.\n3. If there IS a new un-reviewed step: perform a REAL independent review — do NOT rubber-stamp. This means:\n   - Verify any checksum claims yourself with `sha256sum`/`shasum -a 256` on the actual files (locally and, where relevant, on peer136 via `ssh fausto@192.168.178.136`).\n   - Verify any execution/test claims by actually running them, not trusting the dev's report.\n   - For adapter.py source-review steps, inspect the real file for the claimed G0 feature markers (uuid4 request-unique trace_id P0-10; _process_item per-message safety net + consumer-loop isolation; _classify_traffic fail-closed provenance where from_peer alone never implies organic; _extract_collector body>env>absent; surface_execution_complete uses trace_id not chat_id).\n   - NEVER fabricate test output. If you cannot verify a claim (e.g. reviewed baseline hash not present on this node), say so explicitly in the verdict rather than certifying it.\n4. Issue a verdict: ACCEPT + GO, or REWORK/REJECT with specific required fixes. Send it to peer136 via HMP: curl -s -X POST http://192.168.178.136:18643/hmp/send with the verdict, sender peer128.\n5. Log the verdict to the ledger: ~/.hermes/skills/hermes/capability-reuse/analysis/feasibility-phase1/GATE_VERDICT_LEDGER.md (convenience record; the HMP message is the primary artifact).\n\nSTANDING INVARIANTS (hold regardless): frozen G1 fake-server sha adb729998f61391949edd25fc3751fde080f291982e57aeb71d85c5ca5e54edc; accepted G2 timeout / G3 effect / G4 idempotency semantics are FIXED (any change = a NEW review item, not silent scope-widening); NO improvised G5 falsifier (none is predeclared); no core/runtime edits; no gateway restart without Fausto; never fabricate test output; read verdicts and dev-posts from messages.db not logs. This Mac = peer128 = 192.168.178.112 on the home LAN (no VPN needed). If nothing is pending, deliver an empty/no-op result (stay silent).",
+      "skills": [
+        "loop-coding-guidelines"
+      ],
+      "skill": "loop-coding-guidelines",
+      "model": null,
+      "provider": null,
+      "provider_snapshot": "anthropic",
+      "model_snapshot": "claude-opus-4-8",
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "interval",
+        "minutes": 120,
+        "display": "every 120m"
+      },
+      "schedule_display": "every 120m",
+      "repeat": {
+        "times": null,
+        "completed": 2
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-23T15:34:58.578767+02:00",
+      "next_run_at": "2026-08-24T09:47:17.252904+02:00",
+      "last_run_at": "2026-08-23T19:35:56.694396+02:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: HTTP 401: OAuth access token has expired. Re-authenticate to continue.",
+      "last_delivery_error": null,
+      "deliver": "origin",
+      "origin": {
+        "platform": "hmp",
+        "chat_id": "peer128",
+        "chat_name": "peer128",
+        "thread_id": null,
+        "user_id": "peer136"
+      },
+      "enabled_toolsets": [
+        "terminal",
+        "file"
+      ],
+      "workdir": null,
+      "fire_claim": {
+        "at": "2026-08-24T07:47:17.351172+02:00",
+        "by": "MacPro:1000:4950ab75f31845cf8ccbf4808583c1f2"
+      }
     }
   ],
-  "updated_at": "2026-08-23T08:06:13.809645+02:00"
+  "updated_at": "2026-08-24T07:47:18.702915+02:00"
 }

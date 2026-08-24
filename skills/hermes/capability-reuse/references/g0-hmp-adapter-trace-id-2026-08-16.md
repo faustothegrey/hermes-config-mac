@@ -29,6 +29,22 @@ capability-reuse 2.6.0 = ACCEPT. G0 pre-seal fuori skill: P0-8 (adapter.py non s
 ## Artefatti
 
 - `adapter.py` — SHA-256 `c164ba7a498410c93447da9c16b4e70eae9450c97389f7217d75102ec3eafd22`
+  > **⚠️ STALE HASH (corrected 2026-08-23, peer128 review of G0-2).** The `c164ba7a`
+  > artifact is NOT preserved as a file anywhere in the mesh — only this hash string
+  > survived. Do NOT chase it for a formal-seal byte-diff. The actual preserved G0
+  > baseline is **`b9525a0b…`** (`peer70:~/.hermes/g0-bundle/adapter.py`,
+  > v0.1.4-g0-g2b-v7, manifest 2026-08-17T08:56Z, G0 CLOSED / G2b CLOSED). The
+  > current reviewed runtime is **`6fc19e0f…`** (v0.1.5) — byte-identical across
+  > peer70 runtime, peer136 runtime, and `g0-bundle/peer128-bundle`.
+  >
+  > **Verified byte-diff b9525a0b → 6fc19e0f (peer128, 2026-08-23):** exactly 3
+  > logical changes, all additive/version — (1) event-store resolution hardening
+  > (canonical runtime plugin path first + `_hermes_home()`/`_try_load_event_store()`
+  > surface-check fallback; the G2b/G0 blocker fix), (2) `version` 0.1.4→0.1.5,
+  > (3) `capability_version` 0.1.4→0.1.5. **ZERO change to G0-core symbols**
+  > (`trace_id`/`uuid4`, `_process_item`, `_classify_traffic`, `_extract_collector`,
+  > `_consumer_loop` all identical). This closes the G0-1 baseline-diff caveat:
+  > no-regression is now proven by diff, not just presence.
 - `manifest.json` — artifact, version, sha, compat core, status shadow
 - Bundle: `~/.hermes/g0-bundle/` (adapter.py + manifest.json) — senza patches/, senza segreti
 

@@ -11,101 +11,77 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-08-23T08:11:10.034333+02:00
+    Next run:  2026-08-24T07:52:17.120319+02:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-23T08:06:10.034333+02:00  ok
-    Execution: completed  854d36c646614466829c34bdf7e9ffcd
+    Last run:  2026-08-24T07:47:17.120319+02:00  ok
+    Execution: completed  c0534501c7364e07a94ebb773abccbd0
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
     Schedule:  0 23 * * *
     Repeat:    ∞
-    Next run:  2026-08-23T23:00:00+02:00
+    Next run:  2026-08-24T23:00:00+02:00
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-20T23:00:34.003508+02:00  ok
-    Execution: running  335703f5fc1a48bda18f4cf71291eee6
+    Last run:  2026-08-23T08:06:32.429460+02:00  ok
+    Execution: running  bddcc7d550b141bdad30e76af0ceb848
 
   bdd8a7b271c1 [active]
     Name:      load-sampler
     Schedule:  every 2m
     Repeat:    ∞
-    Next run:  2026-08-23T08:08:11.290499+02:00
+    Next run:  2026-08-24T07:49:18.407792+02:00
     Deliver:   origin
     Script:    load-sampler.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-23T08:06:11.290499+02:00  ok
-    Execution: completed  c7a6a2a25066442399ab445acf2310fa
+    Last run:  2026-08-24T07:47:18.407792+02:00  ok
+    Execution: completed  e06ee77ff0a7459680049898e056f26d
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-08-23T08:16:09.927971+02:00
+    Next run:  2026-08-24T07:57:18.513071+02:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-23T08:06:09.927971+02:00  ok
-    Execution: completed  e76bdfb7399f47cdb20e08a22817ae2f
+    Last run:  2026-08-24T07:47:18.513071+02:00  ok
+    Execution: completed  ac03fc2795644a4e8e975369227f710a
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-08-23T08:07:10.252571+02:00
+    Next run:  2026-08-24T07:48:17.551614+02:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-23T08:06:10.252571+02:00  ok
-    Execution: completed  fea6a74d48ef4a1abf8d53ec6637e194
+    Last run:  2026-08-24T07:47:17.551614+02:00  ok
+    Execution: completed  f229abe66c104f75aa00a3d12793e108
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
     Schedule:  0 * * * *
     Repeat:    ∞
-    Next run:  2026-08-23T09:00:00+02:00
+    Next run:  2026-08-24T08:00:00+02:00
     Deliver:   origin
     Script:    hmp-peer70-healthcheck.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-23T08:06:13.808236+02:00  ok
-    Execution: completed  5065c04a4dac4c56951d3138c4bbeba8
+    Last run:  2026-08-24T07:47:18.700685+02:00  ok
+    Execution: completed  7888c8108a944a7f8035a7f7f0818a61
 
-  5a94532c1745 [active]
-    Name:      watchdog-libero-mail-review
+  ed1d89525dd7 [active]
+    Name:      rebar-g0-review-peer128
     Schedule:  every 120m
     Repeat:    ∞
-    Next run:  2026-08-23T10:06:10.954120+02:00
+    Next run:  2026-08-24T09:47:17.252904+02:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
-    Monitor:   watchdog-libero-mail.sh (agent runs only on output change)
-    Changed:   2026-08-21T20:14:51.942895+02:00
-    Last run:  2026-08-23T08:06:10.954120+02:00  ok
-    Execution: completed  8458e8f24f364ed38e703c315efd2160
-
-  e387f0341b7f [active]
-    Name:      ripescatore-watchdog-rebar
-    Schedule:  every 30m
-    Repeat:    ∞
-    Next run:  2026-08-23T08:36:10.964309+02:00
-    Deliver:   origin
-    Script:    watchdog-ripescatore.sh
-    Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-23T08:06:10.964309+02:00  ok
-    Execution: completed  58731991775d410ea663805fea708562
-
-  a9e7580b6f61 [active]
-    Name:      human-mail-dispatch
-    Schedule:  every 15m
-    Repeat:    ∞
-    Next run:  2026-08-23T08:21:11.240154+02:00
-    Deliver:   local
-    Script:    human-mail-dispatch.sh
-    Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-08-23T08:06:11.240154+02:00  ok
-    Execution: completed  a541c9cb9bb646da8490fdde14d62b7b
+    Last run:  2026-08-23T19:35:56.694396+02:00  error: RuntimeError: HTTP 401: OAuth access token has expired. Re-authenticate to continue.
+    Execution: running  12abd3c0558c49c2ba1a5423a2923192
 
 
 

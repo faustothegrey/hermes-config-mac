@@ -6,7 +6,15 @@ sender `fausto.lelli@hotmail.com` / display "Pippo Baudo"); this file is a
 convenience ledger, not the source of truth. Reconstruct disputes from the email
 per loop-coding-guidelines §D.
 
-Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 → SENT 2026-08-21 08:09, awaiting verdict** · (next: G5..G6 → D1 → F0 → R0a → R1)
+Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 ✅ ACCEPT+GO (HMP, 2026-08-23)** · (next: G5..G6 → D1 → F0 → R0a → R1)
+
+> **⚠️ NUMBERING COLLISION (flagged 2026-08-23):** the falsifier-track "G1..G4"
+> in THIS ledger (Gate-1 enforcement slices: G1 baseline, G2 timeout, G3 effect,
+> G4 idempotency) is a DIFFERENT numbering from the empirical Phase-1a closure
+> gates "G1..G10" in `references/phase1a-operational-plan-2026-08-16.md`
+> (dataset size / precision / false-match / latency / packaging). The ledger's
+> "next: G5" is NOT defined as a falsifier slice anywhere — it must be sourced
+> from the predeclared program, not improvised. See channel decision below.
 
 ---
 
@@ -174,6 +182,119 @@ Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 → SE
   the first in-window tick as predicted. `humanmail.py status` shows
   `last_send 2026-08-21 08:09`, G4 `sent_in_thread=1 replies=0`, queue pending 0.
   G4 is now **SENT, awaiting verdict** in thread "Note della lezione di ieri".
+- **✅ VERDICT: ACCEPT + GO (INDEPENDENT, via HMP — 2026-08-23).** Channel had
+  already pivoted (email dead → HMP peer-to-peer). Reviewer = **peer136**
+  (developer≠reviewer preserved: peer136 did NOT author G4). peer136 independently
+  verified the pushed package on their node (did not trust claims):
+  - Checksums via `sha256sum -c`: tool_reuse.py=317d47e4…, harness_cli.py=5c3f6082…,
+    fake_hmp_server.py=**adb729…** (frozen G1), test_g4=bcae7cd4… ALL MATCH manifest.
+  - G4 falsifier (real middleware + frozen G1 server): **ENFORCED, 8/8** — idempotency
+    asymmetry proven (health idempotent / messages-next consumes m-alpha→m-beta→null),
+    consume declines `idempotency_mismatch` with NO substitution, same-host idempotent
+    GET /health still reused (idempotency is the discriminator), unrelated-endpoint
+    control declines for a DIFFERENT reason (unrecognized_endpoint).
+  - G4 focused regressions **7/7**; no-regression battery: G2 falsifier ENFORCED 7/7,
+    G3 falsifier ENFORCED 8/8, G1 fake-server 10/10, G2 10/10, G3 6/6, a5 convergence
+    17/17, compileall OK.
+  - Code review: G4 branch in `derive_operation` is additive-only, placed after
+    /hmp/send and before health checks, does not touch G2/G3 enforcement; both
+    /messages/next and /hmp/messages/next decline correctly.
+  - **Deployment finding (not a code defect):** peer136 runtime `plugin/__init__.py`
+    was STALE (missing tool_request middleware registration + on_tool_request wrapper).
+    Root cause: the original handover manifest omitted `__init__.py`. FIXED 2026-08-23 —
+    `plugin/__init__.py` (sha `7ec34406…`, contains `register_middleware("tool_request",
+    on_tool_request)`) pushed + verified on peer136 + appended to REBAR-HANDOVER manifest.
+    **Any future inheritor MUST sync `plugin/__init__.py` too** or the falsifier can't
+    fire through the real middleware (classic skill/runtime divergence trap).
+- **G4 CLOSED. Roles: peer136=developer, peer128=reviewer. Next gate awaiting
+  channel decision on numbering (see collision note at top) before development starts.**
+
+---
+
+Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 ✅ ACCEPT+GO (HMP, 2026-08-23)** · TRACK=G0 pre-seal prep (steps G0-1..G0-4) · **G0-1 ✅ ACCEPT+GO (HMP, 2026-08-23)** · **G0-2 ✅ ACCEPT w/ MANDATORY PRE-SEAL FINDING (HMP, 2026-08-23)** · (empirical Phase-1a G1..G10 blocked on G0 + holdout + PREDECLARATION)
+
+---
+
+## G0-2 — LIVE trace_id proof (peer136) — ✅ ACCEPT (adapter proof solid) + 🔴 MANDATORY PRE-SEAL FINDING
+
+- **Independent verification by peer128** against peer136 live `~/.hermes/data/reuse-observer/events.jsonl` (802 KB, append-only) + battery re-run on the real gateway venv `/home/fausto/.hermes/hermes-agent/venv/bin/python`:
+  - **5 claimed live chains VERIFIED** (parsed the real log): all UUID v4, each with complete retrieval→surface_start→surface_complete, all distinct, **zero chat_id/peer fallback**. trace_ids d9b672c5 / 2ba88412 / 7d6e262a / 3294bd24 / fba757ea. ✅
+  - **Collector event VERIFIED:** trace fba757ea → `collector_peer_id=peer70`, `producer_surface=hmp_ingress`. ✅
+  - **Battery VERIFIED (reproduced myself):** `test_g0_adapter.py` is a custom harness (4 async/sync fns, 30 sub-assertions) — ran it on the gateway venv → **RISULTATO: 30 PASS / 0 FAIL**. (Note: bare `python3` gives "0 tests / No module aiohttp" — MUST use the hermes-agent venv; recorded so future reviewers don't misread it as a fail.)
+  - **Adapter fail-closed VERIFIED CORRECT:** the adapter surface (`producer_surface=hmp_ingress`, source `hmp_plugin.consumer_loop`) classifies `from_peer`-only traffic as `unknown` — exactly right.
+- **🔴 MANDATORY PRE-SEAL FINDING (dev report OMITTED this; found by peer128):** the live log
+  contains **duplicate retrieval_events per trace_id from a SECOND emit surface** — the
+  capability-reuse plugin hook (`source=hook_context.capability_reuse_provenance`,
+  `producer_surface=EMPTY`). For the SAME trace_id (e.g. 7d6e262a, d9b672c5) this second
+  surface stamps **`traffic_type=organic_peer` while its own `provenance.valid=False`
+  (`reason=invalid_provenance`)**. 13 such events in the log (traffic_type=organic_* but
+  provenance invalid/unknown).
+  - **Why G0-2 still ACCEPTs:** (1) the defect is NOT in adapter.py (the G0-2 subject) — the
+    adapter emits correct fail-closed `unknown` + `producer_surface=hmp_ingress`; (2) the
+    formal eligibility gate `review_queue.formal_holdout_validation` rejects on
+    `invalid_provenance` regardless of traffic_type (asserted by
+    `tests/test_v246_review_remediation.py::test_formal_holdout_requires_complete_valid_live_cohort`),
+    so **NO invalid event can enter the sealed holdout** — fail-closed HOLDS at the gate.
+  - **Why it BLOCKS the G0 seal:** any consumer that counts organics from raw `traffic_type`
+    (analyzer organic-rate, G6 recurrence, dataset-sufficiency toward the ≥60 organic_live G1)
+    would **OVERCOUNT organic and could pull an invalid-provenance event in as `organic_peer`.**
+    Plus: duplicate retrieval_event per trace_id inflates chain counts, and the second surface's
+    `producer_surface` is empty (must be set).
+  - **REQUIRED before G0 seal (assign as G0-3 remediation, peer136 develops):** (a) the plugin-hook
+    emit surface MUST use the SAME fail-closed classifier as the adapter — `traffic_type` must
+    not be `organic_*` when `provenance.valid=False`; (b) set a non-empty `producer_surface` on
+    that surface; (c) resolve the double-emit (one canonical retrieval_event per trace_id, or
+    explicitly distinguish surfaces so counting dedupes by trace_id); (d) add a regression that
+    fails if any emitted retrieval_event has `traffic_type=organic_*` with `provenance.valid=False`.
+- **Verdict: G0-2 ACCEPT** (adapter live trace_id proof independently reproduced) **+ finding
+  raised as a mandatory pre-seal fix (G0-3).** Does NOT block G0-2; DOES block the formal G0 seal
+  and any organic counting until remediated. Primary artifact = HMP verdict message to peer136.
+
+---
+
+## G0-1 — HMP adapter.py source-review (peer136) — ✅ ACCEPT + GO (HMP, 2026-08-23)
+
+- **Track:** G0 pre-seal prep (Fausto directive; only legitimate now-runnable track).
+  Roles: peer136=developer, peer128=reviewer. Cadence 2h/2h, automated both sides
+  (peer136 cron `rebar-g0-loop-peer136`; peer128 cron `rebar-g0-review-peer128` id
+  `ed1d89525dd7`).
+- **Dev claim:** peer136 adapter.py = v0.1.5 sha `6fc19e0f…`; reviewed baseline was
+  v0.1.4-g0 sha `c164ba7a…`; sha differs only because 0.1.5 is a newer minor;
+  full G0 feature set present, no regression.
+- **Independent verification by peer128 (did NOT trust the claim):**
+  - Confirmed peer136 `~/.hermes/plugins/hmp/adapter.py` sha = **`6fc19e0f…`** (ssh, live).
+    Byte-identical to my local `g0-bundle/peer128-bundle/plugins/hmp/adapter.py` — so I
+    reviewed the actual running bytes, not a description.
+  - Version markers in-file: `"version": "0.1.5"` (L215), `hmp_version "1.0"` (L269),
+    `capability_version="0.1.5"` (L497). Consistent with the claim.
+  - **P0-10 request-unique trace_id VERIFIED CORRECT:** single `trace_id = str(uuid.uuid4())`
+    (L405) generated once, propagated identically to `emit_retrieval` (L451),
+    `emit_surface_execution_start` (L466), `emit_surface_execution_complete` (L491), and
+    the return dict (L503). No re-generation per emit; no `chat_id`/peer/session fallback
+    on the eligible chain. The prior surface_complete `trace_id=chat_id` bug is fixed.
+  - `_classify_traffic` **fail-closed** (L350–386): `from_peer` alone → `unknown`
+    (`missing_provenance`), never organic; organic_peer only on explicit
+    `provenance=organic_live`; operator_solicited/seeded detected from body. ✅
+  - `_process_item` (L388) with per-message try/except + `_consumer_loop` (L555)
+    `continue` isolation — one bad message can't kill the loop. ✅
+  - `_extract_collector` (L510) body > env > absent. ✅
+- **⚠️ HONEST LIMITATION (not a defect, but stated so the seal is truthful):** the
+  reviewed baseline `c164ba7a…` (v0.1.4-g0) is **NOT present on peer128** — searched
+  g0-bundle/, plugins/hmp/, backups/. I therefore could **not** produce a line-level
+  baseline→v0.1.5 diff to *prove* "only additive minor bump, zero G0-marker regression."
+  I verified the **G0 feature set is fully PRESENT and correct in v0.1.5 by direct
+  inspection**, which is sufficient to ACCEPT the source-review deliverable. But
+  "feature-set identical to baseline" is accepted on **presence evidence**, not on a
+  baseline diff. If a byte-level no-regression proof is required for the formal G0 seal,
+  peer136 (or peer70) must supply the `c164ba7a…` baseline artifact for a real diff —
+  logged as a follow-up, does not block G0-1.
+- **Verdict: ACCEPT + GO.** Proceed to **G0-2 (live trace_id proof):** 2 distinct
+  requests → 2 distinct trace_ids; same request → same trace_id across the full
+  retrieval→surface_start→surface_complete chain in the live event log; ≥14 fail-closed
+  provenance cases; collector body/env/absent — matching the v0.1.4-g0 report's evidence
+  shape (`references/g0-hmp-adapter-trace-id-2026-08-16.md`), but produced LIVE on
+  peer136's own hook path.
+- Primary artifact = the HMP verdict message to peer136; this is the convenience record.
 
 ---
 

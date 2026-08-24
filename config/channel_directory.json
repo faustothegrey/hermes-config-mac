@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-23T08:06:05.569295",
+  "updated_at": "2026-08-24T07:47:15.094308",
   "platforms": {
     "telegram": [
       {
@@ -17,14 +17,14 @@
         "thread_id": null
       },
       {
-        "id": "rebar_current_inventory_runtime",
-        "name": "rebar_current_inventory_runtime",
+        "id": "peer70",
+        "name": "peer70",
         "type": "dm",
         "thread_id": null
       },
       {
-        "id": "peer70",
-        "name": "peer70",
+        "id": "rebar_current_inventory_runtime",
+        "name": "rebar_current_inventory_runtime",
         "type": "dm",
         "thread_id": null
       },

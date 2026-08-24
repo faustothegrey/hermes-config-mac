@@ -130,9 +130,10 @@ STDOUT:
 │ subagent-driven-deve… │ software-development │ local    │ local    │ enabled │
 │ systematic-debugging  │ software-development │ builtin  │ builtin  │ enabled │
 │ test-driven-developm… │ software-development │ builtin  │ builtin  │ enabled │
+│ verifying-agent-clai… │ software-development │ local    │ local    │ enabled │
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 81 builtin, 41 local — 125 enabled, 0 disabled
+3 hub-installed, 81 builtin, 42 local — 126 enabled, 0 disabled
 
 
 
