@@ -252,14 +252,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T20:04:50.454788+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-08-23T11:58:18.200776+00:00",
-    "last_viewed_at": "2026-08-23T11:58:18.195445+00:00",
+    "last_used_at": "2026-08-26T13:43:17.064466+00:00",
+    "last_viewed_at": "2026-08-26T13:43:17.057937+00:00",
     "patch_count": 13,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 34,
-    "view_count": 34
+    "use_count": 36,
+    "view_count": 36
   },
   "claude-code": {
     "archived_at": null,
@@ -267,14 +267,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": null,
-    "last_viewed_at": null,
+    "last_used_at": "2026-08-26T09:15:38.144148+00:00",
+    "last_viewed_at": "2026-08-26T09:15:38.140047+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 0,
-    "view_count": 0
+    "use_count": 1,
+    "view_count": 1
   },
   "claude-design": {
     "archived_at": null,
@@ -754,6 +754,21 @@
     "use_count": 74,
     "view_count": 74
   },
+  "hermes-voice-io-macos": {
+    "archived_at": null,
+    "created_at": "2026-08-26T09:49:25.762515+00:00",
+    "created_by": "agent",
+    "last_patched_at": "2026-08-26T09:49:37.621128+00:00",
+    "last_reused_patch_generation": 0,
+    "last_used_at": "2026-08-26T09:49:47.198008+00:00",
+    "last_viewed_at": "2026-08-26T09:49:47.194866+00:00",
+    "patch_count": 1,
+    "patch_generation": 1,
+    "pinned": false,
+    "state": "active",
+    "use_count": 1,
+    "view_count": 1
+  },
   "himalaya": {
     "archived_at": null,
     "created_at": "2026-08-17T20:08:01.943411+00:00",
@@ -880,13 +895,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-08-25T19:16:22.972112+00:00",
+    "last_used_at": "2026-08-26T19:58:35.703014+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 41,
+    "use_count": 53,
     "view_count": 7
   },
   "macos-computer-use": {

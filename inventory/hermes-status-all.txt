@@ -34,13 +34,13 @@ STDOUT:
   FAL           ✗ (not set)
   ElevenLabs    ✗ (not set)
   GitHub        ✗ (not set)
-  Anthropic     ✗ (not set)
+  Anthropic     ✓ sk-a...zwAA
 
 ◆ Auth Providers
   Nous Portal   ✓ logged in
     Portal URL: https://portal.nousresearch.com
     Inference:  https://inference-api.nousresearch.com/v1
-    Access exp: 2026-08-25 19:54:53 CEST
+    Access exp: 2026-08-26 23:14:01 CEST
     Key exp: "<REDACTED>"
     Refresh:    yes
   OpenAI Codex  ✓ logged in
@@ -59,7 +59,7 @@ STDOUT:
   Web tools       ✓ active via Nous subscription
   Image generation ✓ active via Nous subscription
   Video generation ✓ not configured
-  OpenAI TTS      ✓ active via Nous subscription
+  OpenAI TTS      ✓ active via Edge TTS
   Speech-to-text  ✗ included by subscription, not currently selected
   Browser automation ✓ active via Nous subscription
   Modal execution ✓ active via local
@@ -102,8 +102,8 @@ STDOUT:
   Jobs:         7 active, 10 total
 
 ◆ Sessions
-  Active:       6 session(s)
-  Last activity:   2026-08-13
+  Active:       8 session(s)
+  Last activity:       7h ago
 
 ────────────────────────────────────────────────────────────
   Run 'hermes doctor' for detailed diagnostics

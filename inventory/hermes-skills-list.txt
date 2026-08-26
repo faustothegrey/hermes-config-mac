@@ -85,6 +85,7 @@ STDOUT:
 │ document-to-action-i… │ productivity         │ builtin  │ builtin  │ enabled │
 │ docx                  │ productivity         │ builtin  │ builtin  │ enabled │
 │ google-workspace      │ productivity         │ builtin  │ builtin  │ enabled │
+│ hermes-voice-io-macos │ productivity         │ local    │ local    │ enabled │
 │ linear                │ productivity         │ local    │ local    │ enabled │
 │ maps                  │ productivity         │ builtin  │ builtin  │ enabled │
 │ meeting-action-items  │ productivity         │ builtin  │ builtin  │ enabled │
@@ -133,7 +134,7 @@ STDOUT:
 │ verifying-agent-clai… │ software-development │ local    │ local    │ enabled │
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 81 builtin, 42 local — 126 enabled, 0 disabled
+3 hub-installed, 81 builtin, 43 local — 127 enabled, 0 disabled
 
 
 

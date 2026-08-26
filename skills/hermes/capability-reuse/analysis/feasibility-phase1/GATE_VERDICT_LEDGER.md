@@ -1,5 +1,96 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-08-26 (~22:10) — G0-3 **ACCEPT + GO** (supersedes the ~16:15 REWORK-BLOCKED; all 3 conditions now met)
+
+- **Verdict:** SOURCE=ACCEPT and **SEAL=ACCEPT → G0-3 CLOSED / GO.** HMP msg
+  `hmp_2d1a479c9b86492b` (HTTP 202, `accepted:true`, queued) to peer136.
+  This **supersedes** the prior `hmp_952cc4ec29a942a2` REWORK-BLOCKED: this is a
+  proper LATER tick (~22:10, not a parallel writer — 16:15 verdict → dev
+  remediated → re-review), and every blocker it named is now cleared.
+- **Re-ran the REAL independent review (no rubber-stamp), all on peer136 via ssh
+  + the live gateway venv `~/.hermes/hermes-agent/venv/bin/python`:**
+  - Hashes MATCH manifest: retriever.py=`16c18a08…4897`, event_store.py=`92b3204f…0f40`,
+    test_g0_3_regression.py=`befd992e…0b99`. mtimes Aug 23 16:11–16:12, no post-review edits.
+  - Source markers present: (a) `_extract_traffic_type(provenance_valid=…)` fail-closed
+    `organic_ok = provenance_valid is not False`; (b) emit `producer_surface=events.current_surface() or "gateway"`;
+    (c) dedupe `find_retrieval_event_id(trace_id)`.
+  - Batteries **re-run by me** (not trusted): `test_g0_adapter.py` **30/30**,
+    `test_g0_3_regression.py` **11/11**, `g0_3_live_hook2.py` **5/5**, `g0_live_battery.py` **28/28** — all GREEN.
+- **The three prior REWORK conditions are now SATISFIED:**
+  1. **Gateway runs fixed bytes.** PID 3523 started **2026-08-26 14:56:10 CEST**
+     (etimes ~7.2h, no restart since) — AFTER the Aug 23 16:12 fix → executes fixed code.
+     I made **no** restart; the 14:56 reload was independent of this review.
+  2. **Live log clean post-reload.** Post-14:56 retrieval_events (3): all
+     `traffic_type=unknown`, surf=`hmp_ingress`, valid=False → correctly **fail-closed**
+     (peer HMP, not valid-organic). **Zero** organic_*+valid=False; **zero** traces with
+     >1 retrieval_event (dedupe effective). The 2 all-time violations (Aug 23 14:25,
+     Aug 26 05:57) were emitted by the PRIOR pre-14:56 process — historical, append-only,
+     expected, NOT live.
+  3. **The two missing batteries supplied** — `g0_3_live_hook2.py`, `g0_live_battery.py`
+     created 2026-08-26 17:52/17:53 (after the 16:15 tick), now reproducible 5/5 + 28/28.
+- **No new G0 dev-step pending** (G0-1..G0-4). The four recent peer136 msgs (15:32–15:43)
+  are the peer141 reviewer-asset coordination, already answered in the 15:40 tick — NOT dev steps.
+- Standing invariants intact: G1 fake-server frozen `adb729…`; G2/G3/G4 semantics FIXED;
+  no G5 falsifier improvised; **no core/runtime edits, no gateway restart** by me this tick.
+
+---
+
+## Tick 2026-08-26 (~16:15) — G0-3 VERDICT DELIVERED (HMP channel restored)
+
+- **peer136 back on ALL channels:** ICMP 0% loss, `/hmp/health`=200, `/hmp/send`=405-on-GET
+  (alive), SSH up (host "Davon"). The G0-3 verdict recorded earlier (send channel was DOWN,
+  and the prior attempt `hmp_4888dd9f1f554f25` had failed on provider-auth with no content)
+  is now **DELIVERED**.
+- **Re-ran the REAL independent review this tick (no rubber-stamp):**
+  - Hashes on peer136 live tree via ssh: retriever.py=`16c18a08…`, event_store.py=`92b3204f…`,
+    test_g0_3_regression.py=`befd992e…` — ALL MATCH manifest.
+  - On the real gateway venv: `test_g0_adapter.py` **30/30**, `test_g0_3_regression.py` **11/11**.
+  - **SEAL finding STILL LIVE:** events.jsonl carries an AFTER-fix defect — trace
+    `d4d3fa19` @ `2026-08-26T05:57:34Z`, `producer.surface=gateway`,
+    `traffic_type=organic_peer`, `provenance.valid=false`, empty producer_surface, TWO
+    retrieval_events (dedupe did not fire). Also `bc503577` @ `01:55:34Z` dup. Fix mtime
+    is 2026-08-23 16:12 → running gateway executes STALE pre-fix bytes (deploy≠reviewed).
+  - Two batteries `g0_3_live_hook2.py` (5/5) + `g0_live_battery.py` (28/28) still NOT present
+    on peer136 → uncertifiable (stated honestly, not fabricated).
+- **VERDICT sent:** **SOURCE=ACCEPT / SEAL=REWORK-BLOCKED.** HMP msg
+  `hmp_952cc4ec29a942a2` (HTTP 202, queued), idempotency `peer128_g0_3_verdict_reissue_20260826`.
+  Required before G0-3 closes: (1) Fausto reloads peer136 gateway to run fixed bytes
+  (no restart by me); (2) post-reload live log shows zero new gateway organic_*+valid=false
+  + one retrieval_event/trace; (3) supply or drop the two missing batteries.
+- **No new G0 dev-step pending** (G0-1..G0-4): the four recent peer136 msgs (15:32–15:43) are
+  the peer141 reviewer-asset coordination, already answered in the 15:40 tick — NOT dev steps.
+- Standing invariants intact: G1 frozen `adb729…`; G2/G3/G4 fixed; no G5 improvised;
+  **no core/runtime edits, no gateway restart** this tick. One step in flight.
+
+---
+
+## Tick 2026-08-26 (~15:40) — NON-verdict coordination (peer141 reviewer-asset identification)
+
+- **No new G0 dev-step pending** this tick. Last real dev step remains G0-3 (2026-08-23):
+  SOURCE=ACCEPT / SEAL=REWORK-BLOCKED (awaits Fausto gateway reload). No rubber-stamp.
+- **peer136 is BACK ONLINE** (ping 0% loss, `/hmp/health` 200, node_id peer136) after the
+  ~3-day silence noted in the prior tick. Its two newest HMP msgs (`reviewer_assets_peer141_01`
+  15:35 = timeout follow-up; `hmp_c3b92fab88074366` 15:32) are a **Fausto-authorized, read-only**
+  request to identify the authoritative founding charter + loop-coding-guidelines skill (exact
+  paths/version/sha256) for byte-identical transfer to **peer141**. NOT a dev step; no verdict.
+- **Answered** (read-only, no runtime/loop/gateway/core changes). Key finding: **no file literally
+  named `REBAR_REVIEW_STATE.md` exists** — that is the SUPERSEDED ("vecchio stato") Phase-0 name.
+  Authoritative artifacts identified:
+  - Charter: `references/rebar-founding-intent-and-tool-use-contract.md` (Status: "Canonical
+    project charter") — 9596 B — sha256 `9b6c252042f2b4c188c1deb2a7d121bfda1eef8878f5bb889b019c42dfc3eee2`.
+    Required companion: `references/rebar-charter-alignment-agreed-plan-2026-08-17.md` — 9948 B —
+    sha256 `961430238204ff138476105d8c08320fcda58f10f07075ff840b4c3e9551004e`.
+  - Skill: `~/.hermes/skills/software-development/loop-coding-guidelines/` v1.0.0 — SKILL.md 20092 B —
+    sha256 `fbf07104521677f3a69727ba14e02a26327c3d6ea9e12f0b4bb4c54702b614a8`; supporting
+    `references/verdict-artifact-2026-08-17-g0-discrepancy.md` 3185 B —
+    sha256 `94d8e4c786746b170493a0d9f0fbf32edc383f4dd9eeec963d882e4abc3a8ad0`.
+- **Delivered via HMP** to peer136: msg `hmp_ee97405a927b42ef` (accepted/queued, poll confirms text
+  stored, body 1675 B < 2048 cap). idempotency_key `peer128_reviewer_assets_peer141_01`.
+- Standing invariants intact: G1 fake-server frozen `adb729…`; G2/G3/G4 semantics fixed; no G5
+  falsifier improvised; **no core/runtime edits, no gateway restart** this tick.
+
+---
+
 Durable record of reviewer verdicts for the Phase 1 gates. The PRIMARY artifact
 for every verdict is the reviewer email in the Libero INBOX (subject `RE: [DEV] ...`,
 sender `fausto.lelli@hotmail.com` / display "Pippo Baudo"); this file is a
@@ -297,6 +388,79 @@ Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 ✅ AC
 - Primary artifact = the HMP verdict message to peer136; this is the convenience record.
 
 ---
+
+## G0-3 — plugin-hook emit fail-closed + dedupe (peer136) — ⚠️ SOURCE ACCEPT + 🔴 REWORK (runtime not deployed) — verdict NOT deliverable (2026-08-26 later tick)
+
+- **This tick (2026-08-26, later): SSH to peer136 RESTORED — real independent review DONE.**
+  peer136 ICMP up (0% loss), SSH up, BUT **HMP gateway DOWN** (`/hmp/health`=000 x3),
+  so the verdict CANNOT be delivered via HMP yet. No new dev-step posted since 08-23.
+- **Independent verification (did NOT trust claims):**
+  - **Hashes MATCH manifest** (via ssh `sha256sum` on live files): retriever.py=`16c18a08…`,
+    event_store.py=`92b3204f…`, test_g0_3_regression.py=`befd992e…`. ✓
+  - **Code review** of `plugins/capability-reuse/retriever.py`: all 4 fixes present + correct —
+    (a) `_extract_traffic_type(..., provenance_valid=)` fail-closed (organic_ok = valid is not False;
+    L335, invalid→unknown at L367/L381); (b) `producer_surface=events.current_surface() or "gateway"`;
+    (c) dedupe `find_retrieval_event_id(trace_id)` → skip duplicate emit, reuse existing id;
+    (d) regression asserts organic_*+valid=False = 0. `find_retrieval_event_id` + `current_surface`
+    confirmed in event_store.py. ✓
+  - **Ran on the real gateway venv** (`/home/fausto/.hermes/hermes-agent/venv/bin/python`):
+    `test_g0_adapter.py` **30/30**, `test_g0_3_regression.py` **11/11**. ✓
+  - **Batteries `g0_3_live_hook2.py` (claimed 5/5) and `g0_live_battery.py` (claimed 28/28)
+    are NOT PRESENT on peer136** (find returns nothing) → those two claims CANNOT be certified.
+    Not fabricated: stated as unverifiable.
+- 🔴 **BLOCKING RUNTIME FINDING (peer128, this tick):** the live log
+  `~/.hermes/data/reuse-observer/events.jsonl` contains a **retrieval_event dated
+  `2026-08-26T05:57:34Z`** (trace `d4d3fa19-10fe-49d8-8a28-3a420f437e52`) with
+  `producer.component=capability_reuse_plugin v2.6.0`, `producer.surface=gateway`,
+  `traffic_type=organic_peer`, `provenance.valid=false` (`source=hook_context.capability_reuse_provenance`).
+  This is **the exact defect G0-3 removes**, emitted **3 days AFTER the fix mtime
+  (retriever.py mtime 2026-08-23 16:12)**. Same trace also has **TWO retrieval_events
+  (dedupe did NOT fire).** The fixed source cannot produce this → the **running gateway
+  was executing STALE (pre-fix) bytes** at 05:57 — a **deploy≠reviewed integrity break**,
+  the precise failure this program exists to prevent. (The other flagged event,
+  `20260823T14:25:26Z` trace `…ded06d1b`, is PRE-fix → expected historical.)
+- **VERDICT (recorded; NOT yet delivered — HMP send channel to peer136 is DOWN):**
+  **SOURCE = ACCEPT** (remediation is correct, hashes match, code right, adapter 30/30 +
+  regression 11/11 green). **SEAL = REWORK / BLOCKED:** the LIVE runtime does not enforce
+  the fix. Required before G0-3 closes and before any organic counting toward the seal:
+  1. Reload the peer136 gateway so it runs the fixed retriever bytes — **needs Fausto
+     (no gateway restart without Fausto per standing invariants).**
+  2. After reload, the live log must show **zero new `surface=gateway` organic_*+valid=False
+     retrieval_events** and **one retrieval_event per trace** (dedupe effective) on fresh traffic.
+  3. Supply the two missing batteries (`g0_3_live_hook2.py`, `g0_live_battery.py`) so their
+     5/5 + 28/28 claims can be independently reproduced, OR drop them from the manifest.
+- **Delivery status: verdict logged here but NOT sent** — peer136 HMP gateway `/hmp/send`
+  unreachable (http 000). Will POST the verdict to peer136 the moment its gateway is back.
+- Standing invariants intact this tick: G1 fake-server frozen `adb729…`; G2/G3/G4 semantics
+  fixed; no G5 falsifier improvised; **no core/runtime edits and no gateway restart** made.
+
+### (superseded) prior stall note — 2026-08-26 earlier tick
+- **Status: verdict re-issue REQUESTED by peer136, BLOCKED by peer136 being offline.**
+- Prior peer128 G0-3 verdict tick (HMP msg `hmp_4888dd9f1f554f25`) returned no
+  ACCEPT/REWORK content — it failed with an **LLM-provider auth error** on this
+  node ("Provider authentication failed…"), not a problem with the posted
+  remediation. peer136 COORD msg (2026-08-23 17:35) put the loop **HELD on G0-3**
+  and asked peer128 to re-issue the verdict when the provider is healthy.
+- **This tick (2026-08-26): CANNOT re-issue.** peer136 (192.168.178.136) is
+  **unreachable on every channel**: ICMP DOWN (100% loss), HMP gateway
+  `http://192.168.178.136:18643/hmp/health` and `/hmp/send` both `http_code=000`.
+  peer136's last inbound HMP activity was 2026-08-23 17:35 — silent ~3 days.
+- **Independent verification also impossible on this node:** the G0-3 remediation
+  artifacts live on peer136's tree with claimed hashes retriever.py=`16c18a08…`,
+  event_store.py=`92b3204f…`, test=`befd992e…`. This node's own capability-reuse
+  files hash to `3aacaf44…` (retriever) / `da7342cc…` (event_store) — a DIFFERENT
+  tree (peer128's), NOT the reviewed artifact. With SSH to 136 down I cannot
+  `sha256sum` the real files nor run the claimed battery (30/30, 11/11, 5/5,
+  28/28). **No verdict certified — refusing to rubber-stamp an unverifiable claim.**
+- **Action: NONE sent** (send channel is down anyway). Loop remains HELD on G0-3.
+  When peer136 returns: re-run the real independent review (ssh hash-check the
+  four files against the claimed shas, run test_g0_adapter.py 30/30 +
+  test_g0_3_regression.py 11/11 + g0_3_live_hook2.py 5/5 on the gateway venv,
+  confirm the fail-closed classifier / producer_surface / trace_id dedupe / the
+  new regression that fails on organic_* with provenance.valid=False), then issue
+  ACCEPT or REWORK via HMP.
+- Standing invariants intact: G1 fake-server frozen `adb729…`; G2/G3/G4 semantics
+  fixed; no G5 falsifier improvised; no core/runtime edits made this tick.
 
 ## Note — send-side dispatcher decoupled (2026-08-21, prevention fix)
 

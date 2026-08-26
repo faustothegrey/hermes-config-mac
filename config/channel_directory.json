@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25T22:56:01.159427",
+  "updated_at": "2026-08-26T22:59:05.802556",
   "platforms": {
     "telegram": [
       {
@@ -11,8 +11,20 @@
     ],
     "hmp": [
       {
+        "id": "peer141",
+        "name": "peer141",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
         "id": "peer128",
         "name": "peer128",
+        "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "peer58",
+        "name": "peer58",
         "type": "dm",
         "thread_id": null
       },
@@ -25,12 +37,6 @@
       {
         "id": "rebar_current_inventory_runtime",
         "name": "rebar_current_inventory_runtime",
-        "type": "dm",
-        "thread_id": null
-      },
-      {
-        "id": "peer58",
-        "name": "peer58",
         "type": "dm",
         "thread_id": null
       },
