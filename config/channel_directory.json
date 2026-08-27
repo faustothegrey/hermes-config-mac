@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T22:59:05.802556",
+  "updated_at": "2026-08-27T22:56:56.504973",
   "platforms": {
     "telegram": [
       {
@@ -10,6 +10,12 @@
       }
     ],
     "hmp": [
+      {
+        "id": "peer70",
+        "name": "peer70",
+        "type": "dm",
+        "thread_id": null
+      },
       {
         "id": "peer141",
         "name": "peer141",
@@ -25,12 +31,6 @@
       {
         "id": "peer58",
         "name": "peer58",
-        "type": "dm",
-        "thread_id": null
-      },
-      {
-        "id": "peer70",
-        "name": "peer70",
         "type": "dm",
         "thread_id": null
       },

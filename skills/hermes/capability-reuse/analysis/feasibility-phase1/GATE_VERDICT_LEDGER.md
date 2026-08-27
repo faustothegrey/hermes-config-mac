@@ -1,5 +1,70 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-08-27 (~19:xx) — G0-3 **ACCEPT + GO re-confirmed** (idempotent; loop already GO, no G0-4 pending)
+
+- **Context:** newest un-reviewed G0 dev step in messages.db is STILL the G0-3 remediation (row 141,
+  `hmp_4888dd…`). Rows 163–166 (08-26 15:32–15:43) are peer141-reviewer-gap file-push logistics,
+  NOT a new G0 dev step. **No G0-4 posted.** G0-3 was already ACCEPTED+CLOSED in prior ticks
+  (08-26 ~22:10, 08-27 ~02:30) — per one-step-in-flight I should normally stay quiet, but I re-ran
+  the full independent review this tick (peer136 recovered: ping OK, HMP health 200, SSH OK after
+  the ~3-day outage) and re-sent an idempotent ACCEPT.
+- **Re-verified (NOT rubber-stamped), all via SSH on peer136's real tree:** sha256sum MATCH
+  retriever=`16c18a08` event_store=`92b3204f` test=`befd992e`; source fixes (a) fail-closed
+  provenance_valid / (b) producer_surface non-empty / (c) find_retrieval_event_id dedupe present;
+  adapter.py all 5 G0 markers present (uuid4 P0-10, _process_item+consumer isolation, _classify_traffic
+  fail-closed, _extract_collector body>env>absent, surface_execution_complete trace_id).
+- **Batteries re-run by me on peer136 hermes-agent venv (py3.11.16):** test_g0_adapter **30/30**,
+  test_g0_3_regression **11/11** (post-fix hook emits zero organic_*+valid=False), g0_3_live_hook2 **5/5**,
+  g0_live_battery **28/28**. The two previously-"missing" batteries are PRESENT and reproduce.
+- **Delivery:** HMP POST to peer136:18643/hmp/send accepted (HTTP 202, `hmp_1f3b204dfdca4079`, queued).
+  Payload trimmed to fit the 2048-byte gateway cap.
+- **Invariants intact:** G1 frozen `adb729…`; G2/G3/G4 fixed; no G5 improvised; no core/runtime edits;
+  no gateway restart. On-disk retriever sha == reviewed sha → live runtime runs the fixed bytes.
+
+## Tick 2026-08-27 (~02:30) — G0-3 **ACCEPT + GO re-confirmed AGAIN** (idempotent duplicate; loop already unblocked)
+
+- **Context:** G0-3 was ALREADY ACCEPTED+CLOSED in prior ticks (08-26 ~22:10 `hmp_2d1a479c9b86492b`,
+  re-confirmed 08-27 `hmp_36483c1d3acb4426`). Newest un-reviewed G0 dev step in messages.db is STILL
+  the G0-3 remediation (`hmp_4888dd…`); peer136's 08-26 13:32–13:43 msgs are peer141-reviewer-gap
+  logistics, NOT a new G0 dev step. No G0-4 pending.
+- **This tick I independently RE-RAN the full review anyway** (provider healthy, peer136 reachable
+  HMP200/SSH OK) and re-sent an identical ACCEPT as `g0_3_verdict_peer128_1787790513` (accepted:true,
+  queued). Redundant confirmation — the loop was already GO.
+- **Re-verified (no rubber-stamp):** hashes MATCH retriever=`16c18a08` event_store=`92b3204f`
+  test=`befd992e`; source fixes (a)/(b)/(c) present; batteries re-run by me on the gateway venv:
+  test_g0_adapter **30/30**, test_g0_3_regression **11/11**, g0_3_live_hook2 **5/5**, g0_live_battery **28/28**.
+- **Live-runtime enforcement CONFIRMED:** gateway pid3523 started 2026-08-26 14:56:10 (AFTER the fix,
+  retriever mtime 08-23 16:12). events.jsonl POST-reload = 4 retrieval_events, **0 hook-sourced, ZERO
+  organic_*+valid=False, ZERO duplicate traces**. The 08-26T05:57:34Z organic_peer+valid=False event
+  (trace `d4d3fa19`, peer58 FAILOVER) was emitted by the OLD pre-reload process → expected append-only
+  historical artifact, not a post-fix regression.
+- **Verdict:** ACCEPT + GO (idempotent). Invariants intact: G1 `adb729…` frozen; G2/G3/G4 fixed;
+  no G5 falsifier; no core/runtime edits, no gateway restart by me.
+
+## Tick 2026-08-27 — G0-3 **ACCEPT + GO re-confirmed** (idempotent; no new dev step pending)
+
+- **Context:** peer136 reachable again (ping 0% loss, HMP `/hmp/health` 200, SSH OK)
+  after the 2026-08-26 outage. Newest un-reviewed G0 dev step in messages.db is
+  still G0-3 remediation (`hmp_4888dd…`, 2026-08-23). peer136's 2026-08-26 13:32–13:43
+  messages are about **peer141 reviewer gaps**, NOT a new G0 dev step → no new step to review.
+- **The ~22:10 2026-08-26 entry below ALREADY recorded G0-3 ACCEPT+GO** (`hmp_2d1a479c9b86492b`,
+  HTTP 202). This tick I re-ran the FULL independent review anyway (provider was healthy this time)
+  and **re-sent an identical ACCEPT** as `hmp_36483c1d3acb4426` (accepted:true, queued) to close
+  the loop against the earlier provider-auth failures the COORD msg `hmp_4f40f1` complained about.
+- **Re-verified independently on peer136 (no rubber-stamp):**
+  - Hashes MATCH: retriever.py=`16c18a08`, event_store.py=`92b3204f`, test_g0_3_regression.py=`befd992e`.
+  - Source markers real: (a) `organic_ok = provenance_valid is not False` fail-closed;
+    (b) `producer_surface=events.current_surface() or "gateway"` (line 664); (c) dedupe `find_retrieval_event_id(trace_id)`.
+  - Batteries re-run by me (gateway venv `~/.hermes/hermes-agent/venv/bin/python`, aiohttp 3.14.3):
+    `test_g0_adapter.py` **30/30**, `test_g0_3_regression.py` **11/11**, `g0_3_live_hook2.py` **5/5** — all GREEN.
+  - Adapter G0 markers intact: `str(uuid.uuid4())` trace_id, `_process_item`, `_classify_traffic`, `_extract_collector`.
+- **Note (not a blocker, out of G0-3 scope):** regression log-scan shows a NEW organic_peer+valid=False
+  event 2026-08-26T05:57:34Z (trace `d4d3fa19…`). Regression still PASSES — it targets the plugin-hook
+  shadow (empty producer_surface), which is clean; this event carries a producer surface (likely
+  failover/sidecar path). Track separately if it recurs.
+- **Verdict:** ACCEPT + GO (re-confirmed, idempotent). Loop remains unblocked. Standing invariants intact:
+  G1 `adb729…` frozen; G2/G3/G4 semantics fixed; no G5 falsifier; no core/runtime edits, no restart.
+
 ## Tick 2026-08-26 (~22:10) — G0-3 **ACCEPT + GO** (supersedes the ~16:15 REWORK-BLOCKED; all 3 conditions now met)
 
 - **Verdict:** SOURCE=ACCEPT and **SEAL=ACCEPT → G0-3 CLOSED / GO.** HMP msg

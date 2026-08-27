@@ -133,8 +133,9 @@ STDOUT:
 │ test-driven-developm… │ software-development │ builtin  │ builtin  │ enabled │
 │ verifying-agent-clai… │ software-development │ local    │ local    │ enabled │
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
+│ ai-cli-quota-monitor… │ sysadmin             │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 81 builtin, 43 local — 127 enabled, 0 disabled
+3 hub-installed, 81 builtin, 44 local — 128 enabled, 0 disabled
 
 
 

@@ -895,13 +895,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-08-26T19:58:35.703014+00:00",
+    "last_used_at": "2026-08-27T20:19:43.965789+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 53,
+    "use_count": 63,
     "view_count": 7
   },
   "macos-computer-use": {
