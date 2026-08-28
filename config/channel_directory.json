@@ -1,11 +1,17 @@
 {
-  "updated_at": "2026-08-27T22:56:56.504973",
+  "updated_at": "2026-08-28T22:59:37.843233",
   "platforms": {
     "telegram": [
       {
         "id": "8508115936",
         "name": "Fausto Lelli",
         "type": "dm",
+        "thread_id": null
+      },
+      {
+        "id": "-5324368669",
+        "name": "Local Mesh",
+        "type": "group",
         "thread_id": null
       }
     ],

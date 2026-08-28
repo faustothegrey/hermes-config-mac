@@ -1,5 +1,53 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-08-28 (~cron) — G0-3 **ACCEPT + GO** (idempotent re-confirm; loop already GO, no G0-4)
+
+- **Context:** newest un-reviewed G0 dev step in messages.db is STILL the G0-3 remediation
+  (`hmp_4888dd9f1f554f25`, 08-23 16:24). Rows after it (peer136 08-26 15:32–15:43) are peer141
+  reviewer-gap file-push logistics, NOT a new G0 dev step. **No G0-4 posted.** G0-3 already
+  ACCEPTED+GO in prior ticks (08-26/08-27/08-28 ~08:45). peer136 reachable: HMP health 200, SSH OK;
+  peer128 gateway health 200. No stall.
+- **Re-verified independently this tick (NOT rubber-stamped), via SSH on peer136's real tree + venv:**
+  - sha256sum MATCH: retriever.py=`16c18a08`, event_store.py=`92b3204f`, test_g0_3_regression=`befd992e`
+    (all equal peer136's claimed prefixes).
+  - source fixes present in retriever.py: (a) fail-closed `provenance_valid` gate (L334-335
+    `organic_ok = provenance_valid is not False`); (b) `producer_surface=current_surface() or "gateway"`
+    (L664); (c) `find_retrieval_event_id` trace_id dedupe (L635-639).
+  - batteries re-run by me on peer136 hermes-agent venv (py3.11.16): test_g0_adapter **30/30**,
+    test_g0_3_regression **11/11**, g0_3_live_hook2 **5/5**, g0_live_battery **28/28** — all GREEN.
+  - post-fix hook emits: zero organic_*+valid=False (regression G0-3d PASS). Non-blocking note: live
+    scan surfaced 2 organic_*+valid=False events total (both historical, one 08-26T05:57Z w/ empty
+    producer_surface = pre/outside the fixed hook emit); post-fix assertion still passes. Flagged to peer136.
+- **Delivery:** HMP POST to peer136:18643/hmp/send accepted+queued, `verdict_g03_128_136_1787949585`;
+  poll confirms the verdict text is stored in peer136's DB.
+- **Invariants intact:** G1 frozen `adb729…`; G2/G3/G4 semantics fixed; no G5 falsifier improvised;
+  no core/runtime edits, no gateway restart by peer128 this tick. Loop remains GO.
+
+## Tick 2026-08-28 (~08:45) — G0-3 **ACCEPT + GO** (idempotent re-confirm; fresh live evidence thru 08-28)
+
+- **Context:** newest un-reviewed G0 dev step in messages.db is STILL the G0-3 remediation (row 141).
+  No G0-4 posted; rows 163–166 are peer141 file-push logistics, not a dev step. G0-3 already
+  ACCEPTED in prior ticks (08-26, 08-27). peer136 recovered (ping OK, HMP health 200, SSH OK).
+  Re-ran the FULL independent review rather than rubber-stamp; the earlier SEAL blocker is now clearable.
+- **Re-verified via SSH on peer136's real tree + gateway venv (NOT rubber-stamped):**
+  - sha256 MATCH: retriever=`16c18a08`, event_store=`92b3204f`, test=`befd992e`.
+  - source fixes present: (a) fail-closed `provenance_valid` (organic_ok = provenance_valid is not False),
+    (b) `producer_surface=current_surface() or "gateway"`, (c) `find_retrieval_event_id` dedupe.
+  - tests re-run on hermes-agent venv: test_g0_adapter **30/30**, test_g0_3_regression **11/11**,
+    g0_3_live_hook2 **5/5**, g0_live_battery **28/28** — all GREEN. The two previously-ABSENT
+    batteries (hook2, live_battery) are now present on disk and were reproduced independently.
+- **✅ PRIOR SEAL BLOCKER RESOLVED (the 08-26 deploy≠reviewed break):** live `events.jsonl` shows
+  ALL 15 retrieval_events after `2026-08-26T05:57:34Z` (through `2026-08-28T06:14:52Z`) classify
+  `traffic_type=unknown` with NON-EMPTY `producer_surface` (gateway/hmp_ingress) on invalid
+  provenance = fail-closed live. Only **2** organic_*+valid=False events EVER, BOTH `<=05:57:34Z`
+  (the last stale-bytes emit); **ZERO after.** Dedupe live: 1 retrieval_event per trace, no dups.
+  ⇒ the running gateway now executes the FIXED bytes; **deploy == reviewed**.
+- **VERDICT SENT:** HMP `hmp_08ebbc6c8f4b48f5` (accepted/queued, HTTP 202) to peer136 —
+  G0-3 **ACCEPT + GO**, earlier SEAL=REWORK/BLOCKED no longer holds. Answers peer136's COORD
+  re-issue request (original hmp_4888dd… had failed with an LLM-provider auth error, no content).
+- **Invariants intact:** G1 frozen `adb729…`; G2/G3/G4 semantics fixed; no G5 falsifier improvised;
+  **no core/runtime edits, no gateway restart** by peer128 this tick.
+
 ## Tick 2026-08-27 (~19:xx) — G0-3 **ACCEPT + GO re-confirmed** (idempotent; loop already GO, no G0-4 pending)
 
 - **Context:** newest un-reviewed G0 dev step in messages.db is STILL the G0-3 remediation (row 141,
