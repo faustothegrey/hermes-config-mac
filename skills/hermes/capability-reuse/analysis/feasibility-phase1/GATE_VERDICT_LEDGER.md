@@ -1,5 +1,51 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-08-29 (later cron) — G0-3 **ACCEPT + GO** (idempotent re-confirm; NO new step; loop already GO)
+
+- **Nothing new pending.** Newest un-reviewed G0 dev step in messages.db is STILL the G0-3
+  remediation (`hmp_4888dd9f1f554f25`, 08-23). Rows after it (peer136 08-26) are peer141
+  reviewer-gap file-push logistics, NOT a G0 dev step. **No G0-4 posted.** G0-3 already
+  ACCEPTED+GO and delivered in prior ticks (08-26/27/28 + earlier 08-29 tick). Loop already GO.
+- **Reachability:** peer136 ping OK (5.7ms), HMP health 200, SSH OK; peer128 gateway not restarted. No stall.
+- **Independently re-verified (NOT rubber-stamped) on peer136's real tree + hermes-agent venv (aiohttp):**
+  - sha256sum MATCH: retriever.py=`16c18a08`, event_store.py=`92b3204f`, test_g0_3_regression=`befd992e`. G1 frozen `adb729…` intact.
+  - source fixes present in retriever.py: (a) fail-closed `organic_ok = provenance_valid is not False`
+    (L334-388); (b) `producer_surface=current_surface() or "gateway"` (L664); (c) `find_retrieval_event_id`
+    trace_id dedupe (L635-643).
+  - batteries re-run by me: test_g0_adapter **30/30**, test_g0_3_regression **11/11**, g0_3_live_hook2 **5/5**,
+    g0_live_battery **28/28** = 74/74 GREEN.
+  - deploy==reviewed: gateway pid3523 runs retriever.py hashing to reviewed `16c18a08`. 2 organic_*+valid=False
+    events (08-23T14:25, 08-26T05:57) carry NON-EMPTY producer_surface → not the hook bug this step fixed; regression scopes to hook emits and passes.
+- **Delivery:** HMP POST peer136:18643/hmp/send accepted+queued HTTP 202, `hmp_c452c28b9bdb40cf`.
+  (First attempt 2279 bytes rejected `message_too_large` max 2048 → resent compact 1501-byte verdict.)
+- **Invariants intact:** G1 frozen `adb729…e54edc`; G2/G3/G4 semantics fixed; no G5 falsifier improvised;
+  no core/runtime edits; no gateway restart by peer128. Loop remains GO.
+
+## Tick 2026-08-29 (~02:50 cron) — G0-3 **ACCEPT + GO** (idempotent re-confirm; NO new step; loop already GO)
+
+- **Nothing new pending.** Newest un-reviewed G0 dev step in messages.db is STILL the G0-3
+  remediation (`hmp_4888dd9f1f554f25`, row 141, 08-23). Rows 163–166 (08-26) are peer141
+  reviewer-gap file-push logistics, NOT a G0 dev step. **No G0-4 posted.** G0-3 already
+  ACCEPTED+GO and delivered in prior ticks (08-26/27/28). Per cadence this tick could have
+  stayed silent; I re-ran the full independent verification anyway and (redundantly) re-sent a
+  consistent verdict — harmless/idempotent, peer136 already holds it.
+- **Reachability:** peer136 ping OK, HMP health 200, SSH OK; peer128 gateway not restarted. No stall.
+- **Independently re-verified (NOT rubber-stamped) on peer136's real tree + runtime venv:**
+  - sha256sum MATCH: retriever.py=`16c18a08`, event_store.py=`92b3204f`, test_g0_3_regression=`befd992e`.
+  - source fixes present in retriever.py: (a) fail-closed `organic_ok = provenance_valid is not False`
+    (L334-388); (b) `producer_surface=current_surface() or "gateway"` (L664); (c) `find_retrieval_event_id`
+    trace_id dedupe (L635-643). event_store helpers present.
+  - batteries re-run on `~/.hermes/hermes-agent/venv` (aiohttp 3.14.3): test_g0_adapter **30/30**,
+    test_g0_3_regression **11/11**, g0_3_live_hook2 **5/5**, g0_live_battery **28/28** — all GREEN.
+  - deploy==reviewed confirmed: gateway pid3523 started 08-26 14:56 CEST; plugin mtimes 08-23 16:11-16:12;
+    ZERO organic_*+valid!=True AND zero empty-flat-surface hook emits after the 12:56Z restart boundary.
+    The only 2 organic_*+valid=False events (last one 08-26T05:57:34Z) are pre-load stale-process residue
+    in the append-only log, not a defect in the reviewed artifact.
+- **Delivery:** HMP POST peer136:18643/hmp/send accepted+queued HTTP 202, `hmp_g0_3_verdict_peer128_1787964967`.
+  (First attempt at 3771 bytes rejected `message_too_large` max 2048 → resent compact 1909-byte verdict.)
+- **Invariants intact:** G1 frozen `adb729…e54edc`; G2/G3/G4 semantics fixed; no G5 falsifier improvised;
+  no core/runtime edits; no gateway restart by peer128. Loop remains GO.
+
 ## Tick 2026-08-28 (~cron) — G0-3 **ACCEPT + GO** (idempotent re-confirm; loop already GO, no G0-4)
 
 - **Context:** newest un-reviewed G0 dev step in messages.db is STILL the G0-3 remediation

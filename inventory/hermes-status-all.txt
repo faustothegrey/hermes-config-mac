@@ -40,7 +40,7 @@ STDOUT:
   Nous Portal   ✓ logged in
     Portal URL: https://portal.nousresearch.com
     Inference:  https://inference-api.nousresearch.com/v1
-    Access exp: 2026-08-28 23:09:30 CEST
+    Access exp: 2026-08-29 23:13:00 CEST
     Key exp: "<REDACTED>"
     Refresh:    yes
   OpenAI Codex  ✓ logged in
@@ -102,8 +102,8 @@ STDOUT:
   Jobs:         7 active, 10 total
 
 ◆ Sessions
-  Active:       7 session(s)
-  Last activity:       6h ago
+  Active:       5 session(s)
+  Last activity:   2026-08-02
 
 ────────────────────────────────────────────────────────────
   Run 'hermes doctor' for detailed diagnostics
