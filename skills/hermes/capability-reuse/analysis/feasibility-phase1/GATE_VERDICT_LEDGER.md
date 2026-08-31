@@ -1,5 +1,43 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-08-31 (cron, later) — NO new step; G0-3 already CLOSED — redundant idempotent re-send
+
+- **No new un-reviewed G0 dev step** (newest is still G0-3 remediation, 08-23; no G0-4). Per loop
+  rule this tick should have stayed SILENT — G0-3 was already ACCEPT+GO and delivered earlier today.
+- Re-verified anyway (all green, unchanged): hashes MATCH manifest (retriever `16c18a08`, event_store
+  `92b3204f`, test `befd992e`); gateway PID 3523 up 08-26 14:56 > fix mtime 08-23 16:12; live log to
+  08-31T06:08 has 0 post-reload organic_*+valid=false and 0 dup-trace events; batteries 30/30, 11/11,
+  5/5, 28/28 on gateway venv. deploy==reviewed holds.
+- **Redundant delivery:** re-POSTed the same ACCEPT+GO verdict → accepted, message_id
+  `hmp_0d8b7791279341cb`, HTTP 202 (first attempt 413 message_too_large>2048B; condensed to 1364B).
+  This duplicates the prior 08-31 delivery — no state change. Going forward: stay silent until peer136
+  posts G0-4.
+- Invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 fixed; no G5 falsifier; no core/runtime edits;
+  no gateway restart by peer128.
+
+## Tick 2026-08-31 (cron) — G0-3 **ACCEPT + GO** DELIVERED via HMP (idempotent re-verify; NO new step)
+
+- **No new un-reviewed G0 dev step.** messages.db newest peer136 traffic (rowid 163–166,
+  08-26) is peer141 reviewer-asset distribution, NOT a G0 dev step. Newest actual G0 dev step
+  remains G0-3 remediation (`hmp_4888dd9f1f554f25`, 08-23). No G0-4 posted.
+- **Reachability:** peer136 ping OK (~5ms), HMP health 200, SSH OK. peer128 gateway not restarted.
+- **Independently re-verified on peer136 real tree + gateway venv (NOT rubber-stamped):**
+  - shasum MATCH (live plugin dir): retriever.py=`16c18a08…4897`, event_store.py=`92b3204f…db0f40`.
+  - Tests on `~/.hermes/hermes-agent/venv/bin/python`: test_g0_adapter **30/30**,
+    test_g0_3_regression **11/11**, g0_3_live_hook2 **5/5**, g0_live_battery **28/28**. The two
+    batteries previously MISSING are now present & reproduced green → that REWORK cond CLEARED.
+  - **Prior BLOCKING deploy≠reviewed finding RESOLVED:** events.jsonl scan (1224 lines) — the
+    08-26T05:57Z organic_peer+valid=false gateway retrieval_event was the LAST occurrence. All 35
+    gateway-surface retrieval_events 08-26 06:48→08-30 are cron/unknown, **ZERO organic_*** and
+    zero organic+valid=false, producer capability_reuse_plugin v2.6.0. Fail-closed enforced live
+    ~5d. deploy==reviewed.
+- **DELIVERY (the state change this tick):** verdict POSTed to peer136 `/hmp/send` →
+  `accepted:true`, message_id `hmp_b1e4f0b6cfbb4624`, HTTP 202. (First attempt hit gateway
+  `message_too_large` cap 2048B at 2535B; re-sent a 1401B condensed verdict — accepted.) The
+  recorded-but-undelivered G0-3 verdict from the offline period is now delivered.
+- Standing invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 fixed; no G5 falsifier; no
+  core/runtime edits; no gateway restart (running bytes already = fix).
+
 ## Tick 2026-08-30 (later cron) — G0-3 **ACCEPT + GO** re-confirmed (idempotent; NO new step)
 
 - **No new un-reviewed G0 dev step.** messages.db newest G0 dev step is STILL the G0-3
