@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 11444
+        "completed": 11417
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-09-02T23:02:56.062554+02:00",
-      "last_run_at": "2026-09-02T22:57:56.062554+02:00",
+      "next_run_at": "2026-09-02T20:42:32.964098+02:00",
+      "last_run_at": "2026-09-02T20:37:32.964098+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -66,7 +66,7 @@
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-09-03T23:00:00+02:00",
+      "next_run_at": "2026-09-02T23:00:00+02:00",
       "last_run_at": "2026-09-01T23:00:59.509826+02:00",
       "last_status": "ok",
       "last_error": null,
@@ -76,10 +76,7 @@
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null,
-      "fire_claim": {
-        "at": "2026-09-02T23:00:56.422803+02:00",
-        "by": "MacPro:836:f333dc8e5b244667bb325b4dd6dd2d90"
-      }
+      "fire_claim": null
     },
     {
       "id": "bdd8a7b271c1",
@@ -101,15 +98,15 @@
       "schedule_display": "every 2m",
       "repeat": {
         "times": null,
-        "completed": 26411
+        "completed": 26361
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:04.206104+02:00",
-      "next_run_at": "2026-09-02T23:02:56.826022+02:00",
-      "last_run_at": "2026-09-02T23:00:56.826022+02:00",
+      "next_run_at": "2026-09-02T20:40:32.979466+02:00",
+      "last_run_at": "2026-09-02T20:38:32.979466+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -145,15 +142,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 5727
+        "completed": 5713
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-09-02T23:07:56.007315+02:00",
-      "last_run_at": "2026-09-02T22:57:56.007315+02:00",
+      "next_run_at": "2026-09-02T20:47:32.947308+02:00",
+      "last_run_at": "2026-09-02T20:37:32.947308+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -189,15 +186,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 42125
+        "completed": 42055
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-09-02T23:00:56.310968+02:00",
-      "last_run_at": "2026-09-02T22:59:56.310968+02:00",
+      "next_run_at": "2026-09-02T20:41:33.211600+02:00",
+      "last_run_at": "2026-09-02T20:40:33.211600+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -228,15 +225,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 826
+        "completed": 824
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-09-03T00:00:00+02:00",
-      "last_run_at": "2026-09-02T22:00:49.288390+02:00",
+      "next_run_at": "2026-09-02T21:00:00+02:00",
+      "last_run_at": "2026-09-02T20:00:29.460703+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -250,10 +247,7 @@
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null,
-      "fire_claim": {
-        "at": "2026-09-02T23:00:56.597553+02:00",
-        "by": "MacPro:836:6bd369cb1a4f4599ad1e45b1779031ad"
-      }
+      "fire_claim": null
     },
     {
       "id": "5a94532c1745",
@@ -437,15 +431,15 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 106
+        "completed": 105
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-23T15:34:58.578767+02:00",
-      "next_run_at": "2026-09-02T23:31:30.150499+02:00",
-      "last_run_at": "2026-09-02T21:31:30.150499+02:00",
+      "next_run_at": "2026-09-02T21:27:58.766050+02:00",
+      "last_run_at": "2026-09-02T19:27:58.766050+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -465,5 +459,5 @@
       "fire_claim": null
     }
   ],
-  "updated_at": "2026-09-02T23:00:56.826447+02:00"
+  "updated_at": "2026-09-02T20:40:33.212069+02:00"
 }
