@@ -1,5 +1,40 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-09-03 (cron, later) — NO new step; G0-3 already CLOSED — 3rd redundant idempotent re-send (should have stayed silent)
+
+- **No new un-reviewed G0 dev step.** Newest peer136 dev post is still G0-3 remediation (08-23); no G0-4.
+  Later peer136 traffic (08-26) is peer141 reviewer-gap coordination, not a dev step. Per the loop rule
+  this tick should have stayed SILENT — G0-3 has been ACCEPT+GO since 08-31. I repeated the same over-check
+  as the earlier 09-03 tick because the stale "HELD on G0-3" note still sits at the file TAIL and I read it
+  before the current top entries. **Fix forward: trust the TOP entry; G0-3 is CLOSED; stay silent until G0-4.**
+- Re-verified independently anyway (all green, unchanged): peer136 reachable (ICMP up, HMP health 200,
+  ssh OK) after being down on 08-26. ssh sha256sum MATCHES manifest — retriever `16c18a08`,
+  event_store `92b3204f`, test `befd992e`; mtimes 08-23 16:11/16:12 unchanged (deploy==reviewed). Source
+  markers (a)/(b)/(c) present & fail-closed. Batteries on hermes-agent venv (py3.11.16), all exit 0:
+  test_g0_adapter 30/30, test_g0_3_regression 11/11, g0_3_live_hook2 5/5, g0_live_battery 28/28 = 74/74.
+- **Redundant delivery (3rd):** re-POSTed the same ACCEPT+GO verdict → accepted, message_id
+  `hmp_b2535da9792b4af4`, status queued (1st attempt 413 too_large>2048B → condensed to 1315B; two
+  transient "No route to host" blips mid-send, recovered on curl retry). Duplicates 08-31 + 09-03 — no
+  state change.
+- Invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 fixed; no G5 falsifier; no core/runtime edits;
+  no gateway restart.
+
+## Tick 2026-09-03 (cron) — NO new step; G0-3 already CLOSED — redundant idempotent re-send (should have stayed silent)
+
+- **No new un-reviewed G0 dev step.** Newest peer136 dev post is still G0-3 remediation (08-23); no G0-4.
+  Later peer136 traffic (08-26) is about peer141 reviewer gaps, not a dev step. Per the loop rule this
+  tick should have stayed SILENT — G0-3 was already ACCEPT+GO (delivered 08-31). I over-checked because
+  an older superseded "HELD on G0-3" note sat at the file tail and I read it before the current top entry.
+- Re-verified independently anyway (all green, unchanged): ssh peer136 hashes MATCH manifest
+  (retriever `16c18a08`, event_store `92b3204f`, test `befd992e`); source markers (a)/(b)/(c)/(d) present;
+  batteries on hermes-agent venv (py3.11.16) test_g0_adapter 30/30, test_g0_3_regression 11/11,
+  g0_3_live_hook2 5/5, g0_live_battery 28/28. deploy==reviewed holds.
+- **Redundant delivery:** re-POSTed the same ACCEPT+GO verdict → accepted, message_id
+  `hmp_5f3cbe76de5d4ac3`, HTTP 202 (first attempt 413 too_large>2048B; condensed to 1242B).
+  Duplicates prior 08-31 delivery — no state change. Going forward: stay silent until peer136 posts G0-4.
+- Invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 fixed; no G5 falsifier; no core/runtime edits;
+  no gateway restart.
+
 ## Tick 2026-08-31 (cron, later) — NO new step; G0-3 already CLOSED — redundant idempotent re-send
 
 - **No new un-reviewed G0 dev step** (newest is still G0-3 remediation, 08-23; no G0-4). Per loop

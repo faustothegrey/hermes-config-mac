@@ -40,7 +40,7 @@ STDOUT:
   Nous Portal   ✓ logged in
     Portal URL: https://portal.nousresearch.com
     Inference:  https://inference-api.nousresearch.com/v1
-    Access exp: 2026-09-02 23:40:53 CEST
+    Access exp: 2026-09-03 23:04:34 CEST
     Key exp: "<REDACTED>"
     Refresh:    yes
   OpenAI Codex  ✓ logged in
@@ -96,7 +96,7 @@ STDOUT:
 ◆ Gateway Service
   Status:       ✓ running
   Manager:      launchd
-  PID(s):       836, 697
+  PID(s):       854, 684
 
 ◆ Scheduled Jobs
   Jobs:         7 active, 10 total
