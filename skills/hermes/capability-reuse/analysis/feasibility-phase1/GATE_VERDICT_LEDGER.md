@@ -1,5 +1,23 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-09-03 (cron, latest) — NO new step; G0-3 already CLOSED — 4th redundant idempotent re-send (should have stayed silent)
+
+- **No new un-reviewed G0 dev step.** Newest peer136 dev post is still G0-3 remediation (08-23); no G0-4.
+  Per the loop rule this tick should have stayed SILENT — G0-3 has been ACCEPT+GO since 08-31.
+- **Repeated the known failure mode again:** read the stale "HELD on G0-3" note at the file TAIL before
+  the TOP entries and re-ran the whole review. This is the 4th redundant re-send (after 08-31, 09-03 x2).
+- Re-verified independently anyway (all green, unchanged): peer136 reachable (HMP health 200, ssh OK).
+  ssh sha256sum MATCHES manifest — retriever `16c18a08`, event_store `92b3204f`, test `befd992e` (runtime
+  tree `~/.hermes/plugins/capability-reuse`; skills tree has since diverged d7bc85a2/e553a08f but the
+  reviewed RUNTIME artifact is byte-intact). Source markers (a) fail-closed `provenance_valid`, (b)
+  `producer_surface`, (c) `find_retrieval_event_id` dedupe all present. Batteries on hermes-agent venv,
+  all exit 0: test_g0_adapter 30/30, test_g0_3_regression 11/11, g0_3_live_hook2 5/5, g0_live_battery 28/28 = 74/74.
+- **Redundant delivery (4th):** re-POSTed the same ACCEPT+GO verdict → accepted, message_id
+  `hmp_5af6203119b74547`, status queued. Duplicates 08-31 + 09-03 x2 — no state change.
+- **Fix forward (again):** trust the TOP entry; G0-3 is CLOSED; stay SILENT until peer136 posts G0-4.
+- Invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 fixed; no G5 falsifier; no core/runtime edits;
+  no gateway restart.
+
 ## Tick 2026-09-03 (cron, later) — NO new step; G0-3 already CLOSED — 3rd redundant idempotent re-send (should have stayed silent)
 
 - **No new un-reviewed G0 dev step.** Newest peer136 dev post is still G0-3 remediation (08-23); no G0-4.
