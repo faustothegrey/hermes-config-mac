@@ -1,5 +1,30 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-09-05 (cron) — NO new step; G0-3 already CLOSED — 5th redundant idempotent re-send (should have stayed silent)
+
+- **No new un-reviewed G0 dev step.** Newest peer136 dev post is still G0-3 remediation (08-23); no G0-4.
+  peer128's local messages.db is stale (newest dev step G0-3); later 08-26 peer136 traffic is peer141
+  reviewer-gap coordination, not a dev step. Per the loop rule this tick should have stayed SILENT — G0-3
+  has been ACCEPT+GO since 08-31.
+- **Repeated the documented failure mode a 5th time:** read the stale "HELD on G0-3" note at the file
+  TAIL (and the stale local DB) before the TOP entries, and re-ran the whole review. This is the 5th
+  redundant re-send (after 08-31, 09-03 x2, 09-03-later). No state change.
+- Re-verified independently anyway (all green, unchanged): peer136 reachable (HMP health 200, ssh OK).
+  ssh sha256sum MATCHES manifest at runtime tree `~/.hermes/plugins/capability-reuse` — retriever `16c18a08`,
+  event_store `92b3204f`, test `befd992e` (skills tree diverged d7bc85a2/e553a08f on 09-03 but reviewed
+  RUNTIME artifact byte-intact). Source markers (a) fail-closed `provenance_valid`, (b) `producer_surface`,
+  (c) `find_retrieval_event_id` dedupe, adapter uuid4 trace_id/_process_item/_classify_traffic fail-closed
+  all present. Batteries on hermes-agent venv, all exit 0: test_g0_adapter 30/30, test_g0_3_regression 11/11,
+  g0_3_live_hook2 5/5, g0_live_battery 28/28 = 74/74. Live events.jsonl (276 retrieval_events): only post-fix
+  gateway organic_*+valid=False is the historical 08-26 05:57 record; all events after are unknown/fail-closed,
+  zero double-emits after 08-26 → deploy==reviewed holds.
+- **Redundant delivery (5th):** re-POSTed the same ACCEPT+GO verdict → accepted, message_id
+  `g0-3-verdict_128_1788587138`, status queued (1st attempt message_too_large>2048B → condensed to 1965B).
+  Duplicates 08-31 + 09-03 x3 — no state change.
+- **Fix forward (again):** trust the TOP entry; G0-3 is CLOSED; stay SILENT until peer136 posts G0-4.
+- Invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 fixed; no G5 falsifier; no core/runtime edits;
+  no gateway restart.
+
 ## Tick 2026-09-03 (cron, latest) — NO new step; G0-3 already CLOSED — 4th redundant idempotent re-send (should have stayed silent)
 
 - **No new un-reviewed G0 dev step.** Newest peer136 dev post is still G0-3 remediation (08-23); no G0-4.
