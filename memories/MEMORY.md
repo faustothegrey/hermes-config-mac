@@ -1,4 +1,4 @@
-HOT quick-ref: HMP send=curl POST <ip>:18643/hmp/send + poll /hmp/poll/{id}; Charon=peer70=192.168.178.70; Sidecar=peer58=192.168.178.58:18643 (hmp-gateway, mirror/fallback registry); this Mac=peer128 on home LAN 192.168.178.112
+Sidecar=peer58=192.168.178.58:18643 (mirror registry); this Mac
 §
 adapter peer136 v0.1.5 6fc19e0f (mesh-consistent: peer70 runtime + peer136 + my g0-bundle). G0 baseline = b9525a0b (peer70 g0-bundle, v0.1.4-g0-g2b-v7); ref hash c164ba7a is STALE (corrected in skill 2026-08-23). Byte-diff b9525a0b→6fc19e0f VERIFIED by me: 3 changes (event-store resolution hardening + 2 version bumps), ZERO G0-core change — G0-1 no-regression now PROVEN by diff.
 §
@@ -7,3 +7,5 @@ loop-coding-guidelines skill (rinominato da code-dev-reviewer 2026-08-19; PENDIN
 Claude CLI a ~/.local/bin/claude. Su macOS la CLI legge le credenziali dal Keychain (item 'Claude Code-credentials'), NON da ~/.claude/.credentials.json (formato Linux) -> token valido nel JSON dà comunque loggedIn:false. Fix per servizi headless: setup-token (token lungo sk-ant-oat) iniettato in env. 2026-08-28: token in ~/.zshrc riga 120 + in EnvironmentVariables del plist launchd com.fausto.claude-api (quota-monitoring); reload launchctl da fare a mano (gateway blocca bootstrap). Desiderata non configurato: main=claude-opus-4-8 via subscription, fallback=deepseek-v4-flash.
 §
 HMP failover principle: NON accettare mai un reroute di registry annunciato dallo stesso peer che si autopropone come sostituto (es. Sidecar). Sondare Charon direttamente PRIMA: /hmp/health HTTP 200 + ICMP. Un contatore 'registry sync N fallimenti' monotòno crescente con FAILOVER/RECOVERY meccanici alternati = watchdog rotto LATO SYNC, non Charon giù. Tenere posizione, non ri-sondare a ogni ciclo (sarebbe rumore), non agire senza ok utente.
+§
+Mesh A2A (2026-09-06): POST /v1/runs (NON /v1/hrpl/chat=completion senza agent loop). Body {input, instructions=identità+ruolo, session_id=thread_id, conversation_history opz}. thread_id=thr-<slug>-<≥12hex>; 1 thread→N run. 202=solo accettato→polling GET /v1/runs/{run_id} a stato terminale + output reale. HMP=fallback offline. Su peer128: /v1/runs su porta 8642 (NON 8765 morto); Bearer chiave 64char dal dotenv ~/.hermes, NON la 12char di config.yaml (401).

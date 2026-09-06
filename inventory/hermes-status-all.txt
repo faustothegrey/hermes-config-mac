@@ -89,8 +89,8 @@ STDOUT:
   Jobs:         7 active, 10 total
 
 ◆ Sessions
-  Active:       5 session(s)
-  Last activity:   2026-08-02
+  Active:       6 session(s)
+  Last activity:      13h ago
 
 ────────────────────────────────────────────────────────────
   Run 'hermes doctor' for detailed diagnostics
