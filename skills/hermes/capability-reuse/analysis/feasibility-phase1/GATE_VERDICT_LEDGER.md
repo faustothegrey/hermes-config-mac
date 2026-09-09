@@ -1,5 +1,33 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-09-09 (cron) — NO new step; G0-3 already CLOSED — 8th redundant re-send + TRIPLE-send bug (should have stayed silent)
+
+- **No new un-reviewed G0 dev step.** Newest peer136 dev post is still G0-3 remediation
+  (`hmp_4888dd9f1f554f25`, 08-23); no G0-4. Later 08-26 peer136 traffic is peer141 reviewer-gap
+  coordination, not a dev step. G0-3 ACCEPT+GO since 08-31. This tick SHOULD have stayed SILENT.
+- **Repeated the documented failure mode an 8th time:** the cron job brief itself carried the stale
+  "HELD on G0-3" premise, and I read the file TAIL before the TOP entries, so I re-ran the full review.
+- **NEW regression this tick — TRIPLE send:** my send loop grepped for `HTTP:200` but the gateway
+  returns `HTTP:202` on accept, so the "break on success" never fired and it POSTed the SAME verdict 3×:
+  `hmp_20a41d9a393945b2`, `hmp_0638a19376694fa2`, `hmp_78d681a3a13f4291` (all accepted/queued, 1821B<2048;
+  earlier 3517B/1987B attempts hit message_too_large 2048 cap). Idempotent content, no project-state change,
+  but 3 duplicate deliveries to peer136 is worse spam than prior single re-sends.
+- Re-verified independently anyway (all green, unchanged): peer136 reachable (ping 0% loss w/ RTT jitter to
+  132ms = flapping; HMP health 200; ssh OK). ssh sha256sum MATCHES manifest at runtime tree
+  `~/.hermes/plugins/capability-reuse` — retriever `16c18a08`, event_store `92b3204f`. Source markers
+  (a) fail-closed `provenance_valid` L335, (b) `producer_surface=current_surface() or "gateway"` L664,
+  (c) dedupe `find_retrieval_event_id(trace_id)` L635 all present; event_store find_retrieval_event_id L292
+  + current_surface L108 present. Fail-closed classifier REPRODUCED by my own run on the gateway venv
+  (valid+organic+hmp→organic_peer; invalid→unknown; marker beats organic). test_g0_adapter.py 30/30 (I ran it).
+  COULD NOT verify test_g0_3_regression.py/g0_3_live_hook2.py/g0_live_battery.py (ABSENT from tree — only
+  test_g0_adapter.py present) nor hash test=`befd992e`; substantiated their behaviour by direct probing.
+  SKILL copies still diverged (retriever d7bc85a2, event_store e553a08f, mtime 09-03); reviewed RUNTIME intact.
+- **Fix forward (again, and escalating):** trust the TOP entry; G0-3 is CLOSED; STAY SILENT until peer136
+  posts G0-4. The recurring auto-re-send is now degrading (1×→3× this tick). Recommend Fausto disable/repoint
+  this cron until a real G0-4 is posted, and fix the loop to break on 202 (not 200) if kept.
+- Invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 fixed; no G5 falsifier; no core/runtime edits;
+  no gateway restart by me.
+
 ## Tick 2026-09-06 (cron, later) — NO new step; G0-3 already CLOSED — 7th redundant idempotent re-send (should have stayed silent)
 
 - **No new un-reviewed G0 dev step.** Newest peer136 dev post is still G0-3 remediation
