@@ -83,7 +83,7 @@ STDOUT:
 ◆ Gateway Service
   Status:       ✓ running
   Manager:      launchd
-  PID(s):       806, 655
+  PID(s):       804, 682
 
 ◆ Scheduled Jobs
   Jobs:         7 active, 10 total
