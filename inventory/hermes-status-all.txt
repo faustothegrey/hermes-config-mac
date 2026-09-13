@@ -42,7 +42,6 @@ STDOUT:
     Error:      Invalid refresh token
   OpenAI Codex  ✓ logged in
     Auth file:  /Users/fausto/.hermes/auth.json
-    Refreshed:  2026-09-03 23:00:26 CEST
   Qwen OAuth    ✗ not logged in (run: qwen auth qwen-oauth)
     Auth file:  /Users/fausto/.qwen/oauth_creds.json
     Error:      Qwen CLI credentials not found. Run 'qwen auth qwen-oauth' first.
@@ -83,14 +82,14 @@ STDOUT:
 ◆ Gateway Service
   Status:       ✓ running
   Manager:      launchd
-  PID(s):       79462, 79373
+  PID(s):       1280, 1216
 
 ◆ Scheduled Jobs
   Jobs:         7 active, 10 total
 
 ◆ Sessions
   Active:       6 session(s)
-  Last activity:      22m ago
+  Last activity:      20m ago
 
 ────────────────────────────────────────────────────────────
   Run 'hermes doctor' for detailed diagnostics
