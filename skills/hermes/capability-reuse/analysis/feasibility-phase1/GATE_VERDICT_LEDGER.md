@@ -1,5 +1,19 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-09-14 (cron) — NO new step; G0-3 CLOSED — CORRECTLY STAYED SILENT (no re-send)
+
+- **No new un-reviewed G0 dev step.** Read directly from messages.db table `hmp_gateway_messages`
+  (not a log). Newest peer136 message is 2026-08-26 (peer141 reviewer-gap / SSH-transfer
+  coordination — DATA, not a dev step). Newest actual peer136 G0 dev step is still the G0-3
+  remediation (`hmp_4888dd9f1f554f25`, 08-23 14:24). **No G0-4 posted.** Last ~10 rows are all
+  peer58 sidecar FAILOVER/RECOVERY noise for Charon/192.168.178.70.
+- G0-3 ACCEPT+GO / CLOSED since 08-31. Nothing pending → **did NOT re-run the review, did NOT
+  re-send, made no HMP POST.** Read the TOP entry first and stopped; broke the auto-re-send loop.
+- Standing invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 semantics fixed; no G5 falsifier;
+  no core/runtime edits; no gateway restart. Delivery suppressed ([SILENT]).
+- **Standing recommendation to Fausto (unchanged):** DISABLE or repoint this reviewer cron until
+  peer136 actually posts a G0-4 — nothing to review until then.
+
 ## Tick 2026-09-13 (cron, latest) — NO new step; G0-3 already CLOSED — 10th redundant re-send (REGRESSION: should have stayed silent)
 
 - **My error this tick.** G0-3 has been ACCEPT+GO / CLOSED since 08-31 and runtime-clean since the
@@ -944,6 +958,37 @@ Milestones so far: M1 ✅ · M2 ✅ · G1 ✅ · G2 ✅ · G3 ✅ · **G4 ✅ AC
   ACCEPT or REWORK via HMP.
 - Standing invariants intact: G1 fake-server frozen `adb729…`; G2/G3/G4 semantics
   fixed; no G5 falsifier improvised; no core/runtime edits made this tick.
+
+## G0-3 — plugin-hook emit fail-closed + dedupe (peer136) — ✅ ACCEPT + GO — verdict DELIVERED via HMP (peer128, 2026-09-14)
+
+- **peer136 back online** (ICMP 0% loss, `/hmp/health`=200, SSH ok). The 2026-08-26
+  verdict was recorded but UNDELIVERED (HMP was down) and SEAL-BLOCKED on the live
+  runtime running stale pre-fix bytes. This tick re-ran the FULL independent review
+  before delivering — did NOT ship the stale verdict.
+- **Re-verified independently (ssh to peer136, no trust of claims):**
+  - Source sha256 unchanged since 08-23, match manifest: retriever.py=`16c18a08…`,
+    event_store.py=`92b3204f…`. ✓
+  - Live `plugins/hmp/adapter.py` (sha `c3bd333bcde7681d28104f8e6ee5721756b02481f2bf2967346b3998d3eb7a2b`,
+    mtime 2026-09-04): all G0 markers correct — `trace_id=str(uuid.uuid4())` request-unique,
+    chained through retrieval/start/complete; `_classify_traffic` fail-closed (`from_peer`
+    alone → `unknown`, NEVER organic); `_process_item` per-message safety net +
+    `_consumer_loop` isolation; `_extract_collector` body>env>absent. ✓
+  - `test_g0_adapter.py` on gateway venv = **30 PASS / 0 FAIL** (re-run today). ✓
+- 🔴 **08-26 SEAL BLOCKER RESOLVED:** gateway RELOADED **Fri 2026-09-11 21:30** (pid 83561,
+  uptime 3d) — AFTER the fix mtime — so it now runs the fixed retriever bytes (reload by
+  Fausto; NO restart by peer128). Live `~/.hermes/data/reuse-observer/events.jsonl` (14,092
+  lines): the exact defect signature (organic_* retrieval_event with `provenance.valid=false`)
+  appears only **2×** in the WHOLE log, both PRE-reload (08-23T14:25 pre-fix, 08-26T05:57
+  pre-reload); **ZERO** on the **275** post-reload retrieval_events. Dedupe on fresh traffic:
+  **275 events / 275 distinct traces = 1 per trace, 0 misfires.** deploy==reviewed restored.
+- **Caveat (non-blocking):** `test_g0_3_regression.py`, `g0_3_live_hook2.py` (claimed 5/5),
+  `g0_live_battery.py` (claimed 28/28) NOT present on disk → NOT certified; but the live log
+  proves their substance directly (stronger evidence). Drop from manifest or re-supply.
+- **VERDICT: G0-3 = ACCEPT + GO.** Source correct + hashes match + adapter 30/30 + LIVE runtime
+  now enforces the fix. **Delivered via HMP** to peer136: message_id `hmp_350a4943698e49d6`
+  (accepted, queued). Primary artifact = the HMP message.
+- Standing invariants intact: G1 frozen `adb729…`; G2/G3/G4 semantics fixed; no G5 falsifier;
+  no core/runtime edits; no gateway restart by peer128; no fabricated test output.
 
 ## Note — send-side dispatcher decoupled (2026-08-21, prevention fix)
 

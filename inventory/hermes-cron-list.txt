@@ -11,77 +11,77 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-09-13T23:03:52.240533+02:00
+    Next run:  2026-09-15T00:50:05.316470+02:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-13T22:58:52.240533+02:00  ok
-    Execution: completed  205af48aa8d14dbeac8ebb888d8d5b8d
+    Last run:  2026-09-15T00:45:05.316470+02:00  ok
+    Execution: completed  0a03bdba7f744699923031f8016536d8
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
     Schedule:  0 23 * * *
     Repeat:    ∞
-    Next run:  2026-09-14T23:00:00+02:00
+    Next run:  2026-09-15T23:00:00+02:00
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-12T23:00:49.180213+02:00  ok
-    Execution: running  1891ac6a21834022a6836f1f2ee37be3
+    Last run:  2026-09-13T23:01:02.168671+02:00  ok
+    Execution: running  2a8a853d736540b880af62610ee6ad80
 
   bdd8a7b271c1 [active]
     Name:      load-sampler
     Schedule:  every 2m
     Repeat:    ∞
-    Next run:  2026-09-13T23:00:52.324981+02:00
+    Next run:  2026-09-15T00:47:05.727797+02:00
     Deliver:   origin
     Script:    load-sampler.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-13T22:58:52.324981+02:00  ok
-    Execution: completed  a85f3952dc6f4c4f884f557d3dc6359c
+    Last run:  2026-09-15T00:45:05.727797+02:00  ok
+    Execution: completed  c32ad8efc1ee4fa088ffadd89ef9044f
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-09-13T23:04:51.517034+02:00
+    Next run:  2026-09-15T00:55:06.286185+02:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-13T22:54:51.517034+02:00  ok
-    Execution: completed  2495f96d73f749fc9a37ffe0849fafbe
+    Last run:  2026-09-15T00:45:06.286185+02:00  ok
+    Execution: completed  dac432f4154143b18cf0f807ebe2989e
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-09-13T23:00:52.234316+02:00
+    Next run:  2026-09-15T00:46:05.885117+02:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-13T22:59:52.234316+02:00  ok
-    Execution: completed  fc51dd0fb7944e27a85dfff506f31e5d
+    Last run:  2026-09-15T00:45:05.885117+02:00  ok
+    Execution: completed  276d5d1d03f247aa81df3b51c6e20819
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
     Schedule:  0 * * * *
     Repeat:    ∞
-    Next run:  2026-09-14T00:00:00+02:00
+    Next run:  2026-09-15T01:00:00+02:00
     Deliver:   origin
     Script:    hmp-peer70-healthcheck.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-13T23:00:54.906109+02:00  ok
-    Execution: completed  b3486b809acc4b40a6306098d1c4b945
+    Last run:  2026-09-15T00:45:08.547377+02:00  ok
+    Execution: completed  206a6eb28e9d46f38a9d6e5055669026
 
   ed1d89525dd7 [active]
     Name:      rebar-g0-review-peer128
     Schedule:  every 120m
     Repeat:    ∞
-    Next run:  2026-09-14T00:59:41.190110+02:00
+    Next run:  2026-09-15T03:45:38.743102+02:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
-    Last run:  2026-09-13T22:59:41.190110+02:00  ok
-    Execution: completed  1b9b57ffee7444c0a3a7c72696b51ae3
+    Last run:  2026-09-15T01:45:38.743102+02:00  error: TimeoutError: Cron job 'rebar-g0-review-peer128' idle for 3620s (limit 600s) — last activity: executing tool: read_file
+    Execution: failed  8beb6861318b4c14b0d6d0b1a6e37f2a
 
 
 

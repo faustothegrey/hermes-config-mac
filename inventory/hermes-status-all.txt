@@ -42,6 +42,7 @@ STDOUT:
     Error:      Invalid refresh token
   OpenAI Codex  ✓ logged in
     Auth file:  /Users/fausto/.hermes/auth.json
+    Refreshed:  2026-09-13 23:00:59 CEST
   Qwen OAuth    ✗ not logged in (run: qwen auth qwen-oauth)
     Auth file:  /Users/fausto/.qwen/oauth_creds.json
     Error:      Qwen CLI credentials not found. Run 'qwen auth qwen-oauth' first.
@@ -89,7 +90,7 @@ STDOUT:
 
 ◆ Sessions
   Active:       6 session(s)
-  Last activity:      20m ago
+  Last activity:       1h ago
 
 ────────────────────────────────────────────────────────────
   Run 'hermes doctor' for detailed diagnostics
