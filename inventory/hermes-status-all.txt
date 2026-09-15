@@ -90,7 +90,7 @@ STDOUT:
 
 ◆ Sessions
   Active:       6 session(s)
-  Last activity:       1h ago
+  Last activity:      21m ago
 
 ────────────────────────────────────────────────────────────
   Run 'hermes doctor' for detailed diagnostics
