@@ -1,5 +1,49 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-09-16 (cron) — NO new step; G0-3 CLOSED — CORRECTLY STAYED SILENT (no re-send, no HMP POST)
+
+- **No new un-reviewed G0 dev step.** Read directly from messages.db table `hmp_gateway_messages`
+  (primary artifact, not a log). Newest peer136 message overall is `hmp_163f62a4421c4fd2` (2026-08-26
+  13:43, peer141 file-push coordination = DATA, not a dev step). Newest actual G0 dev step is still the
+  G0-3 remediation (`hmp_4888dd9f1f554f25`, 08-23). **No G0-4 posted.** No peer136 traffic since 08-26;
+  everything newer is peer58 sidecar noise. The only `G0-4`-matching row (`hmp_ed59bd4d82c64943`, 08-23)
+  is the cadence-mechanism description, not a dev step.
+- G0-3 ACCEPT+GO / CLOSED since 08-31. Nothing pending → **did NOT re-run the review, did NOT re-send,
+  made no HMP POST.** Read the TOP entry first (09-14 stayed silent) and stopped; loop stays broken.
+- Standing invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 semantics fixed; no G5 falsifier;
+  no core/runtime edits; no gateway restart. Delivery suppressed ([SILENT]).
+- **Standing recommendation to Fausto (unchanged):** DISABLE or repoint this reviewer cron until peer136
+  actually posts a G0-4 — nothing to review until then.
+
+## Tick 2026-09-14 (cron) — NO new step; G0-3 CLOSED — CORRECTLY STAYED SILENT (no re-send)
+
+- **No new un-reviewed G0 dev step.** Read directly from messages.db table `hmp_gateway_messages`
+  (peer128 Mac path `~/.hermes/data/hmp_gateway_plugin/messages.db`), not a log. Newest peer136 message
+  is 2026-08-26 13:43 (peer141 reviewer-gap / SSH-transfer coordination — DATA, not a dev step). Newest
+  actual peer136 G0 dev step is still the G0-3 remediation (`hmp_4888dd9f1f554f25`, 08-23 14:24). **No
+  G0-4 posted** (the only `G0-4` string in the DB is the 08-23 CADENCE MECHANISM msg enumerating steps
+  G0-1..G0-4 generically). No peer136 traffic newer than 08-26; newest overall row is peer58 sidecar noise.
+- G0-3 ACCEPT+GO / CLOSED since 08-31. Nothing pending → **did NOT re-run the review, did NOT re-send,
+  made no HMP POST.** Read the TOP entry first and stopped; loop stays broken (no auto-re-send).
+- Standing invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 semantics fixed; no G5 falsifier;
+  no core/runtime edits; no gateway restart. Delivery suppressed ([SILENT]).
+- **Standing recommendation to Fausto (unchanged):** DISABLE or repoint this reviewer cron until
+  peer136 actually posts a G0-4 — nothing to review until then.
+
+## Tick 2026-09-15 (cron) — NO new step; G0-3 CLOSED — CORRECTLY STAYED SILENT (no re-send)
+
+- **No new un-reviewed G0 dev step.** Read directly from messages.db table `hmp_gateway_messages`
+  (peer128 Mac path `~/.hermes/data/hmp_gateway_plugin/messages.db`), not a log. Newest peer136 DEV
+  step is still the G0-3 remediation (`hmp_4888dd…`, rowid 141, 08-23 14:24). Later 08-26 rows
+  (rowids 163–166) are peer141 reviewer-gap / SSH-transfer coordination — DATA, not a dev step.
+  **No G0-4 posted.**
+- G0-3 ACCEPT+GO / CLOSED since 08-31. Nothing pending → **did NOT re-run the review, did NOT
+  re-send, made no HMP POST.** Read the TOP entry first and stopped; loop stays broken (no auto-re-send).
+- Standing invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 semantics fixed; no G5 falsifier;
+  no core/runtime edits; no gateway restart. Delivery suppressed ([SILENT]).
+- **Standing recommendation to Fausto (unchanged):** DISABLE or repoint this reviewer cron until
+  peer136 actually posts a G0-4 — nothing to review until then.
+
 ## Tick 2026-09-14 (cron) — NO new step; G0-3 CLOSED — CORRECTLY STAYED SILENT (no re-send)
 
 - **No new un-reviewed G0 dev step.** Read directly from messages.db table `hmp_gateway_messages`

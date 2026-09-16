@@ -257,7 +257,7 @@
     "last_viewed_at": "2026-08-12T16:33:28.467802+00:00",
     "patch_count": 12,
     "pinned": false,
-    "state": "active",
+    "state": "stale",
     "use_count": 15,
     "view_count": 15
   },
@@ -745,14 +745,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T13:57:30.611703+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-09-14T20:03:42.203832+00:00",
-    "last_viewed_at": "2026-09-14T20:03:42.198302+00:00",
+    "last_used_at": "2026-09-16T19:07:51.695964+00:00",
+    "last_viewed_at": "2026-09-16T19:07:51.692316+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 23,
-    "view_count": 23
+    "use_count": 27,
+    "view_count": 27
   },
   "hermes-peer-ecosystem": {
     "archived_at": null,
@@ -910,13 +910,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-09-15T19:32:30.010046+00:00",
+    "last_used_at": "2026-09-16T20:38:37.057833+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 268,
+    "use_count": 278,
     "view_count": 7
   },
   "macos-computer-use": {
@@ -1018,7 +1018,7 @@
     "last_viewed_at": "2026-08-12T16:33:22.366072+00:00",
     "patch_count": 23,
     "pinned": false,
-    "state": "active",
+    "state": "stale",
     "use_count": 21,
     "view_count": 21
   },
@@ -1361,7 +1361,7 @@
     "last_viewed_at": "2026-08-12T16:36:21.758776+00:00",
     "patch_count": 4,
     "pinned": false,
-    "state": "active",
+    "state": "stale",
     "use_count": 4,
     "view_count": 4
   },
@@ -1522,7 +1522,7 @@
     "last_viewed_at": "2026-08-12T16:33:28.479649+00:00",
     "patch_count": 1,
     "pinned": false,
-    "state": "active",
+    "state": "stale",
     "use_count": 1,
     "view_count": 1
   },

@@ -315,6 +315,33 @@ ssh fausto@192.168.178.58 "cat ~/.hermes/registry/sidecar_state.json"
 
 Then confirm Charon is genuinely healthy (two layers): `ping -c 3 -W 2 192.168.178.70` (network) + `curl -s -m 5 http://192.168.178.70:18643/hmp/health` (HMP listener → `{"status":"ok","node_id":"peer70"}`), optionally a round-trip POST to `/hmp/send` polled to `completed`.
 
+### Flapping (repeated FAILOVER↔RECOVERY pairs) — recognition + standby protocol
+
+When the user relays a stream of alternating `FAILOVER HMP` / `RECOVERY HMP`
+broadcasts where the **`registry sync N` counter climbs monotonically** across
+pairs (e.g. 338→339→340→… — jumps like 16→27 also count) **while Charon is
+provably UP**, this is NOT a real Charon outage. It is a **broken sync watchdog
+on the REMOTE node (peer58/Sidecar)**: the sync watchdog mis-flags Charon as
+dead, promotes, then immediately demotes on the next healthy poll. The local Mac
+adapter is **transport-only** → this is NOT curable from here (verified: not in
+local cron/launchd/code).
+
+**Verify ONCE, then standby — do not re-probe every cycle:**
+1. On the **first** FAILOVER of a burst, verify a single time (two layers):
+   `ping -c 2 192.168.178.70` + `curl -s -m5 http://192.168.178.70:18643/hmp/health`
+   → expect `{"status":"ok","node_id":"peer70"}`. Confirm Sidecar too:
+   `curl -s -m5 http://192.168.178.58:18643/hmp/health` → `node_id":"peer58`.
+   (`/health` and `/registry/peers` return 404 — use `/hmp/health` only.)
+2. **Raise the flag EXPLICITLY** — this is a stall-class event, so never let it
+   look "quiet": state plainly "flapping = remote sync watchdog broken, Charon
+   healthy, not curable from this Mac". The user wants active warning, not silent
+   acks that hide a stall.
+3. For every subsequent FAILOVER/RECOVERY in the same burst: **1-line ack only**
+   (note the counter + pair number), do NOT re-run the probes each cycle. Failover
+   itself still works as a safety net, so operations are safe.
+4. Offer to investigate the remote watchdog on peer58, but act only on the user's
+   explicit ok.
+
 ### Notes / quirks
 
 - `promoted_at` is NOT cleared by demotion — keep it as evidence of the last failover.
