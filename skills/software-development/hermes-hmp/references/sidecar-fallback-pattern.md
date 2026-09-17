@@ -57,6 +57,40 @@ Charon torna online
       3. Torna in modalità mirror/standby
 ```
 
+## 🔴 Failover REALE vs flapping da watchdog rotto (spurious)
+
+Le notifiche `FAILOVER HMP: Charon non risponde (registry sync N fallimenti)`
+seguite a breve da `RECOVERY HMP: Charon tornato raggiungibile` che si
+**ripetono in coppie** con Charon di fatto sano = **watchdog/sync rotto LATO
+REMOTO** (peer58/Sidecar), NON un problema di Charon.
+
+**Firma diagnostica (verificata più volte, incl. 2026-09-16 con 21 coppie flap):**
+- Contatore `registry sync N` **monotòno crescente** (anche con salti tipo
+  349→362), FAILOVER/RECOVERY alternati mentre Charon è UP.
+- Dal Mac locale Charon risponde perfettamente durante il "FAILOVER".
+
+**Verifica UNA sola volta (poi NON ri-sondare ogni ciclo):**
+```bash
+# Charon deve dare 200 + node_id peer70; Sidecar 200 + node_id peer58
+curl -s -m 5 -w "\nHTTP %{http_code}\n" http://192.168.178.70:18643/hmp/health
+curl -s -m 5 -w "\nHTTP %{http_code}\n" http://192.168.178.58:18643/hmp/health
+ping -c 2 -t 3 192.168.178.70
+```
+Usare SOLO `/hmp/health` (dà `{status, service, node_id, bind}`). `/health` e
+`/registry/peers` danno 404 — non usarli.
+
+**Non curabile da questo Mac:** l'adapter HMP locale è solo trasporto; il
+watchdog/sync difettoso gira sul nodo remoto peer58. Il failover comunque
+*funziona* come rete di sicurezza → operatività salva.
+
+**Protocollo standby (preferenza utente — flag esplicito, mai "quiet"):**
+1. Alla **prima coppia** flap: alza il flag esplicito (verifica UNA volta +
+   spiega che è watchdog remoto, non Charon). Mai lasciare che uno stall/flap
+   sembri quiete normale.
+2. Poi **standby**: ack di 1 riga per ogni messaggio (es. "Ack~ sync N,
+   n-esimo flap. Standby."), NON ri-sondare, NON agire senza ok dell'utente.
+3. Offrire (una volta) di indagare il watchdog sul nodo remoto — aspettare l'ok.
+
 ## Script lato Sidecar
 
 Sidecar ha creato autonomamente:
