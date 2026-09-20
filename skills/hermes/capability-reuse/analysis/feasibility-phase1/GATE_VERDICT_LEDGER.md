@@ -1,5 +1,19 @@
 # Rebar Phase 1 — Gate Verdict Ledger
 
+## Tick 2026-09-20 (cron) — NO new step; G0-3 CLOSED — STAYED SILENT (no re-send, no HMP POST)
+
+- **No new un-reviewed G0 dev step.** Read directly from messages.db table `hmp_gateway_messages`
+  (peer128 Mac path `~/.hermes/data/hmp_gateway_plugin/messages.db`), not a log. Newest `from_peer=peer136`
+  row is `hmp_163f62a4421c4fd2` (rowid 166, 2026-08-26 13:43, peer141 reviewer-gap / attachment
+  coordination = DATA, not a dev step). Newest actual G0 dev step is still the G0-3 remediation
+  (`hmp_4888dd9f1f554f25`, rowid 141, 08-23 14:24). **No G0-4 posted.**
+- G0-3 ACCEPT+GO / CLOSED since 08-31. Nothing pending → read TOP entries first, did NOT re-run the
+  review, did NOT re-send, made no HMP POST. Loop stays correctly quiet.
+- Standing invariants intact: G1 frozen `adb729…54edc`; G2/G3/G4 semantics fixed; no G5 falsifier;
+  no core/runtime edits; no gateway restart. Delivery suppressed ([SILENT]).
+- **Standing recommendation to Fausto (unchanged):** DISABLE or repoint this reviewer cron until
+  peer136 actually posts a G0-4 — nothing to review until then.
+
 ## Tick 2026-09-17 (cron, later) — NO new step; G0-3 CLOSED — STAYED SILENT (no re-send, no HMP POST)
 
 - **No new un-reviewed G0 dev step.** Read directly from messages.db table `hmp_gateway_messages`

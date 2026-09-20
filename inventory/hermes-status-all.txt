@@ -83,14 +83,14 @@ STDOUT:
 ◆ Gateway Service
   Status:       ✓ running
   Manager:      launchd
-  PID(s):       835, 683
+  PID(s):       857, 726
 
 ◆ Scheduled Jobs
   Jobs:         7 active, 10 total
 
 ◆ Sessions
-  Active:       6 session(s)
-  Last activity:    yesterday
+  Active:       5 session(s)
+  Last activity:   2026-08-02
 
 ────────────────────────────────────────────────────────────
   Run 'hermes doctor' for detailed diagnostics
