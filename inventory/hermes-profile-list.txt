@@ -5,7 +5,7 @@ STDOUT:
 
  Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         claude-opus-4-8              running      —            —
+ ◆default         deepseek/deepseek-v4-flash   running      —            —
 
 
 

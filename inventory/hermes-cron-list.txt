@@ -11,77 +11,66 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-09-22T00:52:50.039341+02:00
+    Next run:  2026-09-22T23:04:59.321283+02:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-22T00:47:50.039341+02:00  ok
-    Execution: completed  037726b7fa1649fcbf6915a0180c923b
+    Last run:  2026-09-22T22:59:59.321283+02:00  ok
+    Execution: completed  5577f07b2fc8417fa26ac047880e2b3d
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
     Schedule:  0 23 * * *
     Repeat:    ∞
-    Next run:  2026-09-22T23:00:00+02:00
+    Next run:  2026-09-23T23:00:00+02:00
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-21T00:09:36.383153+02:00  ok
-    Execution: running  b645d8db02f54b92a5b9d3abee7fb7ae
-
-  bdd8a7b271c1 [active]
-    Name:      load-sampler
-    Schedule:  every 2m
-    Repeat:    ∞
-    Next run:  2026-09-22T00:49:49.847024+02:00
-    Deliver:   origin
-    Script:    load-sampler.sh
-    Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-22T00:47:49.847024+02:00  ok
-    Execution: completed  57ec2c6e2e9f4f10b683d09815d01387
+    Last run:  2026-09-22T01:48:14.401502+02:00  ok
+    Execution: running  3d7e028fe00e42538e883c00cc9205ec
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-09-22T01:58:02.916925+02:00
+    Next run:  2026-09-22T23:04:58.496744+02:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-22T01:48:02.916925+02:00  ok
-    Execution: completed  f4c45806dbc54fa286f5f1726d3c0456
+    Last run:  2026-09-22T22:54:58.496744+02:00  ok
+    Execution: completed  ca0fefa2ad174a10ad8098c5dc9b6037
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-09-22T00:48:50.205222+02:00
+    Next run:  2026-09-22T23:00:59.189138+02:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-22T00:47:50.205222+02:00  ok
-    Execution: completed  2732ccbfdf12489e941c4e3890b8686e
+    Last run:  2026-09-22T22:59:59.189138+02:00  ok
+    Execution: completed  314eef05e6264314a68c0aa25076f82d
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
     Schedule:  0 * * * *
     Repeat:    ∞
-    Next run:  2026-09-22T01:00:00+02:00
+    Next run:  2026-09-23T00:00:00+02:00
     Deliver:   origin
     Script:    hmp-peer70-healthcheck.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-09-22T00:47:53.377244+02:00  ok
-    Execution: completed  e11906909c3b4a2c8ffa2ac2d60c57fc
+    Last run:  2026-09-22T23:01:01.959817+02:00  ok
+    Execution: completed  5c7c11652dbe40388cfc12588b440f1c
 
   ed1d89525dd7 [active]
     Name:      rebar-g0-review-peer128
     Schedule:  every 120m
     Repeat:    ∞
-    Next run:  2026-09-22T02:47:46.693333+02:00
+    Next run:  2026-09-22T23:24:29.949348+02:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
-    Last run:  2026-09-21T22:30:53.872910+02:00  ok
-    Execution: running  7d94056319e14e6ebad18d419a5b94ac
+    Last run:  2026-09-22T21:24:29.949348+02:00  error: RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'nous'; model 'claude-opus-4-8' -> 'deepseek/deepseek-v4-flash'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.
+    Execution: failed  c2f664237608412ebd3352bf4ae0776a
 
 
 

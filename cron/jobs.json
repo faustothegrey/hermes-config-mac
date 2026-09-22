@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 15177
+        "completed": 15332
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-09-22T00:52:50.039341+02:00",
-      "last_run_at": "2026-09-22T00:47:50.039341+02:00",
+      "next_run_at": "2026-09-22T23:04:59.321283+02:00",
+      "last_run_at": "2026-09-22T22:59:59.321283+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,15 +59,15 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 132
+        "completed": 133
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-09-22T23:00:00+02:00",
-      "last_run_at": "2026-09-21T00:09:36.383153+02:00",
+      "next_run_at": "2026-09-23T23:00:00+02:00",
+      "last_run_at": "2026-09-22T01:48:14.401502+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -77,53 +77,9 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-09-22T00:47:45.034335+02:00",
-        "by": "MacPro:857:0a742499dac94a5a8735e8035f318ea6"
+        "at": "2026-09-22T23:00:59.153690+02:00",
+        "by": "MacPro:857:50e98a2fd0a14298ab346d344d36173a"
       }
-    },
-    {
-      "id": "bdd8a7b271c1",
-      "name": "load-sampler",
-      "prompt": "Sample system load averages and record to history file.",
-      "skills": [],
-      "skill": null,
-      "model": null,
-      "provider": null,
-      "base_url": null,
-      "script": "load-sampler.sh",
-      "no_agent": true,
-      "context_from": null,
-      "schedule": {
-        "kind": "interval",
-        "minutes": 2,
-        "display": "every 2m"
-      },
-      "schedule_display": "every 2m",
-      "repeat": {
-        "times": null,
-        "completed": 34304
-      },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
-      "paused_reason": null,
-      "created_at": "2026-06-28T17:10:04.206104+02:00",
-      "next_run_at": "2026-09-22T00:49:49.847024+02:00",
-      "last_run_at": "2026-09-22T00:47:49.847024+02:00",
-      "last_status": "ok",
-      "last_error": null,
-      "last_delivery_error": null,
-      "deliver": "origin",
-      "origin": {
-        "platform": "telegram",
-        "chat_id": "8508115936",
-        "chat_name": "Fausto Lelli",
-        "thread_id": null
-      },
-      "enabled_toolsets": null,
-      "workdir": null,
-      "profile": null,
-      "fire_claim": null
     },
     {
       "id": "78f09e4a6c3a",
@@ -145,15 +101,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 7648
+        "completed": 7731
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-09-22T01:58:02.916925+02:00",
-      "last_run_at": "2026-09-22T01:48:02.916925+02:00",
+      "next_run_at": "2026-09-22T23:04:58.496744+02:00",
+      "last_run_at": "2026-09-22T22:54:58.496744+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -189,15 +145,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 51396
+        "completed": 51771
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-09-22T00:48:50.205222+02:00",
-      "last_run_at": "2026-09-22T00:47:50.205222+02:00",
+      "next_run_at": "2026-09-22T23:00:59.189138+02:00",
+      "last_run_at": "2026-09-22T22:59:59.189138+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -228,15 +184,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1215
+        "completed": 1235
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-09-22T01:00:00+02:00",
-      "last_run_at": "2026-09-22T00:47:53.377244+02:00",
+      "next_run_at": "2026-09-23T00:00:00+02:00",
+      "last_run_at": "2026-09-22T22:00:51.784430+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -250,7 +206,10 @@
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null,
-      "fire_claim": null
+      "fire_claim": {
+        "at": "2026-09-22T23:00:59.193408+02:00",
+        "by": "MacPro:857:add63ecd251f43f6bce17ed2db9ba20c"
+      }
     },
     {
       "id": "5a94532c1745",
@@ -434,17 +393,17 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 286
+        "completed": 295
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-23T15:34:58.578767+02:00",
-      "next_run_at": "2026-09-22T02:47:46.693333+02:00",
-      "last_run_at": "2026-09-21T22:30:53.872910+02:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-09-22T23:24:29.949348+02:00",
+      "last_run_at": "2026-09-22T21:24:29.949348+02:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'nous'; model 'claude-opus-4-8' -> 'deepseek/deepseek-v4-flash'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -459,11 +418,9 @@
         "file"
       ],
       "workdir": null,
-      "fire_claim": {
-        "at": "2026-09-22T00:47:47.590919+02:00",
-        "by": "MacPro:857:db1462be8bab4171bf7ec45ad17797a0"
-      }
+      "fire_claim": null,
+      "drift_alerted": true
     }
   ],
-  "updated_at": "2026-09-22T01:48:02.918710+02:00"
+  "updated_at": "2026-09-22T23:00:59.194402+02:00"
 }
