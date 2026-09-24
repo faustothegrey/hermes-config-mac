@@ -2,7 +2,7 @@
 name: hermes-hmp
 description: "HMP (Hermes Message Protocol) - protocollo peer-to-peer per la rete Hermes. Canale unico plugin :18643 (dual-plane :18644 ritirato). G0/G2b plumbing: references/trace-id-core-plumbing-g0-2026-08-16.md, references/g2b-provenance-propagation-2026-08-17.md"
 type: custom
-version: 1.26.0
+version: 1.27.0
 ---
 
 # Hermes HMP — Skill & Tooling

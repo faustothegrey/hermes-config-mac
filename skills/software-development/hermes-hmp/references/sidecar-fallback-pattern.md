@@ -83,13 +83,44 @@ Usare SOLO `/hmp/health` (dà `{status, service, node_id, bind}`). `/health` e
 watchdog/sync difettoso gira sul nodo remoto peer58. Il failover comunque
 *funziona* come rete di sicurezza → operatività salva.
 
-**Protocollo standby (preferenza utente — flag esplicito, mai "quiet"):**
+## 🔴 Protocollo standby vs user-initiated action (distinzione critica)
+
+Le notifiche FAILOVER/RECOVERY possono arrivare in DUE modi diversi,
+con risposte radicalmente diverse:
+
+### Scenario A: Sidecar autonomo (flap spurious da watchdog)
+
+Il watchdog/sync rotto SUL REMOTO (peer58) produce coppie di notifiche
+mentre Charon è di fatto sano. In questo scenario:
+
+**Protocollo standby (preferenza utente — flag esplicito, mai 'quiet'):**
 1. Alla **prima coppia** flap: alza il flag esplicito (verifica UNA volta +
-   spiega che è watchdog remoto, non Charon). Mai lasciare che uno stall/flap
+   spiega che e' watchdog remoto, non Charon). Mai lasciare che uno stall/flap
    sembri quiete normale.
-2. Poi **standby**: ack di 1 riga per ogni messaggio (es. "Ack~ sync N,
-   n-esimo flap. Standby."), NON ri-sondare, NON agire senza ok dell'utente.
+2. Poi **standby**: ack di 1 riga per ogni messaggio (es. 'Ack~ sync N,
+   n-esimo flap. Standby.'), **NON ri-sondare, NON agire** senza ok dell'utente.
 3. Offrire (una volta) di indagare il watchdog sul nodo remoto — aspettare l'ok.
+
+### Scenario B: User-initiated (messaggio DIRETTO dell'utente a questo agente)
+
+Quando l'**utente scrive direttamente** `FAILOVER HMP: ...` o
+`RECOVERY HMP: ...` in chat, QUELLO e' l'ok dell'utente ad agire.
+Non e' un flap autonomo — l'utente sta dichiarando lo stato di rete.
+
+**Protocollo attivo (4 step, esegui subito):**
+1. **Health verify** — health check su Charon + Sidecar in parallelo
+   (sempre `/hmp/health`, mai `/health` o ping da solo)
+2. **Notifica HMP** — POST `/hmp/send` al gateway del peer target:
+   - FAILOVER: testuale a peer58, includere 'FAILOVER HMP' e 'primario'
+   - RECOVERY: testuale a peer58, includere 'RECOVERY HMP' e 'mirror/fallback'
+   - Notifica anche peer70 in RECOVERY
+3. **Memoria** — aggiorna lo stato failover/recovery
+4. **Report** — 1-2 righe di riepilogo con tabella ASCII (Charon, Sidecar, io)
+
+**Regola pratica:** l'utente che dice esplicitamente FAILOVER/RECOVERY
+e' un comando, non una notifica da ignorare. Il protocollo standby
+(Scenario A) si applica SOLO quando Sidecar scrive autonomamente — non
+quando l'utente scrive a questo agente direttamente.
 
 ## Script lato Sidecar
 
