@@ -6,6 +6,6 @@ loop-coding-guidelines skill (rinominato da code-dev-reviewer 2026-08-19; PENDIN
 §
 Claude CLI a ~/.local/bin/claude. Su macOS la CLI legge le credenziali dal Keychain (item 'Claude Code-credentials'), NON da ~/.claude/.credentials.json (formato Linux) -> token valido nel JSON dà comunque loggedIn:false. Fix per servizi headless: setup-token (token lungo sk-ant-oat) iniettato in env. 2026-08-28: token in ~/.zshrc riga 120 + in EnvironmentVariables del plist launchd com.fausto.claude-api (quota-monitoring); reload launchctl da fare a mano (gateway blocca bootstrap). Desiderata non configurato: main=claude-opus-4-8 via subscription, fallback=deepseek-v4-flash.
 §
-HMP ping-pong 2026-09-24 (3 cicli): Charon peer70 registry sync alternato. Ultimo: failover #3 (701 fallimenti). Sidecar peer58 primario temporaneo.
-§
 Mesh A2A (2026-09-06): POST /v1/runs (NON /v1/hrpl/chat=completion senza agent loop). Body {input, instructions=identità+ruolo, session_id=thread_id, conversation_history opz}. thread_id=thr-<slug>-<≥12hex>; 1 thread→N run. 202=solo accettato→polling GET /v1/runs/{run_id} a stato terminale + output reale. HMP=fallback offline. Su peer128: /v1/runs su porta 8642 (NON 8765 morto); Bearer chiave 64char dal dotenv ~/.hermes, NON la 12char di config.yaml (401).
+§
+HMP phantom flap (fallimenti counter 700+): ack terse FAILOVER/RECOVERY. A/B/C escalation rifiutata dall'utente — NON riproporre. Verifica solo su shape deviation (2 FAILOVER consecutivi o sidecar irraggiungibile). Sidecar_state.json su peer58, non su peer128.
