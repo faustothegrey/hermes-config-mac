@@ -654,7 +654,7 @@ User says: "set up WireGuard VPN connection between this machine and the router/
 
 ## Pitfalls
 
-1. **macOS firewall blocks Python TCP on port 8643.** Python's urllib/requests/socket all fail with `[Errno 65] No route to host` when connecting to port 8643, even though curl and ping work fine. This is caused by a per-application firewall rule (Little Snitch or socketfilterfw) that allows curl but blocks Python. **Current HMP plugin runs on port 18643 (staging) which is NOT blocked** — curl works fine there too, but Python is only blocked on 8643. If migrating to 8643 in production, use curl via terminal for all HMP communication. See `references/hmp-curl-commands.md` for exact command examples.
+1. **macOS Python vs curl per HMP — ERRNO 65 su ENTRAMBI i port 8643 e 18643.** Python's urllib/requests/socket falliscono con `[Errno 65] No route to host` su entrambi i port HMP (8643 e 18643) su macOS, anche se curl e ping funzionano perfettamente. Causa: firewall per-app (Little Snitch, socketfilterfw) o TCC sandbox che permette curl ma blocca Python. **Usa sempre curl via terminal per HMP su macOS** — mai Python (né urllib né requests). Lo script `registry-publish.py` (~/.hermes/registry/registry-publish.py) soffre di questo bug con 793+ fallimenti registrati. Pattern di verifica: `curl -s -m5 http://\<peer\>:18643/health` funziona → Python `urlopen` fallisce con errno 65 → è un blocco macOS su Python, non un peer down. Vedi `references/macos-python-urllib-errno65.md` per diagnosi completa e `references/hmp-curl-commands.md` per esempi curl.
 
 2. **SSH find/grep commands can time out** on remote filesystems with many files. Always set `timeout N` in your terminal call and use `-maxdepth` with `find`.
 
