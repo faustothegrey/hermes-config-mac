@@ -287,7 +287,7 @@
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
-    "state": "active",
+    "state": "stale",
     "use_count": 1,
     "view_count": 1
   },
@@ -780,7 +780,7 @@
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
-    "state": "active",
+    "state": "stale",
     "use_count": 1,
     "view_count": 1
   },
@@ -910,13 +910,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-09-29T22:51:36.955479+00:00",
+    "last_used_at": "2026-09-30T20:19:37.901662+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 392,
+    "use_count": 402,
     "view_count": 7
   },
   "macos-computer-use": {
@@ -945,7 +945,7 @@
     "patch_count": 73,
     "patch_generation": 1,
     "pinned": false,
-    "state": "stale",
+    "state": "active",
     "use_count": 55,
     "view_count": 55
   },
