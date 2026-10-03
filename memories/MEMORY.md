@@ -1,4 +1,4 @@
-⚠️ Phantom flap (17x). Charon ONLINE, sidecar mirror/fallback.
+HMP RECOVERY (26ª nella sessione) 2026-10-03: Charon 192.168.178.70 tornato raggiungibile. Sidecar 192.168.178.58 rientra a mirror/fallback. Charon flappa — 26 failover / 26 recovery in sessione.
 §
 adapter peer136 v0.1.5 6fc19e0f (mesh-consistent: peer70 runtime + peer136 + my g0-bundle). G0 baseline = b9525a0b (peer70 g0-bundle, v0.1.4-g0-g2b-v7); ref hash c164ba7a is STALE (corrected in skill 2026-08-23). Byte-diff b9525a0b→6fc19e0f VERIFIED by me: 3 changes (event-store resolution hardening + 2 version bumps), ZERO G0-core change — G0-1 no-regression now PROVEN by diff.
 §
@@ -8,4 +8,4 @@ Claude CLI a ~/.local/bin/claude. Su macOS la CLI legge le credenziali dal Keych
 §
 Mesh A2A (2026-09-06): POST /v1/runs (NON /v1/hrpl/chat=completion senza agent loop). Body {input, instructions=identità+ruolo, session_id=thread_id, conversation_history opz}. thread_id=thr-<slug>-<≥12hex>; 1 thread→N run. 202=solo accettato→polling GET /v1/runs/{run_id} a stato terminale + output reale. HMP=fallback offline. Su peer128: /v1/runs su porta 8642 (NON 8765 morto); Bearer chiave 64char dal dotenv ~/.hermes, NON la 12char di config.yaml (401).
 §
-HMP phantom flap (fallimenti counter 700+): ack terse FAILOVER/RECOVERY. A/B/C escalation rifiutata dall'utente — NON riproporre. Verifica solo su shape deviation (2 FAILOVER consecutivi o sidecar irraggiungibile). Sidecar_state.json su peer58, non su peer128.
+HMP phantom flap (fallimenti 700+): ack terse FAILOVER/RECOVERY. A/B/C escalation rifiutata. Verifica solo su shape deviation (2 FAILOVER consecutivi o sidecar irraggiungibile). Sidecar_state.json su peer58, non su peer128. 2026-10-03: Charon ha flappato 3 failover + 4 recovery in sessione.
