@@ -1,4 +1,4 @@
-HMP RECOVERY (26ª nella sessione) 2026-10-03: Charon 192.168.178.70 tornato raggiungibile. Sidecar 192.168.178.58 rientra a mirror/fallback. Charon flappa — 26 failover / 26 recovery in sessione.
+Charon flappa — 27 failover / 26 recovery in sessione (4-ott). Sidecar watchdog sync continua a triggerare falsi failover mentre Charon è UP (verificato HTTP 200).
 §
 adapter peer136 v0.1.5 6fc19e0f (mesh-consistent: peer70 runtime + peer136 + my g0-bundle). G0 baseline = b9525a0b (peer70 g0-bundle, v0.1.4-g0-g2b-v7); ref hash c164ba7a is STALE (corrected in skill 2026-08-23). Byte-diff b9525a0b→6fc19e0f VERIFIED by me: 3 changes (event-store resolution hardening + 2 version bumps), ZERO G0-core change — G0-1 no-regression now PROVEN by diff.
 §
