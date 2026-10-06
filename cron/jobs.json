@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 17443
+        "completed": 17585
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-10-06T02:42:52.238796+02:00",
-      "last_run_at": "2026-10-06T02:37:52.238796+02:00",
+      "next_run_at": "2026-10-06T23:04:53.816544+02:00",
+      "last_run_at": "2026-10-06T22:59:53.816544+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,17 +59,17 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 146
+        "completed": 147
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-10-06T23:00:00+02:00",
-      "last_run_at": "2026-10-04T23:00:20.695761+02:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-10-07T23:00:00+02:00",
+      "last_run_at": "2026-10-06T03:39:00.245907+02:00",
+      "last_status": "error",
+      "last_error": "Script exited with code 128\nstderr:\nRead from remote host github.com: Connection reset by peer\nclient_loop: send disconnect: Broken pipe\nsend-pack: unexpected disconnect while reading sideband packet\nfatal: the remote end hung up unexpectedly\nstdout:\n[2026-10-06T02:37:51+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config\n[2026-10-06T02:37:51+0200] Starting Hermes config backup in /Users/fausto/Backups/hermes-config\n  obsidian-vault: OK (/Users/fausto/Documents/Obsidian Vault)\nRegenerated sanitized Hermes backup from /Users/fausto/.hermes into /Users/fausto/Backups/hermes-config\nSkipping encrypted secrets bundle (BACKUP_SECRETS!=1): secrets are local-only, not versioned.\n[master 42af9d6] backup: update Hermes configuration — 2026-10-06T02:38:00+0200\n 12 files changed, 59 insertions(+), 59 deletions(-)\n rewrite cron/executions.db (72%)",
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
@@ -77,8 +77,8 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-10-06T02:37:51.640701+02:00",
-        "by": "MacPro:830:0132ccb133b4404c86882a01795d1337"
+        "at": "2026-10-06T23:00:53.592199+02:00",
+        "by": "MacPro:830:1519de0115f145d387236477b8fd757c"
       }
     },
     {
@@ -101,15 +101,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 8860
+        "completed": 8934
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-10-06T02:47:52.501973+02:00",
-      "last_run_at": "2026-10-06T02:37:52.501973+02:00",
+      "next_run_at": "2026-10-06T23:09:53.805252+02:00",
+      "last_run_at": "2026-10-06T22:59:53.805252+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -145,15 +145,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 57054
+        "completed": 57408
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-10-06T02:38:52.530143+02:00",
-      "last_run_at": "2026-10-06T02:37:52.530143+02:00",
+      "next_run_at": "2026-10-06T23:01:54.020269+02:00",
+      "last_run_at": "2026-10-06T23:00:54.020269+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -184,15 +184,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1493
+        "completed": 1510
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-10-06T03:00:00+02:00",
-      "last_run_at": "2026-10-05T22:00:49.310085+02:00",
+      "next_run_at": "2026-10-07T00:00:00+02:00",
+      "last_run_at": "2026-10-06T22:00:45.764869+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -207,8 +207,8 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-10-06T02:37:52.164423+02:00",
-        "by": "MacPro:830:a8d5559db6854933afe15ddb430792c2"
+        "at": "2026-10-06T23:00:53.737616+02:00",
+        "by": "MacPro:830:bbc0b7b6adbc4e858c0efd0331e4db12"
       }
     },
     {
@@ -393,15 +393,15 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 427
+        "completed": 435
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-23T15:34:58.578767+02:00",
-      "next_run_at": "2026-10-06T04:37:53.587951+02:00",
-      "last_run_at": "2026-10-06T02:37:53.587951+02:00",
+      "next_run_at": "2026-10-07T00:19:46.545209+02:00",
+      "last_run_at": "2026-10-06T22:19:46.545209+02:00",
       "last_status": "error",
       "last_error": "RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'nous'; model 'claude-opus-4-8' -> 'deepseek/deepseek-v4-flash'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.",
       "last_delivery_error": null,
@@ -422,5 +422,5 @@
       "drift_alerted": true
     }
   ],
-  "updated_at": "2026-10-06T02:37:53.588363+02:00"
+  "updated_at": "2026-10-06T23:00:54.022240+02:00"
 }
