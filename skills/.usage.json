@@ -730,14 +730,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-21T05:00:58.029642+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-10-06T07:23:19.898567+00:00",
-    "last_viewed_at": "2026-10-06T07:23:19.888687+00:00",
+    "last_used_at": "2026-10-07T06:19:22.796122+00:00",
+    "last_viewed_at": "2026-10-07T06:19:22.793307+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 16,
-    "view_count": 16
+    "use_count": 17,
+    "view_count": 17
   },
   "hermes-hmp": {
     "archived_at": null,
@@ -745,14 +745,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T13:57:30.611703+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-10-06T07:26:07.953964+00:00",
-    "last_viewed_at": "2026-10-06T07:26:07.950115+00:00",
+    "last_used_at": "2026-10-07T06:19:17.815485+00:00",
+    "last_viewed_at": "2026-10-07T06:19:17.761505+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 39,
-    "view_count": 39
+    "use_count": 40,
+    "view_count": 40
   },
   "hermes-peer-ecosystem": {
     "archived_at": null,
@@ -910,13 +910,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-10-06T20:19:46.308498+00:00",
+    "last_used_at": "2026-10-07T19:20:17.083445+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 459,
+    "use_count": 466,
     "view_count": 7
   },
   "macos-computer-use": {
