@@ -9,3 +9,5 @@ Claude CLI a ~/.local/bin/claude. Su macOS la CLI legge le credenziali dal Keych
 Mesh A2A (2026-09-06): POST /v1/runs (NON /v1/hrpl/chat=completion senza agent loop). Body {input, instructions=identità+ruolo, session_id=thread_id, conversation_history opz}. thread_id=thr-<slug>-<≥12hex>; 1 thread→N run. 202=solo accettato→polling GET /v1/runs/{run_id} a stato terminale + output reale. HMP=fallback offline. Su peer128: /v1/runs su porta 8642 (NON 8765 morto); Bearer chiave 64char dal dotenv ~/.hermes, NON la 12char di config.yaml (401).
 §
 HMP phantom flap (1300 nella sessione 7-ott): ack terse FAILOVER/RECOVERY. A/B/C escalation rifiutata. Verifica solo su shape deviation (2 FAILOVER consecutivi o sidecar irraggiungibile). Sidecar_state.json su peer58, non su peer128.
+§
+HMP failover genuino 8-ott: Charon peer70 registry sync fallito 1367 volte, registry temporaneo su sidecar peer58. RECOVERY OK — Charon tornato raggiungibile, sidecar rientrato a mirror. Da distinguere dai phantom flap del 7-ott.

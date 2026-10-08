@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 11417
+        "completed": 17722
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-09-02T20:42:32.964098+02:00",
-      "last_run_at": "2026-09-02T20:37:32.964098+02:00",
+      "next_run_at": "2026-10-07T23:10:23.397256+02:00",
+      "last_run_at": "2026-10-07T23:05:23.397256+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,64 +59,20 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 114
+        "completed": 149
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-09-02T23:00:00+02:00",
-      "last_run_at": "2026-09-01T23:00:59.509826+02:00",
+      "next_run_at": "2026-10-08T23:00:00+02:00",
+      "last_run_at": "2026-10-07T23:00:35.751681+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
       "deliver": "local",
       "origin": null,
-      "enabled_toolsets": null,
-      "workdir": null,
-      "profile": null,
-      "fire_claim": null
-    },
-    {
-      "id": "bdd8a7b271c1",
-      "name": "load-sampler",
-      "prompt": "Sample system load averages and record to history file.",
-      "skills": [],
-      "skill": null,
-      "model": null,
-      "provider": null,
-      "base_url": null,
-      "script": "load-sampler.sh",
-      "no_agent": true,
-      "context_from": null,
-      "schedule": {
-        "kind": "interval",
-        "minutes": 2,
-        "display": "every 2m"
-      },
-      "schedule_display": "every 2m",
-      "repeat": {
-        "times": null,
-        "completed": 26361
-      },
-      "enabled": true,
-      "state": "scheduled",
-      "paused_at": null,
-      "paused_reason": null,
-      "created_at": "2026-06-28T17:10:04.206104+02:00",
-      "next_run_at": "2026-09-02T20:40:32.979466+02:00",
-      "last_run_at": "2026-09-02T20:38:32.979466+02:00",
-      "last_status": "ok",
-      "last_error": null,
-      "last_delivery_error": null,
-      "deliver": "origin",
-      "origin": {
-        "platform": "telegram",
-        "chat_id": "8508115936",
-        "chat_name": "Fausto Lelli",
-        "thread_id": null
-      },
       "enabled_toolsets": null,
       "workdir": null,
       "profile": null,
@@ -142,15 +98,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 5713
+        "completed": 9007
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-09-02T20:47:32.947308+02:00",
-      "last_run_at": "2026-09-02T20:37:32.947308+02:00",
+      "next_run_at": "2026-10-07T23:11:22.737949+02:00",
+      "last_run_at": "2026-10-07T23:01:22.737949+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -186,15 +142,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 42055
+        "completed": 57759
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-09-02T20:41:33.211600+02:00",
-      "last_run_at": "2026-09-02T20:40:33.211600+02:00",
+      "next_run_at": "2026-10-07T23:09:23.401232+02:00",
+      "last_run_at": "2026-10-07T23:08:23.401232+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -225,15 +181,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 824
+        "completed": 1526
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-09-02T21:00:00+02:00",
-      "last_run_at": "2026-09-02T20:00:29.460703+02:00",
+      "next_run_at": "2026-10-08T00:00:00+02:00",
+      "last_run_at": "2026-10-07T23:00:26.464630+02:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -431,17 +387,17 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 105
+        "completed": 442
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-23T15:34:58.578767+02:00",
-      "next_run_at": "2026-09-02T21:27:58.766050+02:00",
-      "last_run_at": "2026-09-02T19:27:58.766050+02:00",
-      "last_status": "ok",
-      "last_error": null,
+      "next_run_at": "2026-10-07T23:20:18.592359+02:00",
+      "last_run_at": "2026-10-07T21:20:18.592359+02:00",
+      "last_status": "error",
+      "last_error": "RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'nous'; model 'claude-opus-4-8' -> 'deepseek/deepseek-v4-flash'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -456,8 +412,9 @@
         "file"
       ],
       "workdir": null,
-      "fire_claim": null
+      "fire_claim": null,
+      "drift_alerted": true
     }
   ],
-  "updated_at": "2026-09-02T20:40:33.212069+02:00"
+  "updated_at": "2026-10-07T23:08:23.401842+02:00"
 }
