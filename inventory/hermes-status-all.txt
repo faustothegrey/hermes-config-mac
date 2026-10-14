@@ -40,11 +40,12 @@ STDOUT:
   Nous Portal   ✓ logged in
     Portal URL: https://portal.nousresearch.com
     Inference:  https://inference-api.nousresearch.com/v1
-    Access exp: 2026-10-14 03:20:30 CEST
+    Access exp: 2026-10-14 23:08:35 CEST
     Key exp: "<REDACTED>"
     Refresh:    yes
   OpenAI Codex  ✓ logged in
     Auth file:  /Users/fausto/.hermes/auth.json
+    Refreshed:  2026-10-14 02:20:38 CEST
   Qwen OAuth    ✗ not logged in (run: qwen auth qwen-oauth)
     Auth file:  /Users/fausto/.qwen/oauth_creds.json
     Error:      Qwen CLI credentials not found. Run 'qwen auth qwen-oauth' first.
