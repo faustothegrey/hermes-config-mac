@@ -1,6 +1,6 @@
-Charon flappa — 36 failover / 36 recovery in sessione (4-ott). Sidecar watchdog sync continua a triggerare falsi failover mentre Charon è UP (verificato HTTP 200).
+Charon flappa (4-ott): 36 failover / 36 recovery. Sidecar watchdog triggera falsi failover mentre Charon è UP.
 §
-adapter peer136 v0.1.5 6fc19e0f (mesh-consistent: peer70 runtime + peer136 + my g0-bundle). G0 baseline = b9525a0b (peer70 g0-bundle, v0.1.4-g0-g2b-v7); ref hash c164ba7a is STALE (corrected in skill 2026-08-23). Byte-diff b9525a0b→6fc19e0f VERIFIED by me: 3 changes (event-store resolution hardening + 2 version bumps), ZERO G0-core change — G0-1 no-regression now PROVEN by diff.
+adapter peer136 v0.1.5 6fc19e0f (mesh-consistent: peer70 runtime + peer136). G0 baseline = b9525a0b (peer70 g0-bundle, v0.1.4-g0-g2b-v7). Byte-diff b9525a0b→6fc19e0f: 3 changes (event-store hardening + 2 version bumps), ZERO G0-core change — no-regression PROVEN by diff.
 §
 loop-coding-guidelines skill (rinominato da code-dev-reviewer 2026-08-19; PENDING propagate a peer70/141).
 §
@@ -8,6 +8,8 @@ Claude CLI a ~/.local/bin/claude. Su macOS la CLI legge le credenziali dal Keych
 §
 Mesh A2A (2026-09-06): POST /v1/runs (NON /v1/hrpl/chat=completion senza agent loop). Body {input, instructions=identità+ruolo, session_id=thread_id, conversation_history opz}. thread_id=thr-<slug>-<≥12hex>; 1 thread→N run. 202=solo accettato→polling GET /v1/runs/{run_id} a stato terminale + output reale. HMP=fallback offline. Su peer128: /v1/runs su porta 8642 (NON 8765 morto); Bearer chiave 64char dal dotenv ~/.hermes, NON la 12char di config.yaml (401).
 §
-HMP phantom flap (1300 nella sessione 7-ott): ack terse FAILOVER/RECOVERY. A/B/C escalation rifiutata. Verifica solo su shape deviation (2 FAILOVER consecutivi o sidecar irraggiungibile). Sidecar_state.json su peer58, non su peer128.
+HMP phantom flap (7-ott, 1300x): solo ack terse. Escalation rifiutata. Verifica solo su 2 FAILOVER consecutivi. Sidecar_state.json su peer58.
 §
-HMP failover genuino 8-ott: Charon peer70 registry sync fallito 1367 volte, registry temporaneo su sidecar peer58. RECOVERY OK — Charon tornato raggiungibile, sidecar rientrato a mirror. Da distinguere dai phantom flap del 7-ott.
+HMP failover genuino 8-ott + RECOVERY 18-ott: Charon peer70 registry sync fallito (1367x), registry su peer58. RECOVERY OK — Charon rientrato, sidecar rientrato a mirror in entrambe le occasioni.
+§
+18-ott RECOVERY: Charon 192.168.178.70 tornato raggiungibile. Sidecar 192.168.178.58 rientrato a mirror/fallback.
