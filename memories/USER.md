@@ -2,7 +2,7 @@ Hates destructive ops — ALWAYS ask before: system config changes (services, la
 §
 Minimal invasiveness: 5-min cron heartbeats as safety net, never poll tmux directly.
 §
-Decisive yes/no; honest partial (≤4 tries); confirm/reject. Fail-fast thinker: pre-registered kill-criteria, preserves open/inconclusive states over forced verdicts, separates feasibility from value.
+Decisive yes/no; fail-fast thinker. Repeats same verbatim request when implementation misses intent — check Italian words. Only exact output, no prose.
 §
 Documents projects for agent handoff (READMEs). Custom dev
 §
@@ -13,3 +13,5 @@ When relaying to agents: use pointers to artifacts, not restatements. Trusts the
 Italian native. TTS: edge-tts neural (Diego/Elsa/Isabella), rejects English-accented. Likes creative interactive formats (talk shows), 30s–2min segments, pre-prepped to cut latency.
 §
 Naming: concrete industrial one-word (Rebar), not soft/punny; show batches. Holographic Memory proved ineffective; prefers vault/session search.
+§
+HMP failover/recovery: peer58 li segnala manualmente con formato fisso. Vuole acknowledgement terse (conteggio + stato), nessuna offerta di automazione né analisi.
