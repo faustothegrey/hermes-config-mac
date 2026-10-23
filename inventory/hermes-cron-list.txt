@@ -11,66 +11,66 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-10-22T23:04:47.635462+02:00
+    Next run:  2026-10-23T23:30:15.114633+02:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-22T22:59:47.635462+02:00  ok
-    Execution: completed  1c268ab87be248a6a4086197fa70f76f
+    Last run:  2026-10-23T23:25:15.114633+02:00  ok
+    Execution: completed  8a7795342c5a4f87a4b632b3c4157246
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
     Schedule:  0 23 * * *
     Repeat:    ∞
-    Next run:  2026-10-23T23:00:00+02:00
+    Next run:  2026-10-24T23:00:00+02:00
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-21T23:00:21.718963+02:00  ok
-    Execution: running  d2ff733ead6c456fa5e73a2ee32d772f
+    Last run:  2026-10-22T23:00:59.738884+02:00  ok
+    Execution: running  2635dd3a226f4400be4d59edd2fcc327
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-10-22T23:06:47.241554+02:00
+    Next run:  2026-10-23T23:35:15.445907+02:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-22T22:56:47.241554+02:00  ok
-    Execution: completed  b74248df709741948a5f3c255ec0711e
+    Last run:  2026-10-23T23:25:15.445907+02:00  ok
+    Execution: completed  649471a78c2b460587f8736d46d21e3e
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-10-22T23:00:47.524192+02:00
+    Next run:  2026-10-23T23:26:14.592945+02:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-22T22:59:47.524192+02:00  ok
-    Execution: completed  78a14896235b433d9dc51cac3fd4fa74
+    Last run:  2026-10-23T23:25:14.592945+02:00  ok
+    Execution: completed  d3c3e958e3b5461ab3f752505ae30f63
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
     Schedule:  0 * * * *
     Repeat:    ∞
-    Next run:  2026-10-23T00:00:00+02:00
+    Next run:  2026-10-24T00:00:00+02:00
     Deliver:   origin
     Script:    hmp-peer70-healthcheck.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-22T23:00:49.231126+02:00  ok
-    Execution: completed  3b4bd4cf34014359862df99ccf53a00e
+    Last run:  2026-10-23T23:25:17.295694+02:00  ok
+    Execution: completed  d9d3726eaa414de4b5fb439427462c87
 
   ed1d89525dd7 [active]
     Name:      rebar-g0-review-peer128
     Schedule:  every 120m
     Repeat:    ∞
-    Next run:  2026-10-23T00:20:42.185284+02:00
+    Next run:  2026-10-24T00:23:57.653719+02:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
-    Last run:  2026-10-22T22:20:42.185284+02:00  blocked_config: [blocked_config:silent] provider credential missing: No access token found for Nous Portal login.. Set the provider API key in .env (or `hermes setup`), or pin a working provider via `cronjob action=<REDACTED>
-    Execution: failed  e7d83d885f3e485787e39c1c9cf39d50
+    Last run:  2026-10-23T22:23:57.653719+02:00  blocked_config: [blocked_config:silent] provider credential missing: No access token found for Nous Portal login.. Set the provider API key in .env (or `hermes setup`), or pin a working provider via `cronjob action=<REDACTED>
+    Execution: failed  8a0482436bd9457aafe8ddea3b051df4
 
 
 
