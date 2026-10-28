@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 20767
+        "completed": 20945
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-10-27T23:02:55.088544+01:00",
-      "last_run_at": "2026-10-27T22:57:55.088544+01:00",
+      "next_run_at": "2026-10-28T23:04:37.716801+01:00",
+      "last_run_at": "2026-10-28T22:59:37.716801+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,15 +59,15 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 168
+        "completed": 169
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-10-28T23:00:00+01:00",
-      "last_run_at": "2026-10-26T23:00:56.891034+01:00",
+      "next_run_at": "2026-10-29T23:00:00+01:00",
+      "last_run_at": "2026-10-27T23:01:06.763188+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -77,8 +77,8 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-10-27T23:00:55.186289+01:00",
-        "by": "MacPro:821:53fe35cddee84cc4867426b5958bdddf"
+        "at": "2026-10-28T23:00:37.663934+01:00",
+        "by": "MacPro:815:1ef555ef24f3402396bb67e3b5952cec"
       }
     },
     {
@@ -101,15 +101,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 10675
+        "completed": 10777
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-10-27T23:07:54.999889+01:00",
-      "last_run_at": "2026-10-27T22:57:54.999889+01:00",
+      "next_run_at": "2026-10-28T23:09:37.805469+01:00",
+      "last_run_at": "2026-10-28T22:59:37.805469+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -145,15 +145,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 65338
+        "completed": 65758
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-10-27T23:01:55.623674+01:00",
-      "last_run_at": "2026-10-27T23:00:55.623674+01:00",
+      "next_run_at": "2026-10-28T23:01:38.076422+01:00",
+      "last_run_at": "2026-10-28T23:00:38.076422+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -184,15 +184,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1922
+        "completed": 1946
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-10-28T00:00:00+01:00",
-      "last_run_at": "2026-10-27T22:01:47.517588+01:00",
+      "next_run_at": "2026-10-29T00:00:00+01:00",
+      "last_run_at": "2026-10-28T22:00:28.692508+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -207,8 +207,8 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-10-27T23:00:55.472847+01:00",
-        "by": "MacPro:821:1411c01237904b1290e63a2c1fefec71"
+        "at": "2026-10-28T23:00:37.820533+01:00",
+        "by": "MacPro:815:63cd0999b72e4aa28939b51fc73e7617"
       }
     },
     {
@@ -393,15 +393,15 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 647
+        "completed": 658
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-23T15:34:58.578767+02:00",
-      "next_run_at": "2026-10-28T00:43:52.901248+01:00",
-      "last_run_at": "2026-10-27T22:43:52.901248+01:00",
+      "next_run_at": "2026-10-29T00:39:34.139774+01:00",
+      "last_run_at": "2026-10-28T22:39:34.139774+01:00",
       "last_status": "blocked_config",
       "last_error": "[blocked_config:silent] provider credential missing: No access token found for Nous Portal login.. Set the provider API key in .env (or `hermes setup`), or pin a working provider via `cronjob action=update job_id=ed1d89525dd7 provider=<p>`.",
       "last_delivery_error": null,
@@ -423,5 +423,5 @@
       "preflight_alerted": true
     }
   ],
-  "updated_at": "2026-10-27T23:00:55.624159+01:00"
+  "updated_at": "2026-10-28T23:00:38.076914+01:00"
 }
