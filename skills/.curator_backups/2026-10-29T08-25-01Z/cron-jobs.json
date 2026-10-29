@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 15493
+        "completed": 20960
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-09-23T22:01:39.327696+02:00",
-      "last_run_at": "2026-09-23T21:56:39.327696+02:00",
+      "next_run_at": "2026-10-29T09:27:25.056324+01:00",
+      "last_run_at": "2026-10-29T09:22:25.056324+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,15 +59,15 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 134
+        "completed": 170
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-09-23T23:00:00+02:00",
-      "last_run_at": "2026-09-22T23:01:11.887944+02:00",
+      "next_run_at": "2026-10-29T23:00:00+01:00",
+      "last_run_at": "2026-10-28T23:00:48.309394+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -98,15 +98,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 7814
+        "completed": 10787
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-09-23T22:01:38.491273+02:00",
-      "last_run_at": "2026-09-23T21:51:38.491273+02:00",
+      "next_run_at": "2026-10-29T09:29:24.291494+01:00",
+      "last_run_at": "2026-10-29T09:19:24.291494+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -142,15 +142,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 52171
+        "completed": 65792
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-09-23T22:00:39.876127+02:00",
-      "last_run_at": "2026-09-23T21:59:39.876127+02:00",
+      "next_run_at": "2026-10-29T09:25:25.120122+01:00",
+      "last_run_at": "2026-10-29T09:24:25.120122+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -181,15 +181,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1255
+        "completed": 1952
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-09-23T22:00:00+02:00",
-      "last_run_at": "2026-09-23T21:01:33.054043+02:00",
+      "next_run_at": "2026-10-29T10:00:00+01:00",
+      "last_run_at": "2026-10-29T09:00:23.554382+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -387,17 +387,17 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 304
+        "completed": 661
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-23T15:34:58.578767+02:00",
-      "next_run_at": "2026-09-23T23:01:21.169391+02:00",
-      "last_run_at": "2026-09-23T21:01:21.169391+02:00",
-      "last_status": "error",
-      "last_error": "RuntimeError: The read operation timed out",
+      "next_run_at": "2026-10-29T11:09:23.163887+01:00",
+      "last_run_at": "2026-10-29T09:09:23.163887+01:00",
+      "last_status": "blocked_config",
+      "last_error": "[blocked_config:silent] provider credential missing: No access token found for Nous Portal login.. Set the provider API key in .env (or `hermes setup`), or pin a working provider via `cronjob action=update job_id=ed1d89525dd7 provider=<p>`.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -413,8 +413,9 @@
       ],
       "workdir": null,
       "fire_claim": null,
-      "drift_alerted": true
+      "drift_alerted": true,
+      "preflight_alerted": true
     }
   ],
-  "updated_at": "2026-09-23T21:59:39.876564+02:00"
+  "updated_at": "2026-10-29T09:24:25.120585+01:00"
 }
