@@ -5,7 +5,7 @@ STDOUT:
 
  Profile          Model                        Gateway      Alias        Distribution
  ───────────────    ───────────────────────────    ───────────    ───────────    ────────────────────
- ◆default         deepseek/deepseek-v4-flash   running      —            —
+ ◆default         gpt-5.6-terra                running      —            —
 
 
 

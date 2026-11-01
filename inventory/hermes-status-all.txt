@@ -11,8 +11,8 @@ STDOUT:
   Project:      /Users/fausto/.hermes/hermes-agent
   Python:       3.11.16
   .env file:    ✓ exists
-  Model:        deepseek/deepseek-v4-flash
-  Provider:     Nous Portal
+  Model:        gpt-5.6-terra
+  Provider:     ChatGPT or Codex Subscription
 
 ◆ API Keys
   OpenRouter    ✗ (not set)
@@ -83,14 +83,14 @@ STDOUT:
 ◆ Gateway Service
   Status:       ✓ running
   Manager:      launchd
-  PID(s):       844, 740
+  PID(s):       865, 785
 
 ◆ Scheduled Jobs
   Jobs:         6 active, 9 total
 
 ◆ Sessions
-  Active:       6 session(s)
-  Last activity:      16h ago
+  Active:       7 session(s)
+  Last activity:      19m ago
 
 ────────────────────────────────────────────────────────────
   Run 'hermes doctor' for detailed diagnostics

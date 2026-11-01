@@ -11,66 +11,66 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-10-31T23:29:47.459904+01:00
+    Next run:  2026-11-01T23:01:32.078133+01:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-31T23:24:47.459904+01:00  ok
-    Execution: completed  92b9dda62dee4c6ba08aac3962cc4e1e
+    Last run:  2026-11-01T22:56:32.078133+01:00  ok
+    Execution: completed  cd161c7eb7d649a4bb1a862917573ff6
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
     Schedule:  0 23 * * *
     Repeat:    ∞
-    Next run:  2026-11-01T23:00:00+01:00
+    Next run:  2026-11-02T23:00:00+01:00
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-30T23:01:02.972600+01:00  ok
-    Execution: running  b443ed361db34b0ea4c7cb9ded0db2ef
+    Last run:  2026-10-31T23:24:58.329012+01:00  ok
+    Execution: running  eb0b2bd63e2b4a3a8ecb52455889f664
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-10-31T23:34:47.742618+01:00
+    Next run:  2026-11-01T23:05:31.755252+01:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-31T23:24:47.742618+01:00  ok
-    Execution: completed  f00274f8f7c84aaf82d7f095c4fa6428
+    Last run:  2026-11-01T22:55:31.755252+01:00  ok
+    Execution: completed  9fd33642d66b4587bffd5693c31e7361
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-10-31T23:25:47.783563+01:00
+    Next run:  2026-11-01T23:00:32.367441+01:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-31T23:24:47.783563+01:00  ok
-    Execution: completed  519411daea2b48b496d57f750c0a41bb
+    Last run:  2026-11-01T22:59:32.367441+01:00  ok
+    Execution: completed  844e6f8d39c94bfea8ac16820b578466
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
     Schedule:  0 * * * *
     Repeat:    ∞
-    Next run:  2026-11-01T00:00:00+01:00
+    Next run:  2026-11-02T00:00:00+01:00
     Deliver:   origin
     Script:    hmp-peer70-healthcheck.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-10-31T23:24:50.516026+01:00  ok
-    Execution: completed  0b41560a3b8146f3af28a9be0b30db24
+    Last run:  2026-11-01T23:00:34.255173+01:00  ok
+    Execution: completed  211608c7fd5347ca83ca54a5c831ac21
 
   ed1d89525dd7 [active]
     Name:      rebar-g0-review-peer128
     Schedule:  every 120m
     Repeat:    ∞
-    Next run:  2026-11-01T01:24:48.067629+01:00
+    Next run:  2026-11-02T00:15:27.013392+01:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
-    Last run:  2026-10-31T23:24:48.067629+01:00  blocked_config: [blocked_config:silent] provider credential missing: No access token found for Nous Portal login.. Set the provider API key in .env (or `hermes setup`), or pin a working provider via `cronjob action=<REDACTED>
-    Execution: failed  aa05c8ed1748490c92bbc05580eee3e8
+    Last run:  2026-11-01T22:15:27.013392+01:00  error: RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'openai-codex'; model 'claude-opus-4-8' -> 'gpt-5.6-terra'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.
+    Execution: failed  dbabc41090234c98a2a5a5f7fb405ee5
 
 
 
