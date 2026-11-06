@@ -1,20 +1,6 @@
 {
-  "updated_at": "2026-11-04T22:58:13.391192",
+  "updated_at": "2026-11-06T02:50:53.654117",
   "platforms": {
-    "telegram": [
-      {
-        "id": "8508115936",
-        "name": "Fausto Lelli",
-        "type": "dm",
-        "thread_id": null
-      },
-      {
-        "id": "-5324368669",
-        "name": "Local Mesh",
-        "type": "group",
-        "thread_id": null
-      }
-    ],
     "hmp": [
       {
         "id": "peer58",
