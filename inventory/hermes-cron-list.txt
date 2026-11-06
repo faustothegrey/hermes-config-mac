@@ -11,66 +11,82 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-11-06T02:55:55.739389+01:00
+    Next run:  2026-11-06T23:05:20.736605+01:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-06T02:50:55.739389+01:00  ok
-    Execution: completed  6314e6f85b7642be89f48b978939318e
+    Last run:  2026-11-06T23:00:20.736605+01:00  ok
+    Execution: completed  3f3013c5b674483c9e89b83acaccc770
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
     Schedule:  0 23 * * *
     Repeat:    ∞
-    Next run:  2026-11-06T23:00:00+01:00
+    Next run:  2026-11-07T23:00:00+01:00
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-04T23:00:32.103483+01:00  ok
-    Execution: running  44510808f9624eb3a11d8eac525bd775
+    Last run:  2026-11-06T03:51:56.405199+01:00  error: Script exited with code 128
+stderr:
+ssh: connect to host github.com port 22: Undefined error: 0
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+stdout:
+[2026-11-06T02:50:55+0100] Starting Hermes config backup in /Users/fausto/Backups/hermes-config
+[2026-11-06T02:50:55+0100] Starting Hermes config backup in /Users/fausto/Backups/hermes-config
+  obsidian-vault: OK (/Users/fausto/Documents/Obsidian Vault)
+Regenerated sanitized Hermes backup from /Users/fausto/.hermes into /Users/fausto/Backups/hermes-config
+Skipping encrypted secrets bundle (BACKUP_SECRETS!=1): "<REDACTED>"
+[master f4d0427] backup: update Hermes configuration — 2026-11-06T03:51:56+0100
+ 14 files changed, 81 insertions(+), 98 deletions(-)
+ rename skills/.curator_backups/{2026-09-30T20-39-56Z => 2026-11-05T09-10-29Z}/cron-jobs.json (93%)
+ rename skills/.curator_backups/{2026-09-30T20-39-56Z => 2026-11-05T09-10-29Z}/manifest.json (56%)
+    Execution: running  ae4e20e477e84c03abc6cf276a1b319a
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-11-06T03:00:56.036026+01:00
+    Next run:  2026-11-06T23:09:20.219403+01:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-06T02:50:56.036026+01:00  ok
-    Execution: completed  2e6a18b6c99b46ecb73f5da134b4ae66
+    Last run:  2026-11-06T22:59:20.219403+01:00  ok
+    Execution: completed  6b456c4f4a454b7191994ec70d75e273
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-11-06T02:51:56.048184+01:00
+    Next run:  2026-11-06T23:01:20.753552+01:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-06T02:50:56.048184+01:00  ok
-    Execution: completed  fac1cff464954f8b9bf7e9f0331b1371
+    Last run:  2026-11-06T23:00:20.753552+01:00  ok
+    Execution: completed  fed3dafdd0434f609ab7bc7ef67450e3
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
     Schedule:  0 * * * *
     Repeat:    ∞
-    Next run:  2026-11-06T03:00:00+01:00
+    Next run:  2026-11-07T00:00:00+01:00
     Deliver:   origin
     Script:    hmp-peer70-healthcheck.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-06T02:50:56.274844+01:00  ok
-    Execution: completed  46408a1c8e9640b787a447d36781b29c
+    Last run:  2026-11-06T23:00:22.739165+01:00  ok
+    Execution: completed  86497008087d4ca0802ad8681b8a97d9
 
   ed1d89525dd7 [active]
     Name:      rebar-g0-review-peer128
     Schedule:  every 120m
     Repeat:    ∞
-    Next run:  2026-11-06T04:50:56.480154+01:00
+    Next run:  2026-11-06T23:09:04.709534+01:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
-    Last run:  2026-11-06T02:50:56.480154+01:00  error: RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'openai-codex'; model 'claude-opus-4-8' -> 'gpt-5.6-terra'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.
-    Execution: failed  59ef6382cfd14439b1a4698d1d535dba
+    Last run:  2026-11-06T21:09:04.709534+01:00  error: RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'openai-codex'; model 'claude-opus-4-8' -> 'gpt-5.6-terra'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.
+    Execution: failed  92d2c98ff86745d987b6a2255f691038
 
 
 
