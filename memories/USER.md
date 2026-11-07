@@ -2,11 +2,9 @@ Hates destructive ops — ALWAYS ask before: system config changes (services, la
 §
 Minimal invasiveness: 5-min cron heartbeats as safety net, never poll tmux directly.
 §
-Decisive yes/no; fail-fast thinker. Repeats same verbatim request when implementation misses intent — check Italian words. Only exact output, no prose.
+Decisive/fail-fast; expects exact, no-prose responses. For HMP peer58 alerts: a manual single-line Italian ack only—FAILOVER counter+registry endpoint; RECOVERY Charon reachable+Sidecar mirror/fallback; no analysis/inference/automation.
 §
 Documents projects for agent handoff (READMEs). Custom dev
-§
-Repeats same verbatim request when implementation misses intent — check the Italian words. Only exact output, no prose.
 §
 When relaying to agents: use pointers to artifacts, not restatements. Trusts the pipeline: delegates back to same agent for fixes, accepts pragmatic provider choices.
 §
@@ -14,4 +12,4 @@ Italian native. TTS: edge-tts neural (Diego/Elsa/Isabella), rejects English-acce
 §
 Naming: concrete industrial one-word (Rebar), not soft/punny; show batches. Holographic Memory proved ineffective; prefers vault/session search.
 §
-HMP failover/recovery: peer58 li segnala manualmente con formato fisso. Vuole acknowledgement terse (conteggio + stato), nessuna offerta di automazione né analisi.
+HMP peer58: ack manuale, 1 riga: FAILOVER=contatore+endpoint dati; RECOVERY=Charon/Sidecar mirror. Nessuna analisi, inferenza o automazione.
