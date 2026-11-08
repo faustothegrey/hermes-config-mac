@@ -700,14 +700,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-16T12:12:09.012580+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-10-19T11:51:19.799031+00:00",
-    "last_viewed_at": "2026-10-19T11:51:19.795388+00:00",
+    "last_used_at": "2026-11-08T08:22:14.864859+00:00",
+    "last_viewed_at": "2026-11-08T08:22:14.857359+00:00",
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 13,
-    "view_count": 13
+    "use_count": 14,
+    "view_count": 14
   },
   "hermes-agent-skill-authoring": {
     "archived_at": null,
@@ -745,14 +745,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T13:57:30.611703+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-11-07T21:36:02.110491+00:00",
-    "last_viewed_at": "2026-11-07T21:36:02.103293+00:00",
+    "last_used_at": "2026-11-08T09:36:45.575535+00:00",
+    "last_viewed_at": "2026-11-08T09:36:45.571317+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 53,
-    "view_count": 53
+    "use_count": 54,
+    "view_count": 54
   },
   "hermes-peer-ecosystem": {
     "archived_at": null,
@@ -910,13 +910,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-11-07T21:59:27.896695+00:00",
+    "last_used_at": "2026-11-08T21:31:31.040894+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 780,
+    "use_count": 791,
     "view_count": 7
   },
   "macos-computer-use": {
@@ -940,14 +940,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-08-19T21:38:01.325966+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-11-01T11:26:43.351528+00:00",
-    "last_viewed_at": "2026-11-01T11:26:43.348678+00:00",
+    "last_used_at": "2026-11-08T08:22:14.860693+00:00",
+    "last_viewed_at": "2026-11-08T08:22:14.853454+00:00",
     "patch_count": 73,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 56,
-    "view_count": 56
+    "use_count": 57,
+    "view_count": 57
   },
   "manim-video": {
     "archived_at": null,
