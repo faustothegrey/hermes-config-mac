@@ -44,9 +44,9 @@ STDOUT:
 │ touchdesigner-mcp     │ creative             │ builtin  │ builtin  │ enabled │
 │ jupyter-live-kernel   │ data-science         │ local    │ local    │ enabled │
 │ hermes-peer-ecosystem │ devops               │ local    │ local    │ enabled │
+│ hmp-alert-acknowledg… │ devops               │ local    │ local    │ enabled │
 │ kanban-orchestrator   │ devops               │ local    │ local    │ enabled │
 │ kanban-worker         │ devops               │ local    │ local    │ enabled │
-│ virtualbox-troublesh… │ devops               │ local    │ local    │ enabled │
 │ webhook-subscriptions │ devops               │ local    │ local    │ enabled │
 │ email-inbox-triage    │ email                │ builtin  │ builtin  │ enabled │
 │ himalaya              │ email                │ builtin  │ builtin  │ enabled │
@@ -111,7 +111,6 @@ STDOUT:
 │ openhue               │ smart-home           │ builtin  │ builtin  │ enabled │
 │ xurl                  │ social-media         │ builtin  │ builtin  │ enabled │
 │ agenttalk-operator-s… │ software-development │ local    │ local    │ enabled │
-│ browser-element-agen… │ software-development │ local    │ local    │ enabled │
 │ debugging-hermes-tui… │ software-development │ local    │ local    │ enabled │
 │ dogfood               │ software-development │ builtin  │ builtin  │ enabled │
 │ falsification-and-fe… │ software-development │ local    │ local    │ enabled │
@@ -120,13 +119,11 @@ STDOUT:
 │ hermes-s6-container-… │ software-development │ local    │ local    │ enabled │
 │ inspecting-hermes-de… │ software-development │ builtin  │ builtin  │ enabled │
 │ loop-coding-guidelin… │ software-development │ local    │ local    │ enabled │
-│ multi-agent-orchestr… │ software-development │ local    │ local    │ enabled │
 │ node-inspect-debugger │ software-development │ builtin  │ builtin  │ enabled │
 │ plan                  │ software-development │ builtin  │ builtin  │ enabled │
 │ python-debugpy        │ software-development │ builtin  │ builtin  │ enabled │
 │ requesting-code-revi… │ software-development │ builtin  │ builtin  │ enabled │
 │ simplify-code         │ software-development │ builtin  │ builtin  │ enabled │
-│ skill-repo-hosting    │ software-development │ local    │ local    │ enabled │
 │ spike                 │ software-development │ builtin  │ builtin  │ enabled │
 │ subagent-driven-deve… │ software-development │ local    │ local    │ enabled │
 │ systematic-debugging  │ software-development │ builtin  │ builtin  │ enabled │
@@ -135,7 +132,7 @@ STDOUT:
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
 │ ai-cli-quota-monitor… │ sysadmin             │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 81 builtin, 44 local — 128 enabled, 0 disabled
+3 hub-installed, 81 builtin, 41 local — 125 enabled, 0 disabled
 
 
 
