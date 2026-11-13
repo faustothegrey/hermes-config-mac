@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 23432
+        "completed": 23618
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-11-12T23:03:03.131017+01:00",
-      "last_run_at": "2026-11-12T22:58:03.131017+01:00",
+      "next_run_at": "2026-11-13T23:02:37.913147+01:00",
+      "last_run_at": "2026-11-13T22:57:37.913147+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,15 +59,15 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 184
+        "completed": 185
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-11-13T23:00:00+01:00",
-      "last_run_at": "2026-11-11T23:00:41.212840+01:00",
+      "next_run_at": "2026-11-14T23:00:00+01:00",
+      "last_run_at": "2026-11-12T23:00:14.404851+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -77,8 +77,8 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-11-12T23:00:03.033737+01:00",
-        "by": "MacPro:848:6d4bcc7620ae4a6cbd4bd2ca5642da7b"
+        "at": "2026-11-13T23:00:37.952344+01:00",
+        "by": "MacPro:837:71257ebccf6c463aac780b09e2ef8977"
       }
     },
     {
@@ -101,15 +101,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 12135
+        "completed": 12236
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-11-12T23:04:02.496639+01:00",
-      "last_run_at": "2026-11-12T22:54:02.496639+01:00",
+      "next_run_at": "2026-11-13T23:03:37.205592+01:00",
+      "last_run_at": "2026-11-13T22:53:37.205592+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -145,15 +145,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 72043
+        "completed": 72522
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-11-12T23:00:03.068137+01:00",
-      "last_run_at": "2026-11-12T22:59:03.068137+01:00",
+      "next_run_at": "2026-11-13T23:00:37.918109+01:00",
+      "last_run_at": "2026-11-13T22:59:37.918109+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -184,15 +184,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 2242
+        "completed": 2264
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-11-13T00:00:00+01:00",
-      "last_run_at": "2026-11-12T22:00:56.895355+01:00",
+      "next_run_at": "2026-11-14T00:00:00+01:00",
+      "last_run_at": "2026-11-13T22:00:32.708614+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -207,8 +207,8 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-11-12T23:00:03.069543+01:00",
-        "by": "MacPro:848:89a33b567a004452b427cbabab2ecaaa"
+        "at": "2026-11-13T23:00:38.033753+01:00",
+        "by": "MacPro:837:467c594f75934b9289503b1c5a07bb6d"
       }
     },
     {
@@ -393,15 +393,15 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 812
+        "completed": 822
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-23T15:34:58.578767+02:00",
-      "next_run_at": "2026-11-13T00:56:02.974074+01:00",
-      "last_run_at": "2026-11-12T22:56:02.974074+01:00",
+      "next_run_at": "2026-11-13T23:48:29.787280+01:00",
+      "last_run_at": "2026-11-13T21:48:29.787280+01:00",
       "last_status": "error",
       "last_error": "RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'openai-codex'; model 'claude-opus-4-8' -> 'gpt-5.6-terra'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.",
       "last_delivery_error": null,
@@ -422,5 +422,5 @@
       "drift_alerted": true
     }
   ],
-  "updated_at": "2026-11-12T23:00:03.070582+01:00"
+  "updated_at": "2026-11-13T23:00:38.050190+01:00"
 }
