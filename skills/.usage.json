@@ -805,14 +805,14 @@
     "created_by": "agent",
     "last_patched_at": "2026-11-12T13:50:12.821235+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-11-13T10:24:20.699228+00:00",
-    "last_viewed_at": "2026-11-13T10:24:20.694899+00:00",
+    "last_used_at": "2026-11-14T18:26:40.161070+00:00",
+    "last_viewed_at": "2026-11-14T18:26:40.153324+00:00",
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 5,
-    "view_count": 5
+    "use_count": 9,
+    "view_count": 9
   },
   "hmp-incident-handling": {
     "archived_at": null,
@@ -940,13 +940,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-11-13T20:48:29.586062+00:00",
+    "last_used_at": "2026-11-14T21:49:49.849618+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 846,
+    "use_count": 857,
     "view_count": 7
   },
   "macos-computer-use": {

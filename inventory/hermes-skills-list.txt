@@ -48,6 +48,7 @@ STDOUT:
 │ hmp-incident-handling │ devops               │ local    │ local    │ enabled │
 │ kanban-orchestrator   │ devops               │ local    │ local    │ enabled │
 │ kanban-worker         │ devops               │ local    │ local    │ enabled │
+│ sdlc-review           │ devops               │ builtin  │ builtin  │ enabled │
 │ webhook-subscriptions │ devops               │ local    │ local    │ enabled │
 │ email-inbox-triage    │ email                │ builtin  │ builtin  │ enabled │
 │ himalaya              │ email                │ builtin  │ builtin  │ enabled │
@@ -133,7 +134,7 @@ STDOUT:
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
 │ ai-cli-quota-monitor… │ sysadmin             │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 81 builtin, 42 local — 126 enabled, 0 disabled
+3 hub-installed, 82 builtin, 42 local — 127 enabled, 0 disabled
 
 
 
