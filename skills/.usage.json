@@ -745,14 +745,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-17T13:57:30.611703+00:00",
     "last_reused_patch_generation": 2,
-    "last_used_at": "2026-11-12T10:08:23.280440+00:00",
-    "last_viewed_at": "2026-11-12T10:08:23.276572+00:00",
+    "last_used_at": "2026-11-16T21:38:31.502412+00:00",
+    "last_viewed_at": "2026-11-16T21:38:31.497906+00:00",
     "patch_count": 2,
     "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 60,
-    "view_count": 60
+    "use_count": 61,
+    "view_count": 61
   },
   "hermes-peer-ecosystem": {
     "archived_at": null,
@@ -803,16 +803,16 @@
     "archived_at": null,
     "created_at": "2026-11-12T13:50:03.168651+00:00",
     "created_by": "agent",
-    "last_patched_at": "2026-11-12T13:50:12.821235+00:00",
-    "last_reused_patch_generation": 1,
-    "last_used_at": "2026-11-14T22:33:40.700127+00:00",
-    "last_viewed_at": "2026-11-14T22:33:40.696241+00:00",
-    "patch_count": 1,
-    "patch_generation": 1,
+    "last_patched_at": "2026-11-16T13:23:24.632066+00:00",
+    "last_reused_patch_generation": 2,
+    "last_used_at": "2026-11-16T21:39:09.509849+00:00",
+    "last_viewed_at": "2026-11-16T21:39:09.506457+00:00",
+    "patch_count": 2,
+    "patch_generation": 2,
     "pinned": false,
     "state": "active",
-    "use_count": 10,
-    "view_count": 10
+    "use_count": 14,
+    "view_count": 14
   },
   "hmp-incident-handling": {
     "archived_at": null,
@@ -820,14 +820,14 @@
     "created_by": "agent",
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-11-15T09:55:31.627835+00:00",
-    "last_viewed_at": "2026-11-15T09:55:31.624754+00:00",
+    "last_used_at": "2026-11-16T21:38:31.491822+00:00",
+    "last_viewed_at": "2026-11-16T21:38:31.487187+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 2,
-    "view_count": 2
+    "use_count": 4,
+    "view_count": 4
   },
   "hmp-talkshow": {
     "archived_at": null,
@@ -940,13 +940,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-11-15T20:44:24.592042+00:00",
+    "last_used_at": "2026-11-16T20:01:18.377255+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 867,
+    "use_count": 877,
     "view_count": 7
   },
   "macos-computer-use": {

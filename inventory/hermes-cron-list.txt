@@ -11,66 +11,66 @@ STDOUT:
     Name:      service-watchdog
     Schedule:  every 5m
     Repeat:    ∞
-    Next run:  2026-11-15T23:02:35.641688+01:00
+    Next run:  2026-11-16T23:05:05.935915+01:00
     Deliver:   all
     Script:    service-watchdog
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-15T22:57:35.641688+01:00  ok
-    Execution: completed  8eec40691b324f57be31ef2dd2e7c453
+    Last run:  2026-11-16T23:00:05.935915+01:00  ok
+    Execution: completed  9a50a9d98f964dbfbf5cc0b1543dfad7
 
   b763d78565da [active]
     Name:      Nightly Hermes configuration backup
     Schedule:  0 23 * * *
     Repeat:    ∞
-    Next run:  2026-11-16T23:00:00+01:00
+    Next run:  2026-11-17T23:00:00+01:00
     Deliver:   local
     Script:    hermes-config-backup-nightly.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-14T23:01:02.671842+01:00  ok
-    Execution: running  bfa7ed2f54604250a7a1a16f04ef916e
+    Last run:  2026-11-15T23:00:48.213591+01:00  ok
+    Execution: running  03af2f3e241c4416b85bdd20b8d083f4
 
   78f09e4a6c3a [active]
     Name:      load-analyzer
     Schedule:  every 10m
     Repeat:    ∞
-    Next run:  2026-11-15T23:01:34.909661+01:00
+    Next run:  2026-11-16T23:00:31.077007+01:00
     Deliver:   origin
     Script:    load-analyzer.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-15T22:51:34.909661+01:00  ok
-    Execution: completed  5e479b2456bc4d8a902f1a1d46772bce
+    Last run:  2026-11-16T22:50:31.077007+01:00  ok
+    Execution: completed  b9937ab8425b471aa0aa50520e34bcad
 
   223983237c7d [active]
     Name:      hermes-heartbeat
     Schedule:  every 1m
     Repeat:    ∞
-    Next run:  2026-11-15T23:00:35.678484+01:00
+    Next run:  2026-11-16T23:00:05.322165+01:00
     Deliver:   all
     Script:    heartbeat.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-15T22:59:35.678484+01:00  ok
-    Execution: completed  f1daa15667cd44ddb0524f7247ef039c
+    Last run:  2026-11-16T22:59:05.322165+01:00  ok
+    Execution: completed  75fc746157e14a3ba70b603241867d6d
 
   1f301d4c3e9a [active]
     Name:      HMP healthcheck da peer70
     Schedule:  0 * * * *
     Repeat:    ∞
-    Next run:  2026-11-16T00:00:00+01:00
+    Next run:  2026-11-17T00:00:00+01:00
     Deliver:   origin
     Script:    hmp-peer70-healthcheck.sh
     Mode:      no-agent (script stdout delivered directly)
-    Last run:  2026-11-15T23:00:37.505656+01:00  ok
-    Execution: completed  34fb0a27720748e3a8a00ebc6667c96a
+    Last run:  2026-11-16T23:00:07.550325+01:00  ok
+    Execution: completed  498b46a7002042448546442661141128
 
   ed1d89525dd7 [active]
     Name:      rebar-g0-review-peer128
     Schedule:  every 120m
     Repeat:    ∞
-    Next run:  2026-11-15T23:44:24.829937+01:00
+    Next run:  2026-11-16T23:01:18.500721+01:00
     Deliver:   origin
     Skills:    loop-coding-guidelines
-    Last run:  2026-11-15T21:44:24.829937+01:00  error: RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'openai-codex'; model 'claude-opus-4-8' -> 'gpt-5.6-terra'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.
-    Execution: failed  1810c322033d44c9aec2784db8e609df
+    Last run:  2026-11-16T21:01:18.500721+01:00  error: RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'openai-codex'; model 'claude-opus-4-8' -> 'gpt-5.6-terra'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.
+    Execution: failed  5e36241446da4fff971e1a89e3dbff08
 
 
 
