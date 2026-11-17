@@ -13,3 +13,5 @@ Italian native. TTS: edge-tts neural (Diego/Elsa/Isabella), rejects English-acce
 Naming: concrete industrial one-word (Rebar), not soft/punny; show batches. Holographic Memory proved ineffective; prefers vault/session search.
 §
 HMP peer58: `ACK FAILOVER`/`ACK RECOVERY`; una riga italiana, soli dati dell'avviso.
+§
+Pignoleggia su terminologia e naming precisi, aderenti a standard (es. skill); pragmatico se il senso resta chiaro.

@@ -120,6 +120,7 @@ STDOUT:
 │ hermes-s6-container-… │ software-development │ local    │ local    │ enabled │
 │ inspecting-hermes-de… │ software-development │ builtin  │ builtin  │ enabled │
 │ loop-coding-guidelin… │ software-development │ local    │ local    │ enabled │
+│ node-dependency-tool… │ software-development │ local    │ local    │ enabled │
 │ node-inspect-debugger │ software-development │ builtin  │ builtin  │ enabled │
 │ plan                  │ software-development │ builtin  │ builtin  │ enabled │
 │ python-debugpy        │ software-development │ builtin  │ builtin  │ enabled │
@@ -133,7 +134,7 @@ STDOUT:
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
 │ ai-cli-quota-monitor… │ sysadmin             │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 81 builtin, 42 local — 126 enabled, 0 disabled
+3 hub-installed, 81 builtin, 43 local — 127 enabled, 0 disabled
 
 
 
