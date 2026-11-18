@@ -111,6 +111,7 @@ STDOUT:
 │ research-paper-writi… │ research             │ builtin  │ builtin  │ enabled │
 │ openhue               │ smart-home           │ builtin  │ builtin  │ enabled │
 │ xurl                  │ social-media         │ builtin  │ builtin  │ enabled │
+│ agent-room            │ software-development │ local    │ local    │ enabled │
 │ agenttalk-operator-s… │ software-development │ local    │ local    │ enabled │
 │ debugging-hermes-tui… │ software-development │ local    │ local    │ enabled │
 │ dogfood               │ software-development │ builtin  │ builtin  │ enabled │
@@ -134,7 +135,7 @@ STDOUT:
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
 │ ai-cli-quota-monitor… │ sysadmin             │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 81 builtin, 43 local — 127 enabled, 0 disabled
+3 hub-installed, 81 builtin, 44 local — 128 enabled, 0 disabled
 
 
 
