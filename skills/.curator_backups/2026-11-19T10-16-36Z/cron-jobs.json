@@ -20,15 +20,15 @@
       "schedule_display": "every 5m",
       "repeat": {
         "times": null,
-        "completed": 18768
+        "completed": 24589
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T05:49:25.004855+02:00",
-      "next_run_at": "2026-10-14T23:15:55.634235+02:00",
-      "last_run_at": "2026-10-14T23:10:55.634235+02:00",
+      "next_run_at": "2026-11-19T11:18:48.178251+01:00",
+      "last_run_at": "2026-11-19T11:13:48.178251+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -59,15 +59,15 @@
       "schedule_display": "0 23 * * *",
       "repeat": {
         "times": null,
-        "completed": 156
+        "completed": 191
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-27T06:26:16.568535+02:00",
-      "next_run_at": "2026-10-15T23:00:00+02:00",
-      "last_run_at": "2026-10-14T23:01:10.510662+02:00",
+      "next_run_at": "2026-11-19T23:00:00+01:00",
+      "last_run_at": "2026-11-18T23:00:34.308278+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -98,15 +98,15 @@
       "schedule_display": "every 10m",
       "repeat": {
         "times": null,
-        "completed": 9586
+        "completed": 12767
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-06-28T17:10:09.105845+02:00",
-      "next_run_at": "2026-10-14T23:14:54.720808+02:00",
-      "last_run_at": "2026-10-14T23:04:54.720808+02:00",
+      "next_run_at": "2026-11-19T11:17:47.582855+01:00",
+      "last_run_at": "2026-11-19T11:07:47.582855+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -142,15 +142,15 @@
       "schedule_display": "every 1m",
       "repeat": {
         "times": null,
-        "completed": 60423
+        "completed": 75019
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-02T12:29:43.601359+02:00",
-      "next_run_at": "2026-10-14T23:11:55.484550+02:00",
-      "last_run_at": "2026-10-14T23:10:55.484550+02:00",
+      "next_run_at": "2026-11-19T11:16:48.022908+01:00",
+      "last_run_at": "2026-11-19T11:15:48.022908+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -181,15 +181,15 @@
       "schedule_display": "0 * * * *",
       "repeat": {
         "times": null,
-        "completed": 1660
+        "completed": 2379
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-17T18:30:53.556097+02:00",
-      "next_run_at": "2026-10-15T00:00:00+02:00",
-      "last_run_at": "2026-10-14T23:02:09.442149+02:00",
+      "next_run_at": "2026-11-19T12:00:00+01:00",
+      "last_run_at": "2026-11-19T11:00:48.370486+01:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -387,17 +387,17 @@
       "schedule_display": "every 120m",
       "repeat": {
         "times": null,
-        "completed": 512
+        "completed": 878
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-23T15:34:58.578767+02:00",
-      "next_run_at": "2026-10-15T00:24:50.111475+02:00",
-      "last_run_at": "2026-10-14T22:24:50.111475+02:00",
+      "next_run_at": "2026-11-19T12:17:43.435443+01:00",
+      "last_run_at": "2026-11-19T10:17:43.435443+01:00",
       "last_status": "error",
-      "last_error": "RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'nous'; model 'claude-opus-4-8' -> 'deepseek/deepseek-v4-flash'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.",
+      "last_error": "RuntimeError: [drift_skip:silent] Skipped to prevent unintended spend: global inference config drifted since this job was created (provider 'anthropic' -> 'nous'; model 'claude-opus-4-8' -> 'deepseek/deepseek-v4-pro'), and this job is unpinned. No inference call was made. To run on the new config, pin it explicitly: `cronjob action=update job_id=ed1d89525dd7 provider=<provider> model=<model>` (or pin the original values to keep them). This alert is sent once; the job stays skipped until the config is pinned or restored. See #44585.",
       "last_delivery_error": null,
       "deliver": "origin",
       "origin": {
@@ -416,5 +416,5 @@
       "drift_alerted": true
     }
   ],
-  "updated_at": "2026-10-14T23:10:55.634835+02:00"
+  "updated_at": "2026-11-19T11:15:48.023747+01:00"
 }
