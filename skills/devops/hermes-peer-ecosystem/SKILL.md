@@ -27,14 +27,17 @@ A Hermes peer ecosystem typically consists of:
 
 ## Key peers in the network
 
-The known peers (from peer84's mesh):
+Current mesh roster (verified live Nov 2026). Retired: peer60, peer105, peer106. Registry-only (no SSH on this Mac): peer138 (services-node, offline, hostname DietPi).
 
-| Peer | IP | Gateway Port | Role | Capabilities |
-|------|----|-------------|------|-------------|
-| **peer84** (N56VV) | 192.168.178.84 | 8642 | Orchestrator | hermes, lan |
-| **peer105** | 192.168.178.105 | 8642 | Worker | hermes, lan |
-| **peer128** | 192.168.178.128 | 8642 | Worker | hermes, lan |
-| **peer106** | 192.168.178.106 | 8642 | Worker | hermes, lan |
+| Peer | IP | SSH user | Hostname | Role |
+|------|----|----------|----------|------|
+| **peer58** | 192.168.178.58 | fausto | Sidecar | Sidecar (failover watchdog) |
+| **peer70** | 192.168.178.70 | fausto | Charon | Registry/aggregator (primary) |
+| **peer84** | 192.168.178.84 | root | Machiste | Orchestrator |
+| **peer128** | 192.168.178.112 | fausto | MacPro | Worker |
+| **peer136** | 192.168.178.136 | fausto | Davon | Worker |
+| **peer141** | 192.168.178.141 | fausto | Stella | Worker |
+| **peer142** | 192.168.178.142 | fausto | Trixie | Worker |
 
 ## HMP (Hermes Mesh Protocol) — peer-direct HTTP messaging via gateway plugin
 
