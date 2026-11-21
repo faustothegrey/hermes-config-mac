@@ -774,15 +774,15 @@
     "created_at": "2026-06-25T05:41:59.627132+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-11-20T12:55:29.558370+00:00",
-    "last_reused_patch_generation": 15,
-    "last_used_at": "2026-11-20T10:05:12.737424+00:00",
-    "last_viewed_at": "2026-11-20T10:05:12.731159+00:00",
+    "last_reused_patch_generation": 18,
+    "last_used_at": "2026-11-21T11:20:51.883590+00:00",
+    "last_viewed_at": "2026-11-21T11:20:51.879905+00:00",
     "patch_count": 74,
     "patch_generation": 18,
     "pinned": false,
     "state": "active",
-    "use_count": 123,
-    "view_count": 123
+    "use_count": 124,
+    "view_count": 124
   },
   "hermes-voice-io-macos": {
     "archived_at": null,
@@ -955,13 +955,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-11-20T21:02:21.581021+00:00",
+    "last_used_at": "2026-11-21T21:00:53.745506+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 918,
+    "use_count": 929,
     "view_count": 7
   },
   "macos-computer-use": {

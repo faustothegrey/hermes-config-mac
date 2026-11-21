@@ -407,7 +407,8 @@ approvals:
   cron_mode: deny
   mcp_reload_confirm: true
   destructive_slash_confirm: true
-command_allowlist: []
+command_allowlist:
+  - ssh_config_write
 hooks_auto_accept: false
 security:
   allow_private_urls: false

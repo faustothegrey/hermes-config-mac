@@ -42,7 +42,7 @@ Exit code 0 = key installed. Confirm with the success message "Number of key(s) 
 
 ### 4. Verify connection and collect identity info
 
-Determine the correct user first — the user ON the peer may not be `fausto`. Check existing peers for clues (peer84 is `root`, peer105 is `root`, peer70 is `fausto`). If unsure, try `fausto` first, then `root`, then whichever the peer's admin mentioned.
+Determine the correct user first — the user ON the peer may not be `fausto`. All active peers log in as `fausto` (uniform since Nov 2026; retired peers used `root`/`pi`). Try `fausto` first, then `root`, then whichever the peer's admin mentioned.
 
 ```bash
 ssh -o ConnectTimeout=5 <user>@<ip> 'hostname && uname -a && whoami && cat /etc/os-release | head -6 && echo "---UPTIME---" && uptime && echo "---MEM---" && free -h | head -3 && echo "---DISK---" && df -h /'

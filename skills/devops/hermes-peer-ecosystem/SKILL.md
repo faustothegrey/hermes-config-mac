@@ -33,7 +33,7 @@ Current mesh roster (verified live Nov 2026). Retired: peer60, peer105, peer106.
 |------|----|----------|----------|------|
 | **peer58** | 192.168.178.58 | fausto | Sidecar | Sidecar (failover watchdog) |
 | **peer70** | 192.168.178.70 | fausto | Charon | Registry/aggregator (primary) |
-| **peer84** | 192.168.178.84 | root | Machiste | Orchestrator |
+| **peer84** | 192.168.178.84 | fausto | Machiste | Orchestrator |
 | **peer128** | 192.168.178.112 | fausto | MacPro | Worker |
 | **peer136** | 192.168.178.136 | fausto | Davon | Worker |
 | **peer141** | 192.168.178.141 | fausto | Stella | Worker |
@@ -360,7 +360,7 @@ When you need to understand a peer's setup, SSH in and probe systematically:
 ### 1. Check running services
 
 ```bash
-ssh root@<peer-ip> "ss -tlnp | grep -E '8642|9191|9899'"
+ssh fausto@<peer-ip> "ss -tlnp | grep -E '8642|9191|9899'"
 ```
 
 Look for:
@@ -371,7 +371,7 @@ Look for:
 ### 2. Check running agent processes
 
 ```bash
-ssh root@<peer-ip> "ps aux | grep -i 'hermes\|agent\|claude\|codex\|agy' | grep -v grep"
+ssh fausto@<peer-ip> "ps aux | grep -i 'hermes\|agent\|claude\|codex\|agy' | grep -v grep"
 ```
 
 Look for:
@@ -383,13 +383,13 @@ Look for:
 ### 3. Check peer mesh topology
 
 ```bash
-ssh root@<peer-ip> "cat /home/fausto/.hermes/peer-mesh.yaml"
+ssh fausto@<peer-ip> "cat /home/fausto/.hermes/peer-mesh.yaml"
 ```
 
 ### 4. Check peer-exchange directory
 
 ```bash
-ssh root@<peer-ip> "ls /home/fausto/.hermes/peer-exchange/"
+ssh fausto@<peer-ip> "ls /home/fausto/.hermes/peer-exchange/"
 ```
 
 The peer-exchange protocol uses structured markdown files:
@@ -402,15 +402,15 @@ The peer-exchange protocol uses structured markdown files:
 ### 5. Check Google Workspace / credential state
 
 ```bash
-ssh root@<peer-ip> "ls /home/fausto/.hermes/google_token.json 2>/dev/null && echo 'has google token'"
-ssh root@<peer-ip> "ls /home/fausto/.hermes/google_client_secret.json 2>/dev/null && echo 'has google client secret'"
-ssh root@<peer-ip> "grep -i 'email\|mail\|smtp\|imap' /home/fausto/.hermes/.env | head -10"
+ssh fausto@<peer-ip> "ls /home/fausto/.hermes/google_token.json 2>/dev/null && echo 'has google token'"
+ssh fausto@<peer-ip> "ls /home/fausto/.hermes/google_client_secret.json 2>/dev/null && echo 'has google client secret'"
+ssh fausto@<peer-ip> "grep -i 'email\|mail\|smtp\|imap' /home/fausto/.hermes/.env | head -10"
 ```
 
 ### 6. Check skills and config
 
 ```bash
-ssh root@<peer-ip> "timeout 10 hermes skills list | grep -i <keyword>"
+ssh fausto@<peer-ip> "timeout 10 hermes skills list | grep -i <keyword>"
 ```
 
 ### 7. Check gateway capabilities
@@ -671,7 +671,7 @@ User says: "set up WireGuard VPN connection between this machine and the router/
 
 7. **sshtmux TUI key-auth false timeout.** The NormalConnection runs SSH in a tmux pane then waits for "password:" text. With SSH key auth, no prompt appears — the loop hits the timeout (10s default) and raises "Timeout reached!" even though the SSH connection succeeded. **Fix:** Apply the patch in `references/sshtmux-normalconnection-fix.md` to break gracefully on timeout instead of killing the window. After the fix, set `TMUX_TIMEOUT_COMMANDS = 5` in `~/.config/sshtmux/config.toml`.
 
-8. **Peer SSH user may not be `fausto`.** Check before assuming — some peers use `root` (peer84, peer105, peer106), others use `fausto` (peer70), others `pi` (peer60).
+8. **Peer SSH user is uniformly `fausto`.** All peers in the current roster log in as `fausto` (verified Nov 2026). Retired peers used other users (`root`, `pi`), but every active peer is `fausto`.
 
 9. **The `hermes` CLI may not be in the default PATH** for non-interactive SSH. Always set PATH explicitly:
 
@@ -688,7 +688,7 @@ ssh fausto@<peer-ip> "ls /home/fausto/.local/bin/hermes 2>/dev/null; ls /home/fa
 10. **The Hermes gateway may run as a non-root user** (e.g., `fausto`), not root. Always check which user owns the process:
 
 ```bash
-ssh root@<peer-ip> "ps aux | grep 'hermes.*gateway' | grep -v grep"
+ssh fausto@<peer-ip> "ps aux | grep 'hermes.*gateway' | grep -v grep"
 ```
 
 The USER column tells you which user to SSH as for Hermes commands (sessions, cron, skills).

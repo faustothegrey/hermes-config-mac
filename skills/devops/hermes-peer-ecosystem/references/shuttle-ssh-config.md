@@ -24,15 +24,16 @@ Full ready-to-use config: `templates/shuttle.json` (all 9 peers).
 
 ## Full SSH peer roster (9 peers)
 
-Each resolves via `~/.ssh/config` (`ssh peerXX`), key `~/.ssh/id_rsa`. Users vary
-per peer — never assume one.
+Each resolves via `~/.ssh/config` (`ssh peerXX`), key `~/.ssh/id_rsa`. Active peers
+all use `fausto` (uniform since Nov 2026); retired peers (peer60/105/106) used
+`pi`/`root`.
 
 | Peer | user@ip | hostname | role / notes |
 |------|---------|----------|--------------|
 | peer58 | fausto@192.168.178.58 | Sidecar | failover watchdog (mirror/promote) |
 | peer60 | pi@192.168.178.60 | — | Raspberry Pi 3B (Raspbian 9) |
 | peer70 | fausto@192.168.178.70 | — | Charon — registry/aggregator primary |
-| peer84 | root@192.168.178.84 | N56VV | orchestrator (Ubuntu 22.04) |
+| peer84 | fausto@192.168.178.84 | N56VV | orchestrator (Ubuntu 22.04) |
 | peer105 | root@192.168.178.105 | — | worker |
 | peer106 | root@192.168.178.106 | — | worker |
 | peer128 | fausto@192.168.178.112 | MacPro | macOS worker — **IP ≠ suffix (.112)** |
