@@ -32,6 +32,9 @@ Built-in toolsets (cli):
 Plugin toolsets (cli):
   ✗ disabled  a2a  🔌 A2A
 
+MCP servers:
+  agent-room  all tools enabled
+
 
 STDERR:
 
