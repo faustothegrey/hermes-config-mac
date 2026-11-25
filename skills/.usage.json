@@ -715,14 +715,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-16T12:12:09.012580+00:00",
     "last_reused_patch_generation": 1,
-    "last_used_at": "2026-11-24T08:08:19.776191+00:00",
-    "last_viewed_at": "2026-11-24T08:08:19.773074+00:00",
+    "last_used_at": "2026-11-25T08:29:44.323655+00:00",
+    "last_viewed_at": "2026-11-25T08:29:44.319017+00:00",
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
     "state": "active",
-    "use_count": 16,
-    "view_count": 16
+    "use_count": 17,
+    "view_count": 17
   },
   "hermes-agent-skill-authoring": {
     "archived_at": "2026-11-19T10:16:39.127304+00:00",
@@ -955,13 +955,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-11-24T21:01:22.915210+00:00",
+    "last_used_at": "2026-11-25T21:22:13.955576+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 958,
+    "use_count": 970,
     "view_count": 7
   },
   "macos-computer-use": {
@@ -1088,14 +1088,14 @@
     "created_by": null,
     "last_patched_at": null,
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-11-24T07:53:16.859791+00:00",
-    "last_viewed_at": "2026-11-24T07:53:16.852110+00:00",
+    "last_used_at": "2026-11-25T08:27:31.544927+00:00",
+    "last_viewed_at": "2026-11-25T08:27:31.530054+00:00",
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "node-dependency-tooling": {
     "archived_at": null,
