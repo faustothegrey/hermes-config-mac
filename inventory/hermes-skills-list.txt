@@ -10,7 +10,6 @@ STDOUT:
 │ macos-computer-use    │ apple                │ local    │ local    │ enabled │
 │ macos-diagnostics     │ apple                │ local    │ local    │ enabled │
 │ agentctl              │ autonomous-ai-agents │ local    │ local    │ enabled │
-│ claude-code           │ autonomous-ai-agents │ builtin  │ builtin  │ enabled │
 │ delegation-readiness… │ autonomous-ai-agents │ local    │ local    │ enabled │
 │ hermes-agent          │ autonomous-ai-agents │ builtin  │ builtin  │ enabled │
 │ kanban-codex-lane     │ autonomous-ai-agents │ local    │ local    │ enabled │
@@ -40,7 +39,6 @@ STDOUT:
 │ agent-watch           │ productivity         │ local    │ local    │ enabled │
 │ hermes-voice-io-macos │ productivity         │ local    │ local    │ enabled │
 │ linear                │ productivity         │ local    │ local    │ enabled │
-│ notion                │ productivity         │ builtin  │ builtin  │ enabled │
 │ godmode               │ red-teaming          │ local    │ local    │ enabled │
 │ polymarket            │ research             │ local    │ local    │ enabled │
 │ agent-room            │ software-development │ local    │ local    │ enabled │
@@ -52,11 +50,10 @@ STDOUT:
 │ node-dependency-tool… │ software-development │ local    │ local    │ enabled │
 │ plan                  │ software-development │ builtin  │ builtin  │ enabled │
 │ subagent-driven-deve… │ software-development │ local    │ local    │ enabled │
-│ verifying-agent-clai… │ software-development │ local    │ local    │ enabled │
 │ writing-plans         │ software-development │ local    │ local    │ enabled │
 │ ai-cli-quota-monitor… │ sysadmin             │ local    │ local    │ enabled │
 └───────────────────────┴──────────────────────┴──────────┴──────────┴─────────┘
-3 hub-installed, 4 builtin, 42 local — 49 enabled, 0 disabled
+3 hub-installed, 2 builtin, 41 local — 46 enabled, 0 disabled
 
 
 

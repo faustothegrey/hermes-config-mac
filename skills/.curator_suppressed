@@ -9,6 +9,7 @@ baoyu-infographic
 blocked-page-recovery
 blogwatcher
 box
+claude-code
 claude-design
 codebase-inspection
 codex
@@ -46,6 +47,7 @@ meeting-action-items
 merge-reconciler
 nano-pdf
 node-inspect-debugger
+notion
 obsidian
 ocr-and-documents
 opencode

@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/Users/fausto/.hermes/logs/curator/20261119-101636",
-  "last_run_at": "2026-11-19T10:16:36.069241+00:00",
-  "last_run_duration_seconds": 4.117097,
-  "last_run_summary": "auto: 80 archived; llm: skipped (consolidation off)",
+  "last_report_path": "/Users/fausto/.hermes/logs/curator/20261126-110123",
+  "last_run_at": "2026-11-26T11:01:23.076574+00:00",
+  "last_run_duration_seconds": 1.88571,
+  "last_run_summary": "auto: 3 archived; llm: skipped (consolidation off)",
   "last_run_summary_shown_at": null,
   "paused": false,
-  "run_count": 24
+  "run_count": 25
 }

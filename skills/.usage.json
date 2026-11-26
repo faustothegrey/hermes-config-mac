@@ -292,7 +292,7 @@
     "view_count": 36
   },
   "claude-code": {
-    "archived_at": null,
+    "archived_at": "2026-11-26T11:01:24.839980+00:00",
     "created_at": "2026-08-19T17:26:35.193619+00:00",
     "created_by": null,
     "last_patched_at": null,
@@ -302,7 +302,7 @@
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
-    "state": "stale",
+    "state": "archived",
     "use_count": 1,
     "view_count": 1
   },
@@ -955,13 +955,13 @@
     "created_by": null,
     "last_patched_at": "2026-08-20T10:54:25.435608+00:00",
     "last_reused_patch_generation": 7,
-    "last_used_at": "2026-11-25T21:22:13.955576+00:00",
+    "last_used_at": "2026-11-26T20:28:13.046716+00:00",
     "last_viewed_at": "2026-08-23T13:57:36.730513+00:00",
     "patch_count": 7,
     "patch_generation": 7,
     "pinned": false,
     "state": "active",
-    "use_count": 970,
+    "use_count": 981,
     "view_count": 7
   },
   "macos-computer-use": {
@@ -1128,7 +1128,7 @@
     "view_count": 0
   },
   "notion": {
-    "archived_at": null,
+    "archived_at": "2026-11-26T11:01:24.860840+00:00",
     "created_at": "2026-08-19T17:26:35.409077+00:00",
     "created_by": null,
     "last_patched_at": null,
@@ -1138,7 +1138,7 @@
     "patch_count": 0,
     "patch_generation": 0,
     "pinned": false,
-    "state": "stale",
+    "state": "archived",
     "use_count": 1,
     "view_count": 1
   },
@@ -1574,7 +1574,7 @@
     "view_count": 0
   },
   "verifying-agent-claims": {
-    "archived_at": null,
+    "archived_at": "2026-11-26T11:01:24.908729+00:00",
     "created_at": "2026-08-23T14:00:26.621788+00:00",
     "created_by": "agent",
     "last_patched_at": "2026-08-23T14:01:05.217257+00:00",
@@ -1584,7 +1584,7 @@
     "patch_count": 1,
     "patch_generation": 1,
     "pinned": false,
-    "state": "stale",
+    "state": "archived",
     "use_count": 0,
     "view_count": 0
   },
